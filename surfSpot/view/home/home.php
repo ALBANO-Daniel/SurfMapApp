@@ -1,22 +1,84 @@
 <header>
     <div class="row s12">
-        <!-- <h1>hi there!</h1> -->
         <div class="parallax-container hide-on-large-only">
+            <h1 class="center-align">hi there!</h1>
             <div class="parallax"><img src="../../../public/img/bgs2.jpg"></div>
         </div>
         <div class="parallax-container hide-on-med-and-down">
+            <h1 class="center-align">hi there!</h1>
             <div class="parallax"><img src="../../../public/img/bgxl1.jpg"></div>
         </div>
     </div>
-    
+
     <div class="container">
         <div class="row">
-            <h1 class="col s12 m6">
-                this is h1
-            </h1>
-            <h2 class="col s12 m6">
-                this is h2
-            </h2>
+            <div id='homeCarousel' class="carousel s12">
+
+
+
+               <!-- WIP WIP WIP WIP -->
+
+                    <div class="carousel-item ">
+                        <div class="card hoverable">
+                            <div class="card-image ">
+                                <img src="../../../public/img/card1.jpg">
+                                <span class="card-title">Card Title</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="card hoverable">
+                            <div class="card-image ">
+                                <img src="../../../public/img/card2.jpg">
+                                <span class="card-title">Card Title</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="card hoverable">
+                            <div class="card-image ">
+                                <img src="../../../public/img/card3.jpg">
+                                <span class="card-title">Card Title</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="card hoverable">
+                            <div class="card-image ">
+                                <img src="../../../public/img/b41aaf23612851ab156054324bc7de30.jpg">
+                                <span class="card-title">Card Title</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="card hoverable">
+                            <div class="card-image ">
+                                <img src="../../../public/img/b41aaf23612851ab156054324bc7de30.jpg">
+                                <span class="card-title">Card Title</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
     </div>
 </header>

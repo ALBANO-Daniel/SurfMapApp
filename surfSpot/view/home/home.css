@@ -8,3 +8,13 @@ footer{
     width: 100%;
     object-fit: cover;
 }
+#homeCarousel{
+    height: 700px;
+}
+#homeCarousel .card{
+    width: 300px;
+}
+#homeCarousel img{
+    height: 300px;
+    width: 300px;
+}
