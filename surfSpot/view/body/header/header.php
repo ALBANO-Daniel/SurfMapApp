@@ -1,3 +1,0 @@
-<header>
-    hi im a header...
-</header>

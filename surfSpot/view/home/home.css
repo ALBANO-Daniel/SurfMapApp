@@ -1,3 +1,10 @@
 footer{
     color: red;
 }
+.parallax-container {
+    height: 550px;
+}
+.parallax-container img{
+    width: 100%;
+    object-fit: cover;
+}

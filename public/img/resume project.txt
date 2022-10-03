@@ -1,0 +1,9 @@
+LA MANU
+
+Surf WebSite Map and Culture ( Nom et Domain en etude )
+
+LINS ALBANO, Glauber Daniel
+
+
+	Le projet a le surf comme sujet central, et autour de cela nous proposons une v1.0 avec les fonctionnalités d'une application de site web qui connecte les gens à toutes les plages possibles de la côte, à conseiller avec les prévisions météorologiques, les commentaires de la communauté et des photos qui montrent le spot à toutes les marées et saisons possibles. Lié à une newsletter qui tient l'utilisateur au courant de toutes les nouvelles et informations pertinentes sur le surf dans le monde.
+	Nous disposerons également d'un identifiant et d'une interface utilisateur, qui donneront plus d'interactions aux membres inscrits.

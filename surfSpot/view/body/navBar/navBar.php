@@ -1,5 +1,5 @@
-<nav>
-    <div class="nav-wrapper">
+<nav class=" light-blue darken-4">
+    <div class="container nav-wrapper">
         <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
