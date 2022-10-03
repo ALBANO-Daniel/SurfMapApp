@@ -1,0 +1,5 @@
+RewriteEngine On
+
+ErrorDocument 404 /error404
+
+RewriteRule ^error404$ surfSpot/view/pageNotFound/pageNotFoundController.php
