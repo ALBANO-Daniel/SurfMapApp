@@ -1,6 +1,6 @@
 <?php
 
-$pageTitle = 'home Page';
+$pageTitle = 'Home Page';
 $cssFile[] = 'home.css';
 $scriptFile[] = 'home.js';
 

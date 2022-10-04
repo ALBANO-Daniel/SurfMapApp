@@ -8,7 +8,7 @@
     <link type="text/css" rel="stylesheet" href="../../node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
     <!-- CSS -->
     <?php foreach ($cssFile as $key => $value) { ?>
-        <link type="text/css" rel="stylesheet" href=".public/assets/css/<?= $value ?>" />
+        <link type="text/css" rel="stylesheet" href="./public/assets/css/<?= $value ?>" />
     <?php } ?>
     <!-- TITTLE -->
     <title><?= $pageTitle ?? 'SurfSpot' ?></title>

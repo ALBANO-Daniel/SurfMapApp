@@ -1,3 +1,8 @@
+<?php
+$scriptFile[] = 'navBar.js';
+$cssFile[] = 'navBar.css'
+?>
+
 <nav class=" light-blue darken-4">
     <div class="container nav-wrapper">
         <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>

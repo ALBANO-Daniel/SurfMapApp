@@ -9,17 +9,9 @@ footer{
     object-fit: cover;
 }
 #homeCarousel{
-    height: 700px;
-}
-#homeCarousel .card{
-    width: 300px;
+    height: 600px;
 }
 #homeCarousel img{
-    height: 300px;
-    width: 300px;
-}
-
-
-@media (width < 500px ) {
-    
+    height: 200px;
+    width: 200px;
 }
