@@ -1,7 +1,7 @@
 <?php
 
 
-include(__DIR__.'/surfSpot/view/home/homeController.php');
+include(__DIR__.'/controllers/homeController.php');
 
 // include(__DIR__.'/surfSpot/view/body/head.php');
 

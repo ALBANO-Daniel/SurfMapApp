@@ -2,4 +2,5 @@ RewriteEngine On
 
 ErrorDocument 404 /error404
 
-RewriteRule ^error404$ surfSpot/view/pageNotFound/pageNotFoundController.php
+RewriteRule ^error404$ controllers/pageNotFoundController.php
+RewriteRule ^home$ controllers/home.php

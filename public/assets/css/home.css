@@ -18,3 +18,8 @@ footer{
     height: 300px;
     width: 300px;
 }
+
+
+@media (width < 500px ) {
+    
+}

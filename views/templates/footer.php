@@ -18,31 +18,8 @@
     </div>
     <div class="footer-copyright blue-grey darken-4">
         <div class="container">
-            © 2014 Copyright Text
+            © 2022 Copyright Text
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
     </div>
 </footer>
-
-
-
-
-<!-- <footer>
-    hi im a footer!
-    <nav>
-        <ul class="p2">
-            <li><a class="btn-floating pulse"><i class="material-icons">Mentions Legales</i></a></li>
-            <li>Cookies</li>
-            <li>Devllop</li>
-            <li>All right Reserved</li>
-        </ul>
-    </nav>
-    <nav>
-        <ul class="p2">
-            <li>Instagram</li>
-            <li>LinkedIN</li>
-            <li>Facebook</li>
-            <li>Contact Us</li>
-        </ul>
-    </nav>
-</footer> -->

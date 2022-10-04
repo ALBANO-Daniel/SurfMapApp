@@ -2,26 +2,24 @@
     <div class="row s12">
         <div class="parallax-container hide-on-large-only">
             <h1 class="center-align">hi there!</h1>
-            <div class="parallax"><img src="../../../public/img/bgs2.jpg"></div>
+            <div class="parallax"><img src="../../public/assets/img/bgs2.jpg"></div>
         </div>
         <div class="parallax-container hide-on-med-and-down">
             <h1 class="center-align">hi there!</h1>
-            <div class="parallax"><img src="../../../public/img/bgxl1.jpg"></div>
+            <div class="parallax"><img src="../../public/assets/img/bgxl1.jpg"></div>
         </div>
     </div>
 
     <div class="container">
         <div class="row">
             <div id='homeCarousel' class="carousel s12">
-
-
-
+                
                <!-- WIP WIP WIP WIP -->
 
                     <div class="carousel-item ">
                         <div class="card hoverable">
                             <div class="card-image ">
-                                <img src="../../../public/img/card1.jpg">
+                                <img src="../../public/assets/img/card1.jpg">
                                 <span class="card-title">Card Title</span>
                                 <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                             </div>
@@ -33,7 +31,7 @@
                     <div class="carousel-item ">
                         <div class="card hoverable">
                             <div class="card-image ">
-                                <img src="../../../public/img/card2.jpg">
+                                <img src="../../public/assets/img/card2.jpg">
                                 <span class="card-title">Card Title</span>
                                 <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                             </div>
@@ -45,7 +43,7 @@
                     <div class="carousel-item ">
                         <div class="card hoverable">
                             <div class="card-image ">
-                                <img src="../../../public/img/card3.jpg">
+                                <img src="../../public/assets/img/card3.jpg">
                                 <span class="card-title">Card Title</span>
                                 <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                             </div>
@@ -57,7 +55,7 @@
                     <div class="carousel-item ">
                         <div class="card hoverable">
                             <div class="card-image ">
-                                <img src="../../../public/img/b41aaf23612851ab156054324bc7de30.jpg">
+                                <img src="../../public/assets/img/b41aaf23612851ab156054324bc7de30.jpg">
                                 <span class="card-title">Card Title</span>
                                 <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                             </div>
@@ -69,7 +67,7 @@
                     <div class="carousel-item ">
                         <div class="card hoverable">
                             <div class="card-image ">
-                                <img src="../../../public/img/b41aaf23612851ab156054324bc7de30.jpg">
+                                <img src="../../public/assets/img/b41aaf23612851ab156054324bc7de30.jpg">
                                 <span class="card-title">Card Title</span>
                                 <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                             </div>
@@ -85,10 +83,10 @@
 
 <!-- <h1>hi there!</h1> -->
 <div class="parallax-container hide-on-large-only">
-    <div class="parallax"><img src="../../../public/img/bgs2.jpg"></div>
+    <div class="parallax"><img src="../../public/assets/img/bgs2.jpg"></div>
 </div>
 <div class="parallax-container hide-on-med-and-down">
-    <div class="parallax"><img src="../../../public/img/bgxl2.jpg"></div>
+    <div class="parallax"><img src="../../public/assets/img/bgxl2.jpg"></div>
 </div>
 
 <main>
@@ -106,10 +104,10 @@
 
     <!-- <h1>hi there!</h1> -->
     <div class="parallax-container hide-on-large-only">
-        <div class="parallax"><img src="../../../public/img/bgs2.jpg"></div>
+        <div class="parallax"><img src="../../public/assets/img/bgs2.jpg"></div>
     </div>
     <div class="parallax-container hide-on-med-and-down">
-        <div class="parallax"><img src="../../../public/img/bgxl3.jpg"></div>
+        <div class="parallax"><img src="../../public/assets/img/bgxl3.jpg"></div>
     </div>
 
 </main>
