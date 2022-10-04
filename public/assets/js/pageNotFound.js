@@ -1,3 +1,3 @@
 pageNotFoundBtn.onclick = function(){
-    document.location.href = "../../../index.php"
+    document.location.href = "/home"
 }
