@@ -1,8 +1,8 @@
 <?php
 
-$pageTitle = 'error 404';
-$cssFile[] = 'pageNotFound.css';
-$scriptFile[] = 'pageNotFound.js';
+$pageTitle = 'News Page';
+$cssFile[] = 'newsMain.css';
+$scriptFile[] = 'newsMain.js';
 
 // call head html
 include(__DIR__.'/../views/templates/htmlStart.php');
@@ -10,7 +10,7 @@ include(__DIR__.'/../views/templates/htmlStart.php');
 //structure
     include(__DIR__.'/../views/templates/navBar.php');
     
-    include(__DIR__.'/../views/pageNotFound/pageNotFound.php');
+    include(__DIR__.'/../views/news/newsMain.php');
     
     include(__DIR__.'/../views/templates/footer.php');
 

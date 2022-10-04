@@ -17,8 +17,9 @@ $cssFile[] = 'navBar.css'
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/news">News</a></li>
+    <li><a href="/map">Map</a></li>
+    <li><a href="/user">User Space</a></li>
+    <li><a href="/contact">Contact and Support</a></li>
 </ul>

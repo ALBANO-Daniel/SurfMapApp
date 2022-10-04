@@ -4,3 +4,7 @@ ErrorDocument 404 /error404
 
 RewriteRule ^error404$ controllers/pageNotFoundController.php
 RewriteRule ^home$ controllers/homeController.php
+RewriteRule ^news$ controllers/newsMainController.php
+RewriteRule ^map$ controllers/mapMainController.php
+RewriteRule ^user$ controllers/userMainController.php
+RewriteRule ^contact$ controllers/contactController.php
