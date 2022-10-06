@@ -125,11 +125,24 @@
     <div class="container">
         <section class="row">
             <div class="col s12">
-                <h3 class="center-align ">this is h3, inside section..</h3>
+                <h3 class="center-align ">Contact Us</h3>
                 <blockquote>
-                    This is an example quotation that uses the blockquote tag.
+                    conversation is the best way to know each other.
                 </blockquote>
-                <p class="flow-text">this is a paragraph inside section,<br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis distinctio amet veniam odit consequuntur, repudiandae reiciendis est minima et quam optio esse maiores corrupti rerum voluptates culpa eaque similique alias.</p>
+                <form>
+                    <label for="">name</label>
+                    <input name="" type="text">
+                    <label for="">Email</label>
+                    <input name="" type="text">
+                    <label for="">Cellhpone</label>
+                    <input name="" type="text">
+                    
+
+
+
+
+                    <button>send</button>
+                </form>
             </div>
         </section>
     </div>
