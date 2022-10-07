@@ -8,10 +8,11 @@ $cssFile[] = 'navBar.css'
         <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-            <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-            <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-            <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+            <li><a href="/home"><i class="material-icons">home</i>Home</a></li>
+            <li><a href="/news"><i class="material-icons">assignment_late</i>News</a></li>
+            <li><a href="map"><i class="material-icons">map</i>Map</a></li>
+            <li><a href="/user"><i class="material-icons">account_box</i>User Space</a></li>
+            <li><a href="contact"><i class="material-icons">contact_phone</i></a>Contact and Support</li>
         </ul>
     </div>
 </nav>
