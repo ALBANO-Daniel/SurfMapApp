@@ -1,29 +1,30 @@
-<main class="container">
+<main class="container p2 m1">
     <h1>Contact Page</h1>
-    <section class="row">
-        <div class="col s12">
-            <h1>hi this is a h1 col s12</h1>
-            <p>this is a paragraph on col s12</p>
-        </div>
+    <section id="ContactUsForm" class="row">
+        <form action="">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                <label for="first_name">Prenom</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="last_name" type="text" class="validate">
+                <label for="first_name">Nom</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text">
+                <label for="phone">Telephone:</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text">
+                <label for="mensage">Mensage:</label>
+            </div>
+            <button class="unset"><a class="waves-effect waves-light btn">Send</a></button>
+        </form>
     </section>
-    <section class="row">
-        <div class="col s12">
-            <h1>hi this is a h1 col s12</h1>
-            <p>this is a paragraph on col s12</p>
-        </div>
-    </section>
-    <section class="row">
-        <div class="col s12">
-            <h1>hi this is a h1 col s12</h1>
-            <p>this is a paragraph on col s12</p>
-        </div>
-    </section>
-    <section class="row">
-        <div class="col s12">
-            <h1>hi this is a h1 col s12</h1>
-            <p>this is a paragraph on col s12</p>
-        </div>
-    </section>
-    
-    <button id="returnToHomeButton">Home Page</button>
+
+    <a class="waves-effect waves-light btn" href="/home">home</a>
 </main>
