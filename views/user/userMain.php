@@ -1,34 +1,76 @@
 <main class="container">
     <section class="row">
-        <div class="col s12">
-            <h1>USER PAGE login/dashboard</h1>
-            <p>this is a paragraph on col s12 on NEWS NEWS </p>
-        </div>
+        <h1 class="col s12">Welcome !</h1>
+        <ul class="row s12 m6 xl4 center-align">
+            <li class="col s4"><a class="waves-effect waves-light btn">Register</a></li>
+            <li class="col s4"><a class="waves-effect waves-light btn">Login</a></li>
+            <li class="col s4"><a class="waves-effect waves-light btn">Contact Us</a></li>
+        </ul>
     </section>
     <section class="row">
-        <div class="col s12">
-            
-            <p>this is a paragraph on col s12 on NEWS NEWS </p>
+        <div id="ContactUsForm" class="row">
+            <form action="">
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                    <label for="first_name">Prenom</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="last_name" type="text" class="validate">
+                    <label for="first_name">Nom</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text">
+                    <label for="phone">Telephone:</label>
+                </div>
+                <div class="input-field col s12">
+                    <input type="text">
+                    <label for="mensage">Mensage:</label>
+                </div>
+                <button><a class="waves-effect waves-light btn">Send</a></button>
+            </form>
+        </div>
+        <div id="loginForm" class="row">
+            <form action="">
+            <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+                <button><a class="waves-effect waves-light btn">Log in</a></button>
+            </form>
+        </div>
+        <div id="registerForm" class="row">
+            <form action="">
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                    <label for="first_name">Prenom</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="last_name" type="text" class="validate">
+                    <label for="first_name">Nom</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="confirmPassword" type="password" class="validate">
+                    <label for="confirmPassword">Confirm password</label>
+                </div>
+                <button><a class="waves-effect waves-light btn">register</a></button>
+            </form>
         </div>
     </section>
-    <section class="row">
-        <div class="col s12">
-            <p>this is a paragraph on col s12 on NEWS NEWS </p>
-        </div>
-    </section>
-    <section class="row">
-        <div class="col s12">
-            
-            <p>this is a paragraph on col s12 on NEWS NEWS </p>
-        </div>
-    </section>
-    <section class="row">
-        <div class="col s3">
-            
-        </div>
-        <div class="col s9">
-            <p>this is a paragraph on col s12 on NEWS NEWS </p>
-        </div>
-    </section>
-    <button id="returnToHomeButton">Home Page</button>
+    <a href="/home">Home Page</a>
 </main>
