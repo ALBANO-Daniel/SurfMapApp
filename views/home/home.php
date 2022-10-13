@@ -1,19 +1,21 @@
 <header>
+    <!-- parallax -->
     <div class="row s12">
-        <div class="parallax-container hide-on-large-only">
-            <h1 class="center-align">hi there!</h1>
-            <div class="parallax"><img src="/public/assets/img/bgs2.jpg"></div>
+        <div class="parallax-container valign-wrapper hide-on-large-only">
+            <h1>Meet the wave of your dream!</h1>
+            <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
         </div>
-        <div class="parallax-container hide-on-med-and-down">
-            <h1 class="center-align">hi there!</h1>
-            <div class="parallax"><img src="/public/assets/img/bgxl1.jpg"></div>
+        <div class="parallax-container valign-wrapper hide-on-med-and-down">
+            <h1 class="center">Meet the wave of your dream!</h1>
+            <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
         </div>
     </div>
+    <!-- parallax END -->
 </header>
 <main>
     <div class="container">
         <div class="row">
-            
+
             <div id='homeCarousel' class="carousel s12">
 
                 <!-- WIP WIP WIP WIP -->
@@ -26,7 +28,7 @@
                             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                        <p>I am a very simple card.</p>
+                            <p>I am a very simple card.</p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +52,7 @@
                             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                        <p>I am a very simple card.</p>
+                            <p>I am a very simple card.</p>
                         </div>
                     </div>
                 </div>
@@ -62,7 +64,7 @@
                             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                        <p>I am a very simple card.</p>
+                            <p>I am a very simple card.</p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +76,7 @@
                             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                        <p>I am a very simple card.</p>
+                            <p>I am a very simple card.</p>
                         </div>
                     </div>
                 </div>
@@ -91,12 +93,12 @@
         </div>
     </div>
 
-    <!-- <h1>hi there!</h1> -->
+    <!-- PARALAX 2 -->
     <div class="parallax-container hide-on-large-only">
-        <div class="parallax"><img src="/public/assets/img/bgs2.jpg"></div>
+        <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
     </div>
     <div class="parallax-container hide-on-med-and-down">
-        <div class="parallax"><img src="/public/assets/img/bgxl2.jpg"></div>
+        <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
     </div>
 
 
@@ -136,7 +138,7 @@
                     <input name="" type="text">
                     <label for="">Cellhpone</label>
                     <input name="" type="text">
-                    
+
 
 
 
