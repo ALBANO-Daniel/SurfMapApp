@@ -1,10 +1,10 @@
 <main class="container">
     <section class="row">
         <h1 class="col s12">Welcome !</h1>
-        <ul class="row s12 m6 xl4 center-align">
+        <ul id="userPageList" class="row s12 m6 xl4 center-align">
             <li class="col s4"><a class="waves-effect waves-light btn">Register</a></li>
-            <li class="col s4"><a class="waves-effect waves-light btn">Login</a></li>
-            <li class="col s4"><a class="waves-effect waves-light btn" href="/contact">Contact Us</a></li>
+            <li class="col s4 "><a class="waves-effect waves-light btn">Login</a></li>
+            <li class="col s4"><a class="waves-effect waves-light btn">Contact us</a></li>
         </ul>
     </section>
     <section class="row">

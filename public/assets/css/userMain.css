@@ -1,0 +1,10 @@
+#userPageList{
+    justify-content: space-around;
+    align-items: center;
+}
+
+#userPageList li{
+
+    padding: 0;
+    margin: 0;
+}

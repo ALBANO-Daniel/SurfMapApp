@@ -7,6 +7,7 @@ $scriptFile[] = 'mapMain.js';
 // call head html
 include(__DIR__.'/../views/templates/htmlStart.php');
 
+
 //structure
     include(__DIR__.'/../views/templates/navBar.php');
     
