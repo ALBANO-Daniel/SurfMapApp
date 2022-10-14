@@ -1,14 +1,40 @@
-.nav-wrapper{
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Sigmar One', cursive;
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Sigmar One", cursive;
 }
-.logoDiv{
-    width: 200px;
+.logoDiv {
+  width: 200px;
 }
-.navBarLogoText{
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    padding-top: 1rem;
+.navBarLogoText {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  padding-top: 1rem;
+}
+
+#fixedMenuBtn {
+  position: fixed;
+  right: 42px;
+  bottom: 42px;
+}
+
+@media (min-width: 600px) {
+  #fixedMenuBtn {
+    position: fixed;
+    right: 61px;
+    bottom: 42px;
+  }
+}
+
+@media (min-width: 900px) {
+  #fixedMenuBtn {
+    display: none;
+  }
+}
+#fixedMenuBtn i{
+    padding: 0.1rem;
+    border-radius: 50%;
+    background-color: #fafafa;
+    border: 2px solid #212121 ;
 }
