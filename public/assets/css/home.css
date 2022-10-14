@@ -3,13 +3,22 @@ header h2{
     bottom: 20px;
     left: 20px;
 }
+header .parallax-container {
+    height: 80vh;
+}
+header .parallax-container img{
+    width: 100vh !important;
+    object-fit: cover;
+}
+
 .parallax-container {
-    height: 550px;
+    height: 45vh;
 }
 .parallax-container img{
     width: 100vh !important;
     object-fit: cover;
 }
+
 
 #homeCarousel{
     height: 600px;

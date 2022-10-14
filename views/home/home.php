@@ -5,7 +5,7 @@
             <h2 class="grey-text text-lighten-5">Meet<br>the waves<br>of your dreams!</h2>
             <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
         </div>
-        
+
         <div class="parallax-container valign-wrapper hide-on-med-and-down">
             <h2 class="grey-text text-lighten-5">Meet<br>the waves<br>of your dreams!</h2>
             <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
@@ -13,14 +13,33 @@
     </div>
     <!-- parallax END -->
 </header>
-<main>
+<main> 
+<section class="gray lighten-5">
     <div class="container">
         <div class="row">
-
+            <div class="col s12">
+                <h3 class="center-align ">this is h3, inside section..</h3>
+                <blockquote>
+                    This is an example quotation that uses the blockquote tag.
+                </blockquote>
+                <p class="flow-text">this is a paragraph inside section,<br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis distinctio amet veniam odit consequuntur, repudiandae reiciendis est minima et quam optio esse maiores corrupti rerum voluptates culpa eaque similique alias.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- parallax -->
+<div class="parallax-container hide-on-large-only">
+    <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
+</div>
+<div class="parallax-container hide-on-med-and-down">
+    <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
+</div>
+<!-- parallax END -->
+<section class="gray lighten-5">
+    <div class="container">
+        <div class="row">
             <div id='homeCarousel' class="carousel s12">
-
-                <!-- WIP WIP WIP WIP -->
-                <h1>Our features:</h1>
+                <h3 class="center">Features:</h3>
                 <div class="carousel-item">
                     <div class="card hoverable">
                         <div class="card-image ">
@@ -83,26 +102,17 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12">
-                <h3 class="center-align ">this is h3, inside section..</h3>
-                <blockquote>
-                    This is an example quotation that uses the blockquote tag.
-                </blockquote>
-                <p class="flow-text">this is a paragraph inside section,<br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis distinctio amet veniam odit consequuntur, repudiandae reiciendis est minima et quam optio esse maiores corrupti rerum voluptates culpa eaque similique alias.</p>
-            </div>
-        </div>
     </div>
-
-    <!-- PARALAX 2 -->
-    <div class="parallax-container hide-on-large-only">
-        <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
-    </div>
-    <div class="parallax-container hide-on-med-and-down">
-        <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
-    </div>
-
-
+</section>
+<!-- parallax -->
+<div class="parallax-container hide-on-large-only">
+    <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
+</div>
+<div class="parallax-container hide-on-med-and-down">
+    <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
+</div>
+<!-- parallax END -->
+<section class="gray lighten-5">
     <div class="container">
         <section class="row">
             <div class="col s12">
@@ -114,17 +124,16 @@
             </div>
         </section>
     </div>
-
-
-    <!-- <h1>hi there!</h1> -->
-    <div class="parallax-container hide-on-large-only">
-        <div class="parallax"><img src="/public/assets/img/bgs2.jpg"></div>
-    </div>
-    <div class="parallax-container hide-on-med-and-down">
-        <div class="parallax"><img src="/public/assets/img/bgxl2.jpg"></div>
-    </div>
-
-
+</section>
+<!-- parallax -->
+<div class="parallax-container hide-on-large-only">
+    <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
+</div>
+<div class="parallax-container hide-on-med-and-down">
+    <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
+</div>
+<!-- parallax END -->
+<section class="gray lighten-5">
     <div class="container">
         <section class="row">
             <div class="col s12">
@@ -140,23 +149,19 @@
                     <label for="">Cellhpone</label>
                     <input name="" type="text">
 
-
-
-
-
                     <button>send</button>
                 </form>
             </div>
         </section>
     </div>
-
-
-    <!-- <h1>hi there!</h1> -->
-    <div class="parallax-container hide-on-large-only">
-        <div class="parallax"><img src="/public/assets/img/bgs2.jpg"></div>
-    </div>
-    <div class="parallax-container hide-on-med-and-down">
-        <div class="parallax"><img src="/public/assets/img/bgxl3.jpg"></div>
-    </div>
+</section>
+<!-- parallax -->
+<div class="parallax-container hide-on-large-only">
+    <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
+</div>
+<div class="parallax-container hide-on-med-and-down">
+    <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
+</div>
+<!-- parallax END -->
 
 </main>
