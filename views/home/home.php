@@ -2,11 +2,12 @@
     <!-- parallax -->
     <div class="row s12">
         <div class="parallax-container valign-wrapper hide-on-large-only">
-            <h1>Meet the wave of your dream!</h1>
+            <h2 class="grey-text text-lighten-5">Meet<br>the waves<br>of your dreams!</h2>
             <div class="parallax"><img src="/public/assets/img/wave/1-tablet.jpg"></div>
         </div>
+        
         <div class="parallax-container valign-wrapper hide-on-med-and-down">
-            <h1 class="center">Meet the wave of your dream!</h1>
+            <h2 class="grey-text text-lighten-5">Meet<br>the waves<br>of your dreams!</h2>
             <div class="parallax"><img src="/public/assets/img/wave/1-landscape.jpg"></div>
         </div>
     </div>

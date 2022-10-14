@@ -1,5 +1,7 @@
-footer{
-    color: red;
+header h2{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 .parallax-container {
     height: 550px;
@@ -8,6 +10,7 @@ footer{
     width: 100vh !important;
     object-fit: cover;
 }
+
 #homeCarousel{
     height: 600px;
 }

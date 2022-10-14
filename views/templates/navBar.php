@@ -1,19 +1,17 @@
-<?php
-$scriptFile[] = 'navBar.js';
-$cssFile[] = 'navBar.css'
-?>
-
 <nav class=" light-blue darken-4">
     <div class="container nav-wrapper">
-        <img class="left" height="100%" src="/public/assets/img/logos/logo.png" alt="logo site">
-        <a href="#" data-target="mobile-demo" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="map">Map</a></li>
-            <li><a href="/user">User Space</a></li>
-            <li><a href="contact"></a>Contact and Support</li>
-        </ul>
+            <div class="logoDiv">
+                <img class="left" height="100%" src="/public/assets/img/logos/logo.png" alt="logo site">
+                <h1 class="navBarLogoText">SURF<br>SPOTLIGHT</h1>
+            </div>
+            <a href="#" data-target="mobile-demo" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="map">Map</a></li>
+                <!-- <li><a href="contact"></a>Contact/Support</li> -->
+                <li><a href="/user"><i class="material-icons">account_box</i></a></li>
+            </ul>
     </div>
 </nav>
 
