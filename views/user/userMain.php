@@ -315,7 +315,8 @@
             <!-- profile image placeholder -->
             <div class="row">
                 <div class="col s12 center">
-                    <img id="showProfileImg" src="/public/assets/img/profile/profile-default.png" alt="profile image" /> 
+                    <!-- look for CSS  -->
+                    <img id="showProfileImg" class="circle responsive-img" src="/public/assets/img/profile/profile-default.png" alt="profile image" /> 
                 </div>
             </div>
             <!-- profile image input  -->
