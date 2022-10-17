@@ -16,3 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
   });
+
+
+
+  
+// js for the preview image upload 
+uploadedProfileImg.onchange = evt => {
+    const [file] = uploadedProfileImg.files
+    if (file) {
+      showProfileImg.src = URL.createObjectURL(file)
+    }
+  }
+
+  console.log('ok123')

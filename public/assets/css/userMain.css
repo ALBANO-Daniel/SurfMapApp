@@ -16,3 +16,8 @@ a.btn{
     background-size: cover;
     color: black;
 }
+#showProfileImg{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}

@@ -54,7 +54,6 @@
                     <label for="last_name">Nom</label>
                 </div>
             </div>
-
             <!-- city country Input  -->
             <div class="row">
                 <div class="input-field col s12 m6">
@@ -312,37 +311,25 @@
                     <label for="city">Ville</label>
                 </div>
             </div>
-
-            <!-- Image Profile Input -->
+            <!-- Image Profile section -->
+            <!-- profile image placeholder -->
+            <div class="row">
+                <div class="col s12 center">
+                    <img id="showProfileImg" src="/public/assets/img/profile/profile-default.png" alt="profile image" /> 
+                </div>
+            </div>
+            <!-- profile image input  -->
             <div class="row">
                 <div class="file-field input-field col s12">
                     <div class="btn grey darken-4 col s2">
                         <span><i class="material-icons">file_upload</i></span>
-                        <input name="profile image" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg"> <!-- for images -->
-                        <img id="showProfileImg" src="#" alt="profile image" /> <!-- for images -->
+                        <input name="profile image" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg">
                     </div>
                     <div class="file-path-wrapper">
-                        <input placeholder="Upload profile image" class="file-path validate" type="text">
-                    </div>
-                </div>
-                <!-- TEST TEST TEST upload image with preview -->
-                <div class="file-field input-field">
-                    <input accept="image/*" type='file' id="imgInp" />
-                    <img id="blah" src="#" alt="your image" />
-
-                    <div class="btn grey darken-4">
-                        <span><i class="material-icons">file_upload</i></span>
-                        <!-- test adding accept prop to limit UX for files choices -->
-                        <!-- <input type="file" accept="application/pdf, application/vnd.ms-excel"> FOR PDF AND EXCEL  -->
-                        <input type="file" accept="image/png, image/jpeg" id="uploadedProfileImg"> <!-- for images -->
-                        <img id="showProfileImg" src="#" alt="profile image" />
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input placeholder="Upload profile image" class="file-path validate" type="text">
+                        <input placeholder="choose profile image" class="file-path validate" type="text">
                     </div>
                 </div>
             </div>
-
             <!-- email input  -->
             <div class="row">
                 <div class="input-field col s12 m6">
@@ -352,7 +339,6 @@
                     <span class="helper-text" data-error="format incorrect" data-sucess=""></span>
                 </div>
             </div>
-
             <!-- password input  -->
             <div class="row">
                 <div class="input-field col s12 m6">
@@ -367,7 +353,6 @@
                     <label for="confirmPassword">Confirm Password</label>
                 </div>
             </div>
-
             <!-- submit -->
             <div class="row center-align">
                 <button class="unset"><a class="waves-effect waves-light btn">Register</a></button>
