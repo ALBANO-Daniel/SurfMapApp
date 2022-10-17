@@ -1,6 +1,6 @@
 <?php
 
-$pageTitle = 'User Page';
+$pageTitle = 'user page';
 $cssFile[] = 'userMain.css';
 $scriptFile[] = 'userMain.js';
 
