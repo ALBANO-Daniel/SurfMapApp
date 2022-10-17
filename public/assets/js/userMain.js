@@ -1,4 +1,4 @@
-// TABS INIT and CONFIG 
+// TABS INIT 
 //   var instance = M.Tabs.init(el, options);
 
 
@@ -10,3 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {  // run this only aft
     // const counter = document.querySelectorAll("input#user,input#email,input#password");   // all input tags with id user
     M.CharacterCounter.init(counter);
 }); 
+
+// SELECT INIT  
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
