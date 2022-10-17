@@ -7,3 +7,12 @@
     padding: 0;
     margin: 0;
 }
+
+
+/* example of backgroundBTN customization */
+a.btn{
+/*a.btn, div.btn {*/
+    background-image: url('/public/assets/img/btn/bg-btn.png');
+    background-size: cover;
+    color: black;
+}
