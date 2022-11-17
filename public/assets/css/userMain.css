@@ -1,3 +1,7 @@
+form{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
 #userPageList{
     justify-content: space-around;
     align-items: center;
@@ -8,16 +12,21 @@
     margin: 0;
 }
 
-
-/* example of backgroundBTN customization */
+/* 
+example of backgroundBTN customization
 a.btn{
-/*a.btn, div.btn {*/
+a.btn, div.btn {
     background-image: url('/public/assets/img/btn/bg-btn.png');
     background-size: cover;
     color: black;
-}
+} */
+
 #showProfileImg{
     height: 100px;
     width: 100px;
     border-radius: 50%;
+}
+
+.card{
+    margin: 10rem auto 10rem auto ;
 }

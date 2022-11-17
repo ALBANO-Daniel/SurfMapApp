@@ -1,9 +1,8 @@
 // TABS INIT 
-//   var instance = M.Tabs.init(el, options);
-
-
-
-
+document.addEventListener('DOMContentLoaded', function() {
+  var el = document.querySelectorAll('.tabs');
+  var instance = M.Tabs.init(el);
+});
 
 // CHARACTER COUNTER
 // console.log(Calendar);
@@ -19,14 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.FormSelect.init(elems);
   });
 
-
-
   
 // js for the preview image upload 
 uploadedProfileImg.onchange = evt => {
     const [file] = uploadedProfileImg.files
     if (file) {
-      showProfileImg.src = URL.createObjectURL(file)
+      showProfileImg.src = URL.createObjectURL(file);
     }
   }
 

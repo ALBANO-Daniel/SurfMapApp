@@ -4,8 +4,6 @@ $pageTitle = 'user page';
 $cssFile[] = 'userMain.css';
 $scriptFile[] = 'userMain.js';
 
-// component showned
-$c = intval(filter_input(INPUT_GET, 'c', FILTER_SANITIZE_NUMBER_INT)) ?? 0;
 
 
 
