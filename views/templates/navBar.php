@@ -9,8 +9,8 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/news">News</a></li>
                 <li><a href="map">Map</a></li>
-                <!-- <li><a href="contact"></a>Contact/Support</li> -->
                 <li><a href="/user"><i class="material-icons">account_box</i></a></li>
+                
             </ul>
     </div>
 </nav>
@@ -23,7 +23,7 @@
     <li><a href="/news"><i class="material-icons">assignment_late</i>News</a></li>
     <li><a href="/map"><i class="material-icons">map</i>Map</a></li>
     <li><a href="/user"><i class="material-icons">account_box</i>User Space</a></li>
-    <li><a href="/contact"><i class="material-icons">contact_phone</i>Contact and Support</a></li>
+    <li><a href="/contactus"><i class="material-icons">contact_phone</i>Contact and Support</a></li>
 </ul>
 
 <a id="fixedMenuBtn" href="#" data-target="mobile-demo" class="right sidenav-trigger"><i class="material-icons grey-text text-darken-4">menu</i></a>

@@ -40,7 +40,10 @@ h1,h2,h3,h4,h5,.btn {
 nav ul {
   overflow: hidden !important;
 }
-
+form{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 .row {
   margin-bottom: 0;
 }
@@ -55,6 +58,10 @@ nav ul {
 }
 .error-text {
   color: red;
+}
+.textInputField{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 /* INPUT FIELDS TEXT  */
