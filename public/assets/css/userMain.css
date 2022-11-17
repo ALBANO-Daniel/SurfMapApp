@@ -18,8 +18,8 @@ a.btn, div.btn {
 } */
 
 #showProfileImg{
-    height: 100px;
-    width: 100px;
+    height: auto;
+    width: 20vw;
     border-radius: 50%;
 }
 

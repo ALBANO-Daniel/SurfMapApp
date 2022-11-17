@@ -5,15 +5,13 @@
             <h2 class="center ">USER SPACE</h2>
         </nav>
         <div class="row">
-            <div class="col s12">
-                <ul class="tabs">
-                    <li class="tab col s6"><a href="#loginForm">Login In</a></li>
-                    <li class="tab col s6"><a href="#registerForm">Register</a></li>
-                </ul>
-            </div>
+            <ul class="tabs">
+                <li class="tab col s6"><a href="#loginForm">Login In</a></li>
+                <li class="tab col s6"><a href="#registerForm">Register</a></li>
+            </ul>
         </div>
 
-
+        <!-- LOGIN FORM  -->
         <form id="loginForm" class="container" action="">
             <!-- email input  -->
             <div class="row">
@@ -39,6 +37,8 @@
             </div>
         </form>
 
+        
+        <!-- REGISTER FORM  -->
         <form id="registerForm" action="" class="container">
             <!-- Image Profile section -->
             <!-- profile image placeholder -->
