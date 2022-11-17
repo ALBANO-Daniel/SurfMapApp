@@ -14,7 +14,7 @@ include(__DIR__.'/../views/templates/htmlStart.php');
 //structure
     include(__DIR__.'/../views/templates/navBar.php');
     
-    include(__DIR__.'/../views/news/newsSingle.php');
+    include(__DIR__.'/../views/newsSingle.php');
     
     include(__DIR__.'/../views/templates/footer.php');
 

@@ -11,7 +11,7 @@ include(__DIR__.'/../views/templates/htmlStart.php');
 //structure
     include(__DIR__.'/../views/templates/navBar.php');
     
-    include(__DIR__.'/../views/map/mapMain.php');
+    include(__DIR__.'/../views/mapMain.php');
     
     include(__DIR__.'/../views/templates/footer.php');
 

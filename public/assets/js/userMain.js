@@ -3,6 +3,8 @@
 
 
 
+
+
 // CHARACTER COUNTER
 // console.log(Calendar);
 document.addEventListener('DOMContentLoaded', function() {  // run this only after page loads
@@ -28,4 +30,3 @@ uploadedProfileImg.onchange = evt => {
     }
   }
 
-  console.log('ok123')

@@ -10,7 +10,7 @@ include(__DIR__.'/../views/templates/htmlStart.php');
 //structure
     include(__DIR__.'/../views/templates/navBar.php');
     
-    include(__DIR__.'/../views/news/newsMain.php');
+    include(__DIR__.'/../views/newsMain.php');
     
     include(__DIR__.'/../views/templates/footer.php');
 
