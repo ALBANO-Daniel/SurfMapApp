@@ -1,3 +1,5 @@
+
+
 #userPageList{
     justify-content: space-around;
     align-items: center;
@@ -8,21 +10,22 @@
     margin: 0;
 }
 
-/* 
-example of backgroundBTN customization
-a.btn{
-a.btn, div.btn {
-    background-image: url('/public/assets/img/btn/bg-btn.png');
-    background-size: cover;
-    color: black;
-} */
-
-#showProfileImg{
-    height: auto;
-    width: 20vw;
-    border-radius: 50%;
-}
-
 .card{
     margin: 10rem auto 10rem auto ;
 }
+
+/* PROFILE IMAGE SETUP  */
+/* mobile  */
+#showProfileImg{
+    height: 10rem;
+    width: 10rem;
+}
+/* desk or more  */
+@media (width >= 769px){
+    #showProfileImg{
+        height: 15rem;
+        width: 15rem;
+    }
+}
+/* END -- PROFILE IMAGE SETUP  */
+

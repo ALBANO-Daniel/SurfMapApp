@@ -51,13 +51,14 @@
             <!-- profile image input  -->
             <div class="row">
                 <div class="file-field input-field col s12">
-                    <div class="btn light-blue darken-4 col s2">
-                        <span><i class="material-icons">file_upload</i></span>
-                        <input name="profile image" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input placeholder="choose profile image" class="file-path validate" type="text">
-                    </div>
+                    <!-- <div class="col s12"> -->
+                        <span>choisir image profil</span>
+                        <input name="profile image" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg" placeholder="choose profile image">
+                        <!-- <label for="profile image">choose profile image</label> -->
+                    <!-- </div>  -->
+                    <!-- <div class="file-path-wrapper"> -->
+                        <!-- <input placeholder="choose profile image" class="file-path validate" type="text"> -->
+                    <!-- </div> -->
                 </div>
             </div>
             <!-- Name input  -->
@@ -354,7 +355,7 @@
             </div>
             <!-- submit -->
             <div class="row center-align">
-                <button class="unset"><a class="waves-effect waves-light btn">Register</a></button>
+            <button class="unset"><a class="waves-effect waves-light btn">Register</a></button>
             </div>
         </form>
 

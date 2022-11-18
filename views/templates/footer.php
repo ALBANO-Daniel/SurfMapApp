@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">SURFSPOTLIGHT</h5>
+                <h5 class="white-text">SURF<br>SPOTLIGHT</h5>
                 <p class="grey-text text-lighten-4">content</p>
             </div>
             <div class="col l4 offset-l2 s12">
