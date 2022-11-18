@@ -12,13 +12,13 @@
         </div>
 
         <!-- LOGIN FORM  -->
-        <form id="loginForm" class="container" action="" method="post">
+        <form id="loginForm" class="container" action="" method="post" enctype="multipart/form-data">
             <!-- email input  -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input class="validate" type="email" id="user" data-length="20" max-length="20">
-                    <label for="user">Email</label>
+                    <input name="email" class="validate" type="email" id="user">
+                    <label for="email">Email</label>
                     <span class="helper-text" data-error="format incorrect" data-sucess=""></span>
                 </div>
             </div>
@@ -26,20 +26,20 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock</i>
-                    <input id="password" type="password" class="validate">
+                    <input name="password" id="password" type="password" class="validate">
                     <label for="password">Mot de passe</label>
                 </div>
             </div>
             <!-- submit -->
             <div class="row center-align">
-                <button class="unset"><a class="waves-effect waves-light btn">Entrer</a></button>
+                <button class="unset"><a class="waves-effect waves-light btn" >Entrer</a></button>
                 <!-- <div class="clearfix"></div> -->
             </div>
         </form>
 
         
         <!-- REGISTER FORM  -->
-        <form id="registerForm" action="" class="container" method="post">
+        <form id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
             <!-- Image Profile section -->
             <!-- profile image placeholder -->
             <div class="row">
@@ -53,7 +53,7 @@
                 <div class="file-field input-field col s12">
                     <!-- <div class="col s12"> -->
                         <span>choisir image profil</span>
-                        <input name="profile image" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg" placeholder="choose profile image">
+                        <input name="profileImage" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg" placeholder="choose profile image">
                         <!-- <label for="profile image">choose profile image</label> -->
                     <!-- </div>  -->
                     <!-- <div class="file-path-wrapper"> -->
@@ -65,20 +65,20 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="firstName" type="text" class="validate counter" max-length="10">
-                    <label for="firstName">Prenom</label>
+                    <input name="firstname" id="firstName" type="text" class="validate">
+                    <label for="firstname">Prenom</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Nom</label>
+                    <input name="lastname" id="lastname" type="text" class="validate">
+                    <label for="lastname">Nom</label>
                 </div>
             </div>
             <!-- city country Input  -->
             <div class="row">
                 <div class="input-field col s11 right">
                     <!-- countries selection -->
-                    <select>
+                    <select name="country">
                         <option value="" disabled selected>Pays de Residence</option>
                         <option><i class="af flag"></i>Afghanistan</option>
                         <option><i class="ax flag"></i>Aland Islands</option>
@@ -326,7 +326,7 @@
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">location_on</i>
-                    <input id="city" type="text" class="validate">
+                    <input name="city" id="city" type="text" class="validate">
                     <label for="city">Ville</label>
                 </div>
             </div>
@@ -334,8 +334,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                    <input class="validate" type="email" id="user" data-length="20" max-length="20">
-                    <label for="user">Email</label>
+                    <input name="email" class="validate" type="email" id="email">
+                    <label for="email">Email</label>
                     <span class="helper-text" data-error="format incorrect" data-sucess=""></span>
                 </div>
             </div>
@@ -343,13 +343,13 @@
             <div class="row">
                 <div class="input-field col s12 ">
                     <i class="material-icons prefix">lock</i>
-                    <input id="password" type="password" class="validate">
+                    <input name="password" id="password" type="password" class="validate">
                     <label for="password">Mot de passe</label>
                 </div>
                 <!-- confirm password input  -->
                 <div class="input-field col s12 ">
                     <i class="material-icons prefix">lock</i>
-                    <input id="confirmPassword" type="password" class="validate">
+                    <input name="confirmPassword" id="confirmPassword" type="password" class="validate">
                     <label for="confirmPassword">Confirmer</label>
                 </div>
             </div>

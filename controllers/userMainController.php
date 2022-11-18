@@ -5,6 +5,8 @@ $cssFile[] = 'userMain.css';
 $scriptFile[] = 'userMain.js';
 
 
+    $postes = $_POST;
+    var_dump($postes);
 
 
 
