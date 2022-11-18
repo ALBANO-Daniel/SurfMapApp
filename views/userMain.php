@@ -2,17 +2,17 @@
     <div class="container card">
 
         <nav class="col s12 light-blue darken-4">
-            <h2 class="center ">USER SPACE</h2>
+            <h2 class="center ">utilisateur</h2>
         </nav>
         <div class="row">
             <ul class="tabs">
-                <li class="tab col s6"><a href="#loginForm">Login In</a></li>
-                <li class="tab col s6"><a href="#registerForm">Register</a></li>
+                <li class="tab col s6"><a href="#loginForm">Entrer</a></li>
+                <li class="tab col s6"><a href="#registerForm">S'inscrire</a></li>
             </ul>
         </div>
 
         <!-- LOGIN FORM  -->
-        <form id="loginForm" class="container" action="">
+        <form id="loginForm" class="container" action="" method="post">
             <!-- email input  -->
             <div class="row">
                 <div class="input-field col s12">
@@ -27,19 +27,19 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock</i>
                     <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                    <label for="password">Mot de passe</label>
                 </div>
             </div>
             <!-- submit -->
             <div class="row center-align">
-                <button class="unset"><a class="waves-effect waves-light btn">enter</a></button>
+                <button class="unset"><a class="waves-effect waves-light btn">Entrer</a></button>
                 <!-- <div class="clearfix"></div> -->
             </div>
         </form>
 
         
         <!-- REGISTER FORM  -->
-        <form id="registerForm" action="" class="container">
+        <form id="registerForm" action="" class="container" method="post">
             <!-- Image Profile section -->
             <!-- profile image placeholder -->
             <div class="row">
@@ -344,18 +344,18 @@
                 <div class="input-field col s12 ">
                     <i class="material-icons prefix">lock</i>
                     <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                    <label for="password">Mot de passe</label>
                 </div>
                 <!-- confirm password input  -->
                 <div class="input-field col s12 ">
                     <i class="material-icons prefix">lock</i>
                     <input id="confirmPassword" type="password" class="validate">
-                    <label for="confirmPassword">Confirm Password</label>
+                    <label for="confirmPassword">Confirmer</label>
                 </div>
             </div>
             <!-- submit -->
             <div class="row center-align">
-            <button class="unset"><a class="waves-effect waves-light btn">Register</a></button>
+            <button class="unset"><a class="waves-effect waves-light btn">S'inscrire</a></button>
             </div>
         </form>
 

@@ -38,3 +38,6 @@
     background-color: #fafafa;
     border: 2px solid #212121 ;
 }
+#mobile-demo a{
+  color: rgba(0,0,0,0.54);
+}
