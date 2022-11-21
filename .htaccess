@@ -1,9 +1,12 @@
 RewriteEngine On
 
 ErrorDocument 404 /error404
+ErrorDocument 500 /error500
 
 RewriteRule ^error404$ controllers/pageNotFoundController.php
-RewriteRule ^home$ controllers/homeController.php
+RewriteRule ^error500$ controllers/internalServerErrorController.php
+
+RewriteRule ^$ controllers/homeController.php
 
 RewriteRule ^news$ controllers/newsMainController.php
 RewriteRule ^newsSingle$ controllers/newsSingleController.php

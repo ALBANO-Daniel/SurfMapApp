@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ .'/../config/config.php');
 
 $pageTitle = 'error 404';
 $cssFile[] = 'pageNotFound.css';
