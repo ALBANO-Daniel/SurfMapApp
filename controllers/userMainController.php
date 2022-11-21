@@ -9,6 +9,7 @@ try {
     //1-1 handle inscription
     if($_SERVER['REQUEST_METHOD'] == 'POST' & isset($_POST['lastname'])){
         // img-prenom-nom-pay-ville-email-pass-Cpass
+    
 
     }
     //1-2 handle login

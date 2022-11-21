@@ -184,11 +184,12 @@ class User
         }
     }
 
-    public static function delete(int $id): bool
+    public static function delete(int $id, string $deleted_at): bool
     {
         $pdo = Database::getInstance();
-        $sql = "DELETE FROM `patients` WHERE `id` = $id;";
+        $sql = "UPDATE `users` SET `deleted_at` = :deleted_at WHERE `id` = $id;";
         $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':deleted_at', $deleted_at);
         return $stmt->execute();
     }
 
@@ -222,7 +223,7 @@ class User
     public static function getOne(int $id)
     {
         $pdo = Database::getInstance();
-        $sql = "SELECT * FROM `patients` WHERE `ID` = $id ;";
+        $sql = "SELECT * FROM `users` WHERE `id_users` = $id ;";
         $stmt = $pdo->query($sql);
         return $stmt->fetch();
     }
@@ -244,24 +245,24 @@ class User
         return intval($obj->count);
     }
 
-    public static function getAll(int $currentPage = 1, int $patientsPerPage = 0, $search = ''): array
+    public static function getAll(int $currentPage = 1, int $usersPerPage = 0, $search = ''): array
     {
         $pdo = Database::getInstance();
-        $offset = ($currentPage - 1) * $patientsPerPage; // offset can be set out of method 
+        $offset = ($currentPage - 1) * $usersPerPage; // offset can be set out of method 
         $sql = "SELECT `id`, `firstname`, `lastname`, `country`, `city`, `email` 
         FROM `patients`";
         if ($search != '') {
             $sql .= ' WHERE `lastname` LIKE :search OR `email` LIKE :search ';
         }
-        if ($patientsPerPage != 0) {
-            $sql .= ' LIMIT :patientsPerPage OFFSET :offset;';
+        if ($usersPerPage != 0) {
+            $sql .= ' LIMIT :usersPerPage OFFSET :offset;';
         }
         $stmt = $pdo->prepare($sql);
         if ($search != '') {
             $stmt->bindValue(':search', '%' . $search . '%');
         }
-        if ($patientsPerPage != 0) {
-            $stmt->bindValue(':patientsPerPage', $patientsPerPage, PDO::PARAM_INT);
+        if ($usersPerPage != 0) {
+            $stmt->bindValue(':usersPerPage', $usersPerPage, PDO::PARAM_INT);
             $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
         }
         $stmt->execute();
