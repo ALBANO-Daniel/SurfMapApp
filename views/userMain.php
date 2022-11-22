@@ -54,7 +54,6 @@
                     <!-- <div class="col s12"> -->
                         <span>choisir image profil</span>
                         <input name="profileimage" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg" placeholder="choose profile image">
-                        <label for="profile image">choose profile image</label>
                     <!-- </div>  -->
                     <!-- <div class="file-path-wrapper"> -->
                         <!-- <input placeholder="choose profile image" class="file-path validate" type="text"> -->
