@@ -41,14 +41,11 @@ class User
 
     public function getCreatedAt(): string
     {
-        if (!empty($this->_created_at)) 
-        {
+        // if (!empty($this->_created_at)) 
+        // {
             return $this->_created_at;
-        }
-        $timezone = new DateTimeZone('UTC');
-        $date = new DateTime('now', $timezone);
-        return $date['date'];
-        // return $this->_created_at;
+        // }
+       
     }
 
     public function setValidatedAt(string $validated_at): void
@@ -134,11 +131,11 @@ class User
 
     // END -- GETTER/SETTER
 
-    public function set(): int
+    public function set():int
     {
         $pdo = Database::getInstance();
-        $sql = "INSERT INTO `users`(`firstname`,`lastname`,`country`,`city`,`email`,`password`,`created_at`) 
-                VALUES (:firstname,:lastname,:country,:city,:email,:password,:created_at)";
+        $sql = "INSERT INTO `users`(`firstname`,`lastname`,`country`,`city`,`email`,`password`) 
+                VALUES (:firstname,:lastname,:country,:city,:email,:password);";
         // nominativ marker ( : )   'var' sql, interact with prepare method of pdo, and protect malware SQL injections 
         // interrogativ marker ( ? )
         //statement e.g. communications with database
@@ -154,7 +151,7 @@ class User
         $stmt->bindValue(':email', $this->getEmail());
         $stmt->bindValue(':password', $this->getPassword());
         // the method runs and also get its result its returned, boolean, used to test sucess/fail
-        if ($stmt->execute()) {
+        if ($stmt->execute()){
             return intval($pdo->lastInsertId());
         } else {
             return false;

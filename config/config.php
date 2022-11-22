@@ -24,3 +24,11 @@ define('AUTHORIZED_IMAGE_FORMAT', ['image/jpeg', 'image/png']);
 
 define('ELEMENTS_PER_PAGE', 10);
 
+ // $timezone = new DateTimeZone('UTC');
+        // $date = new DateTime('now', $timezone);
+        // return $date->format('Y-m-d H:i:s.u'); DBase mySQL datetime obj(string) dont have microsec
+// $dateTimeZone = new DateTimeZone('UTC');
+// define('TIMEZONE', $dateTimeZone);
+
+
+

@@ -7,11 +7,6 @@ $cssFile[] = 'userMain.css';
 $scriptFile[] = 'userMain.js';
 $error = [];
 
-
-$timezone = new DateTimeZone('UTC');
-$date = new DateTime('now', $timezone);
-
-
 try {
     //1-1 handle inscription
     if ($_SERVER['REQUEST_METHOD'] == 'POST' & isset($_POST['lastname'])) {
@@ -95,18 +90,12 @@ try {
             $user->setCity($city);
             $user->setEmail($email);
             $user->setPassword($password);
-            var_dump('before set');
             $id = $user->set();
-            var_dump('after set');
-            var_dump($_FILES);
             if ($id != false) {
-                var_dump('inside id not false ' );
-                $tempAdress = $_FILES["uploadfile"]["tmp_name"];
-                $newAdress = (__DIR__ . "/../public/assets/img/$id.jpg");
-                // $newAdress =  '/public/assets/img/profile-images/' . $id . '.jpg'; 
+                $tempAdress = $_FILES["profileimage"]["tmp_name"];
+                $newAdress = (__DIR__ . "/../public/assets/img/profile-images/$id.jpg");
                 // ADITIONAL TEST NECESSARY ??    is_uploaded_file(string $filename): bool
                 if (move_uploaded_file($tempAdress, $newAdress)) {
-                    var_dump('inside moveuploadedfile true');
                     SessionFlash::set(true, 'Le utilizateur a bien etais cree!');
                     // header('location: /userprofile');
                     // exit;
@@ -119,30 +108,14 @@ try {
                 SessionFlash::set(false, 'try again impossible to create user');
             }
         }
-        //1-2 handle login
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' & !isset(($_POST['lastname']))) {
+    }
+    //1-2 handle login
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' & !isset(($_POST['lastname']))) {
             // email - pass
         }
-    }
 } catch (\Throwable $th) {
     //throw $th;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // call head html
 include(__DIR__ . '/../views/templates/htmlStart.php');
