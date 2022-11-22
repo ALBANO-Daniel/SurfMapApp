@@ -23,7 +23,7 @@ class User
         // created at 
         // databse connection 
     }
-    // GETTER/SETTER
+    // START -- GETTER/SETTER
 
     public function setId(int $id): void
     {
@@ -38,9 +38,17 @@ class User
     {
         $this->_created_at = $created_at;
     }
+
     public function getCreatedAt(): string
     {
-        return $this->_created_at;
+        if (!empty($this->_created_at)) 
+        {
+            return $this->_created_at;
+        }
+        $timezone = new DateTimeZone('UTC');
+        $date = new DateTime('now', $timezone);
+        return $date['date'];
+        // return $this->_created_at;
     }
 
     public function setValidatedAt(string $validated_at): void
@@ -126,11 +134,11 @@ class User
 
     // END -- GETTER/SETTER
 
-    public function add()
+    public function set(): int
     {
         $pdo = Database::getInstance();
-        $sql = "INSERT INTO `users`(`firstname`,`lastname`,`country`,`city`,`email`,`password`) 
-                VALUES (:firstname,:lastname,:country,:city,:email,:password)";
+        $sql = "INSERT INTO `users`(`firstname`,`lastname`,`country`,`city`,`email`,`password`,`created_at`) 
+                VALUES (:firstname,:lastname,:country,:city,:email,:password,:created_at)";
         // nominativ marker ( : )   'var' sql, interact with prepare method of pdo, and protect malware SQL injections 
         // interrogativ marker ( ? )
         //statement e.g. communications with database

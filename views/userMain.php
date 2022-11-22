@@ -39,7 +39,7 @@
 
         
         <!-- REGISTER FORM  -->
-        <form id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
+        <form novalidate id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
             <!-- Image Profile section -->
             <!-- profile image placeholder -->
             <div class="row">
@@ -53,8 +53,8 @@
                 <div class="file-field input-field col s12">
                     <!-- <div class="col s12"> -->
                         <span>choisir image profil</span>
-                        <input name="profileImage" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg" placeholder="choose profile image">
-                        <!-- <label for="profile image">choose profile image</label> -->
+                        <input name="profileimage" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg" placeholder="choose profile image">
+                        <label for="profile image">choose profile image</label>
                     <!-- </div>  -->
                     <!-- <div class="file-path-wrapper"> -->
                         <!-- <input placeholder="choose profile image" class="file-path validate" type="text"> -->
