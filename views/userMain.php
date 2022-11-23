@@ -348,8 +348,8 @@
                 <!-- confirm password input  -->
                 <div class="input-field col s12 ">
                     <i class="material-icons prefix">lock</i>
-                    <input name="confirmPassword" id="confirmPassword" type="password" class="validate">
-                    <label for="confirmPassword">Confirmer</label>
+                    <input name="password2" id="password2" type="password" class="validate">
+                    <label for="password2">Confirmer</label>
                 </div>
             </div>
             <!-- submit -->

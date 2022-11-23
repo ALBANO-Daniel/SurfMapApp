@@ -7,11 +7,11 @@ $cssFile[] = 'userMain.css';
 $scriptFile[] = 'userMain.js';
 $error = [];
 
+var_dump($_SESSION['user']);
+
 try {
-    //1-1 handle inscription
+    //1-1 HANDLE INSCRIPTION
     if ($_SERVER['REQUEST_METHOD'] == 'POST' & isset($_POST['lastname'])) {
-        // img-prenom-nom-pay-ville-email-pass-Cpass
-        
 
         //===================== firstname : Nettoyage et validation =======================
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS));
@@ -78,9 +78,25 @@ try {
 
         //===================== password : Nettoyage et validation =======================
         $password =  $_POST['password'];
-        if(empty($password)){
+        if (empty($password)) {
             $error["password"] = "merci de choisir une mot de passe!!";
         }
+
+
+        $password = filter_input(INPUT_POST, 'password');
+        $password2 = filter_input(INPUT_POST, 'password2');
+
+        if ($password != $password2) {
+            $errors['password'] = 'Les mots de passe doivent être identiques';
+        } else {
+            if (empty($password)) {
+                $errors['password'] = 'Le mot de passe est obligatoire';
+            }
+        }
+
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+
 
         if (empty($error)) {
             $user = new User;
@@ -109,12 +125,48 @@ try {
             }
         }
     }
-    //1-2 handle login
+    //1-2 HANDLER LOGIN
     if ($_SERVER['REQUEST_METHOD'] == 'POST' & !isset(($_POST['lastname']))) {
-            // email - pass
+
+        //===================== email : Nettoyage et validation =======================
+        $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+        if (empty($email)) {
+            $error["email"] = "Vous devez remplir le email pour le profil!!";
+        } else {
+            $isOk = filter_var($email, FILTER_VALIDATE_EMAIL);
+            if (!$isOk) {
+                $error["email"] = "Le email n'est pas au bon format!!";
+            }
         }
+
+        //===================== password : Nettoyage et validation =======================
+        $password =  $_POST['password'];
+        if (empty($password)) {
+            $error["password"] = "merci de choisir une mot de passe!!";
+        }
+
+        $password = filter_input(INPUT_POST, 'password');
+
+        $user = User::getByEmail($email);
+        //$password_hash = $user->getPassword();
+        $password_hash = $user->password;
+        $result = password_verify($password, $password_hash);
+        if (!$result) {
+            $errors['password'] = 'Les informations des connexion ne sont pas bonnes!';
+        }
+
+        if (empty($errors)) {
+            //$user->setPassword(null);
+            $user->password = null;
+            $_SESSION['user'] = $user;
+            // header('Location: /controllers/list-patientCtrl.php');
+            // exit;
+        }
+    }
 } catch (\Throwable $th) {
-    //throw $th;
+    SessionFlash::set(false, $th);
+    header("Location: /error404");
+    exit;
 }
 
 // call head html

@@ -225,12 +225,28 @@ class User
         }
     }
 
-    public static function getOne(int $id)
+    public static function get(int $id)
     {
         $pdo = Database::getInstance();
         $sql = "SELECT * FROM `users` WHERE `id_users` = $id ;";
         $stmt = $pdo->query($sql);
         return $stmt->fetch();
+    }
+
+    
+    public static function getByEmail(string $email){ // obj(User) - bool
+        $pdo = Database::getInstance();
+        $sql = 'SELECT * FROM `users` WHERE `email` = :email;';
+        $sth = $pdo->prepare($sql);
+        $sth->bindValue(':email',$email);
+        if($sth->execute()){
+            //$sth->setFetchMode(PDO::FETCH_CLASS, 'User');
+            $result = $sth->fetch();
+            if($result){
+                return $result;
+            }
+        }
+        return false;
     }
 
     public static function getTotalNumberOf($search = '')

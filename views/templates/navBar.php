@@ -6,9 +6,9 @@
             </div>
             <a href="#" data-target="mobile-demo" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/home">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/news">News</a></li>
-                <li><a href="map">Map</a></li>
+                <li><a href="/map">Map</a></li>
                 <li><a href="/user"><i class="material-icons">account_box</i></a></li>
                 
             </ul>
@@ -19,7 +19,7 @@
     <li class="center-align">
         <img class="" width="80%" src="/public/assets/img/logos/logo.png" alt="logo site">
     </li>
-    <li><a href="/home"><i class="material-icons">home</i>Home</a></li>
+    <li><a href="/"><i class="material-icons">home</i>Home</a></li>
     <li><a href="/news"><i class="material-icons">assignment_late</i>News</a></li>
     <li><a href="/map"><i class="material-icons">map</i>Map</a></li>
     <li><a href="/user"><i class="material-icons">account_box</i>User Space</a></li>
