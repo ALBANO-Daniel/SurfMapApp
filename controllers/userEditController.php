@@ -2,22 +2,21 @@
 require_once(__DIR__ . '/../models/User.php');
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
-//0-1 HANDLER ALREADY LOGGED IN
-if (!empty($_SESSION['user'])) {
-    header('location: /userpage');
-    exit;
-}
 
-//page standard setup
-$pageTitle = 'enter';
-$cssFile[] = 'userMain.css';
-$scriptFile[] = 'userMain.js';
+$pageTitle = 'user edit';
+$cssFile[] = 'userPage.css';
+$scriptFile[] = 'userPage.js';
 
-$error = [];
+
+$user = $_SESSION['user'];
 
 try {
-    //1-1 HANDLE INSCRIPTION
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' & isset($_POST['lastname'])) {
+
+    $userId = intval($user->id_users);
+    $error = [];
+    $addedUserId = '';
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //===================== firstname : Nettoyage et validation =======================
         $firstname = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS));
@@ -81,14 +80,15 @@ try {
                 $error["email"] = "Le email n'est pas au bon format!!";
             }
         }
-
+        if (User::emailExist($email)) $error = 'email deja utiliser pour quelqun';
         //===================== password : Nettoyage et validation =======================
-        $password =  $_POST['password'];
+
+        // $password =  $_POST['password'];
+        $password = filter_input(INPUT_POST, 'password');
+        $password2 = filter_input(INPUT_POST, 'password2');
         if (empty($password)) {
             $error["password"] = "merci de choisir une mot de passe!!";
         }
-        $password = filter_input(INPUT_POST, 'password');
-        $password2 = filter_input(INPUT_POST, 'password2');
         if ($password != $password2) {
             $errors['password'] = 'Les mots de passe doivent être identiques';
         } else {
@@ -99,6 +99,10 @@ try {
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         if (empty($error)) {
+            // get time for  modified_at
+            $timezone = new DateTimeZone('UTC');
+            $now = new DateTime('now', $timezone);
+
             $user = new User;
             $user->setFirstname($firstname);
             $user->setLastname($lastname);
@@ -106,63 +110,15 @@ try {
             $user->setCity($city);
             $user->setEmail($email);
             $user->setPassword($password);
-            $id = $user->set();
-            if ($id != false) {
-                // HANDLE PROFILE IMAGE
-                $tempAdress = $_FILES["profileimage"]["tmp_name"];
-                $newAdress = (__DIR__ . "/../public/assets/img/profile-images/$id.jpg");
-                if (move_uploaded_file($tempAdress, $newAdress)) {
-                    SessionFlash::set(true, 'utilisateur créé avec succès!');
-                    header('location: /userpage');
-                    exit;
-                } else {
-                    SessionFlash::set(false, 'erreur sur l\'image de profil, réessayez ou choisissez un avatar.');
-                    header('location: /userpage');
-                    exit;
-                }
+            $user->setModifiedAt($now->date);
+            $addedUserId = $user->edit($userId);
+            if ($addedUserId != false) {
+                SessionFlash::set(true, 'Le  a bien etais edite');
+                header("Location: /userpage");
+                exit;
             } else {
-                SessionFlash::set(false, 'réessayer, impossible de créer un utilisateur.');
+                SessionFlash::set(false, 'Le patient n\'a pas etais edite');
             }
-        }
-    }
-
-    //1-2 HANDLER LOGIN
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' & !isset(($_POST['lastname']))) {
-
-        //===================== email : Nettoyage et validation =======================
-        $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-        if (empty($email)) {
-            $error["email"] = "Vous devez remplir le email pour le profil!!";
-        } else {
-            $isOk = filter_var($email, FILTER_VALIDATE_EMAIL);
-            if (!$isOk) {
-                $error["email"] = "Le email n'est pas au bon format!!";
-            }
-        }
-
-        //===================== password : Nettoyage et validation =======================
-        // $password =  $_POST['password'];
-        
-        $password = filter_input(INPUT_POST, 'password');
-        
-        if (empty($password)) {
-            $error["password"] = "merci de ecrire le mot de passe!!";
-        }
-        $user = User::getByEmail($email);
-        //$password_hash = $user->getPassword();
-        $password_hash = $user->password;
-        $result = password_verify($password, $password_hash);
-        if (!$result) {
-            $errors['password'] = 'Les informations des connexion ne sont pas bonnes!';
-        }
-
-        if (empty($errors)) {
-            //$user->setPassword(null);
-            $user->password = null;
-            $user->email = null;
-            $_SESSION['user'] = $user;
-            header('Location: /userpage');
-            // exit;
         }
     }
 } catch (\Throwable $th) {
@@ -171,13 +127,20 @@ try {
     exit;
 }
 
+//get fresh user info
+$patientDisplay = User::get($userId);
+
+
+
+
+
 // call head html
 include(__DIR__ . '/../views/templates/htmlStart.php');
 
 //structure
 include(__DIR__ . '/../views/templates/navBar.php');
 
-include(__DIR__ . '/../views/userMain.php');
+include(__DIR__ . '/../views/userEdit.php');
 
 include(__DIR__ . '/../views/templates/footer.php');
 

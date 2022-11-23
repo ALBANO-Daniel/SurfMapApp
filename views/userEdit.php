@@ -1,44 +1,30 @@
-<main>
+<main class="container">
+    <br>
+    <br>
+    <!-- USER PROFILE  -->
+    <div class="card">
+        <nav class=" light-blue darken-4">
+            <h2 class="center">PROFIL UTILIZATEUR</h2>
+        </nav>
+        <br>
 
-    <section class="container center">
-        <div class="container card">
+        <!-- error/sucess output  -->
+        <?php
+        if (SessionFlash::exist()) {
+            $msg = SessionFlash::get();
+            if ($msg[0] == true) { ?>
+                <p class='green center white-text'>
+                <?php
+            } else { ?>
+                <p class='red center white-text'>
+                <?php
+            }
+            print_r($msg[1]) ?>
+                </p>
+            <?php
+        } ?>
 
-            <nav class="col s12 light-blue darken-4">
-                <h2 class="center ">utilisateur</h2>
-            </nav>
-            <div class="row">
-                <ul class="tabs">
-                    <li class="tab col s6"><a href="#loginForm">Entrer</a></li>
-                    <li class="tab col s6"><a href="#registerForm">S'inscrire</a></li>
-                </ul>
-            </div>
-
-            <!-- LOGIN FORM  -->
-            <form id="loginForm" class="container" action="" method="post" enctype="multipart/form-data">
-                <!-- email input  -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input name="email" class="validate" type="email" id="user">
-                        <label for="email">Email</label>
-                        <span class="helper-text" data-error="format incorrect" data-sucess=""></span>
-                    </div>
-                </div>
-                <!-- password input  -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">lock</i>
-                        <input name="password" id="password" type="password" class="validate">
-                        <label for="password">Mot de passe</label>
-                    </div>
-                </div>
-                <!-- submit -->
-                <div class="row center-align">
-                    <button class="unset"><a class="waves-effect waves-light btn">Entrer</a></button>
-                </div>
-            </form>
-
-
+            <!-- // example of action prop  "?status=delete&id=2" -->
             <!-- REGISTER FORM  -->
             <form novalidate id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
                 <!-- Image Profile section -->
@@ -348,11 +334,48 @@
                         <label for="password2">Confirmer</label>
                     </div>
                 </div>
-                <!-- submit -->
-                <div class="row center-align">
-                    <button class="unset"><a class="waves-effect waves-light btn">S'inscrire</a></button>
+
+
+                <!-- submit button  -->
+                <div class="row white-text">
+                    <div class="col s12 m4">
+                        <a id="editBtn" class="btn waves-effect waves-light light-blue darken-4">
+                            <i class="material-icons right hide-on-small-only">create</i>
+                            Editer
+                        </a>
+                    </div>
+                    <div class="col s12 m4 ">
+                        <button id="saveBtn" class="btn disabled right waves-effect waves-light light-blue darken-4" type="submit">
+                            sauvegarder
+                            <i class="material-icons right hide-on-small-only">send</i>
+                        </button>
+                    </div>
+                    <div class="clearfix hide-on-med-and-up"><br></div>
+                    <!-- delete user modal and btn  -->
+                    <div class="col s12 m4">
+                        <!-- Modal Trigger -->
+                        <a id="deletePatientBtn" class="btn modal-trigger waves-effect waves-light red darken-4" href="#deleteUserModal">
+                            <i class="material-icons right hide-on-small-only">delete_forever</i>
+                            DELETE
+                        </a>
+                        <!-- Modal Structure -->
+                        <div id="deleteUserModal" class="modal deleteUserModal black-text">
+                            <div class="row modal-content center">
+                                <h4 class="center red-text">DELETE USER</h4>
+                                <p>Are you sure you want to delete this user :</p>
+                                <br>
+                                <p><?= $userDisplay->firstname . ' ' . strtoupper($userDisplay->lastname)  ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <a id="deletePatientBtn" class="col s12 m6 btn waves-effect waves-light red darken-4" href="/userdelete?id=<?= $userId ?>">
+                                DELETE
+                            </a>
+                                <a href="#registerForm" class="col s12 m6 modal-close waves-effect waves-green btn">CANCEL</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
-        </div>
-    </section>
+        <br>
+    </div>
 </main>

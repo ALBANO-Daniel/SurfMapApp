@@ -22,3 +22,8 @@ black = #212121 // grey darken-4
 darkBlue = #0d47a1 // blue darken-4
 
 ligthBLue = #64b5f6 // blue lighten-2
+
+
+# CODE 
+
+<!-- <div class="clearfix"></div> -->

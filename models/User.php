@@ -1,5 +1,6 @@
 <?php
-
+// a method to only validate ? 
+// $stmt->bindValue(':validated_at', $this->getValidatedAt());
 
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
@@ -41,11 +42,7 @@ class User
 
     public function getCreatedAt(): string
     {
-        // if (!empty($this->_created_at)) 
-        // {
-            return $this->_created_at;
-        // }
-       
+        return $this->_created_at;
     }
 
     public function setValidatedAt(string $validated_at): void
@@ -131,7 +128,7 @@ class User
 
     // END -- GETTER/SETTER
 
-    public function set():int
+    public function set(): int
     {
         $pdo = Database::getInstance();
         $sql = "INSERT INTO `users`(`firstname`,`lastname`,`country`,`city`,`email`,`password`) 
@@ -151,7 +148,7 @@ class User
         $stmt->bindValue(':email', $this->getEmail());
         $stmt->bindValue(':password', $this->getPassword());
         // the method runs and also get its result its returned, boolean, used to test sucess/fail
-        if ($stmt->execute()){
+        if ($stmt->execute()) {
             return intval($pdo->lastInsertId());
         } else {
             return false;
@@ -168,7 +165,6 @@ class User
                 `city` = :city,
                 `email` = :email,
                 `password` = :password,
-                `validated_at` = :validated_at,
                 `modified_at` = :modified_at
                 WHERE `id` = $id;
                 ";
@@ -179,22 +175,24 @@ class User
         $stmt->bindValue(':city', $this->getcity());
         $stmt->bindValue(':email', $this->getEmail());
         $stmt->bindValue(':password', $this->getPassword());
-        $stmt->bindValue(':validated_at', $this->getValidatedAt());
         $stmt->bindValue(':modified_at', $this->getModifiedAt());
         if ($stmt->execute()) {
             return $id;
         } else {
-            SessionFlash::set(true, 'Le patient a bien etais edite');
+            SessionFlash::set(true, 'Votre compte a bien etais edite');
             return false;
         }
     }
 
-    public static function delete(int $id, string $deleted_at): bool
+    public static function delete(int $id): bool
     {
+        $timezone = new DateTimeZone('UTC');
+        $now = new DateTime('now', $timezone);
+        $now = $now->date;
+        
         $pdo = Database::getInstance();
-        $sql = "UPDATE `users` SET `deleted_at` = :deleted_at WHERE `id` = $id;";
+        $sql = "UPDATE `users` SET `deleted_at` = $now WHERE `id` = $id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':deleted_at', $deleted_at);
         return $stmt->execute();
     }
 
@@ -233,16 +231,17 @@ class User
         return $stmt->fetch();
     }
 
-    
-    public static function getByEmail(string $email){ // obj(User) - bool
+
+    public static function getByEmail(string $email)
+    { // obj(User) - bool
         $pdo = Database::getInstance();
         $sql = 'SELECT * FROM `users` WHERE `email` = :email;';
         $sth = $pdo->prepare($sql);
-        $sth->bindValue(':email',$email);
-        if($sth->execute()){
+        $sth->bindValue(':email', $email);
+        if ($sth->execute()) {
             //$sth->setFetchMode(PDO::FETCH_CLASS, 'User');
             $result = $sth->fetch();
-            if($result){
+            if ($result) {
                 return $result;
             }
         }

@@ -1,3 +1,4 @@
+<main>
 <section class="container center">
     <div class="card">
 
@@ -40,3 +41,4 @@
         </div>
     </div>
 </section>
+</main>
