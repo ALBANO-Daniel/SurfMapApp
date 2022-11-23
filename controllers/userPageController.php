@@ -26,7 +26,8 @@ try {
     $halfPagesPerPagination = intval($pagesPerPagination / 2);
     $halfUpPagesPerPagination = ceil($pagesPerPagination / 2);
     // get number of elements  $appointmentsListPagesTotal 
-    $totalElements = User::getTotalNumberOf($userId);
+    // WIP WIP WIP  method get total number of 
+    // $totalElements = User::getTotalNumberOf($userId);
     // setup patient list total number of pages
     if ($totalElements % $elementsPerPage == 0) {
         $totalPages = intval($totalElements / 8) - 1;

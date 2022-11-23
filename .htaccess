@@ -11,10 +11,12 @@ RewriteRule ^$ controllers/homeController.php
 RewriteRule ^news$ controllers/newsMainController.php
 RewriteRule ^newsSingle$ controllers/newsSingleController.php
 
-
 RewriteRule ^map$ controllers/mapMainController.php
 
 RewriteRule ^user$ controllers/userMainController.php
 RewriteRule ^userpage$ controllers/userPageController.php
+RewriteRule ^admin$ controllers/userPageAdminController.php
+RewriteRule ^useredit$ controllers/userEditController.php
+RewriteRule ^userdelete$ controllers/userDeleteController.php
 
 RewriteRule ^contactus$ controllers/contactUsController.php

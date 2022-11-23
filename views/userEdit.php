@@ -32,7 +32,7 @@
                     <!-- profile image placeholder -->
                     <div class="col s12 center">
                         <!-- look for CSS  -->
-                        <img id="showProfileImg" class="circle responsive-img" src="/public/assets/img/profile/profile-default.png" alt="profile image" />
+                        <img id="showProfileImg" class="circle responsive-img" src="/public/assets/img/profile-images/<?= $userImage ?? 'profile-default.png'?>" alt="image de profil" />
                     </div>
                 </div>
                 <!-- profile image input  -->
@@ -334,8 +334,7 @@
                         <label for="password2">Confirmer</label>
                     </div>
                 </div>
-
-
+                <!-- WIP WIP WIP  -->
                 <!-- submit button  -->
                 <div class="row white-text">
                     <div class="col s12 m4">
@@ -351,6 +350,7 @@
                         </button>
                     </div>
                     <div class="clearfix hide-on-med-and-up"><br></div>
+
                     <!-- delete user modal and btn  -->
                     <div class="col s12 m4">
                         <!-- Modal Trigger -->

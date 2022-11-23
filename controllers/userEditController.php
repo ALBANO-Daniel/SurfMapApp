@@ -10,6 +10,9 @@ $scriptFile[] = 'userPage.js';
 
 $user = $_SESSION['user'];
 
+// handle test to see if image is present in the folder for this USER 
+$userImage = $user->id_users;
+
 try {
 
     $userId = intval($user->id_users);

@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 if (!empty($_SESSION['user'])) {
     header('location: /userpage');
     exit;
-}
+} // WIP WIP WIP - handle admin
 
 //page standard setup
 $pageTitle = 'enter';
