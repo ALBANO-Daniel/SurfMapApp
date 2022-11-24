@@ -6,6 +6,23 @@
             <nav class="col s12 light-blue darken-4">
                 <h2 class="center ">utilisateur</h2>
             </nav>
+            <!-- error/sucess output  -->
+        <?php
+        if (SessionFlash::exist()) {
+            $msg = SessionFlash::get();
+            if ($msg[0] == true) { ?>
+                <p class='green center white-text'>
+                <?php
+            } else { ?>
+                <p class='red center white-text'>
+                <?php
+            }
+            print_r($msg[1]) ?>
+                </p>
+            <?php
+        } ?>
+
+
             <div class="row">
                 <ul class="tabs">
                     <li class="tab col s6"><a href="#loginForm">Entrer</a></li>
@@ -40,13 +57,13 @@
 
 
             <!-- REGISTER FORM  -->
-            <form novalidate id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
+            <form id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
                 <!-- Image Profile section -->
                 <div class="row">
                     <!-- profile image placeholder -->
                     <div class="col s12 center">
                         <!-- look for CSS  -->
-                        <img id="showProfileImg" class="circle responsive-img" src="/public/assets/img/profile/profile-default.png" alt="profile image" />
+                        <img id="showProfileImg" class="circle responsive-img" src="/public/assets/img/profile-images/profile-default.png" alt="profile image" />
                     </div>
                 </div>
                 <!-- profile image input  -->

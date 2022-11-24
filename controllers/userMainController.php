@@ -2,17 +2,19 @@
 require_once(__DIR__ . '/../models/User.php');
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
-//0-1 HANDLER ALREADY LOGGED IN
+
+//0-1 HANDLER ALREADY LOGGED IN / ADMIN
 if (!empty($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+    if ($user->admin != null) {
+        header('location: /admin');
+        exit;
+    }
     header('location: /userpage');
     exit;
-} // WIP WIP WIP - handle admin
+}
 
-//page standard setup
 $pageTitle = 'enter';
-$cssFile[] = 'userMain.css';
-$scriptFile[] = 'userMain.js';
-
 $error = [];
 
 try {
@@ -98,6 +100,10 @@ try {
         }
         $password = password_hash($password, PASSWORD_DEFAULT);
 
+        if(empty($_FILES)){
+            $error['image'] = 'vous devez choisir une image de profil';
+        }
+
         if (empty($error)) {
             $user = new User;
             $user->setFirstname($firstname);
@@ -111,15 +117,10 @@ try {
                 // HANDLE PROFILE IMAGE
                 $tempAdress = $_FILES["profileimage"]["tmp_name"];
                 $newAdress = (__DIR__ . "/../public/assets/img/profile-images/$id.jpg");
-                if (move_uploaded_file($tempAdress, $newAdress)) {
-                    SessionFlash::set(true, 'utilisateur créé avec succès!');
-                    header('location: /userpage');
-                    exit;
-                } else {
-                    SessionFlash::set(false, 'erreur sur l\'image de profil, réessayez ou choisissez un avatar.');
-                    header('location: /userpage');
-                    exit;
-                }
+                move_uploaded_file($tempAdress, $newAdress);
+                SessionFlash::set(true, 'utilisateur créé avec succès!');
+                header('location: /userpage');
+                exit;
             } else {
                 SessionFlash::set(false, 'réessayer, impossible de créer un utilisateur.');
             }
@@ -142,9 +143,9 @@ try {
 
         //===================== password : Nettoyage et validation =======================
         // $password =  $_POST['password'];
-        
+
         $password = filter_input(INPUT_POST, 'password');
-        
+
         if (empty($password)) {
             $error["password"] = "merci de ecrire le mot de passe!!";
         }

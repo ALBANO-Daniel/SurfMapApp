@@ -4,17 +4,12 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 
 
 $pageTitle = 'user edit';
-$cssFile[] = 'userPage.css';
-$scriptFile[] = 'userPage.js';
 
-
-$user = $_SESSION['user']; 
-// handle test to see if image is present in the folder for this USER 
-$userImage = $user->id_users;
+$user = $_SESSION['user'];
+$userId = intval($user->id_users);
 
 try {
 
-    $userId = intval($user->id_users);
     $error = [];
     $addedUserId = '';
 
@@ -85,7 +80,6 @@ try {
         if (User::emailExist($email)) $error = 'email deja utiliser pour quelqun';
         //===================== password : Nettoyage et validation =======================
 
-        // $password =  $_POST['password'];
         $password = filter_input(INPUT_POST, 'password');
         $password2 = filter_input(INPUT_POST, 'password2');
         if (empty($password)) {

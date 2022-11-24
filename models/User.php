@@ -154,7 +154,7 @@ class User
             return false;
         }
     }
-
+    
     public function edit(int $id)
     {
         $pdo =  Database::getInstance();
@@ -166,9 +166,10 @@ class User
                 `email` = :email,
                 `password` = :password,
                 `modified_at` = :modified_at
-                WHERE `id` = $id;
+                WHERE `id` = :id;
                 ";
         $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':id', $id);
         $stmt->bindValue(':firstname', $this->getFirstname());
         $stmt->bindValue(':lastname', $this->getLastname());
         $stmt->bindValue(':country', $this->getcountry());
@@ -177,11 +178,26 @@ class User
         $stmt->bindValue(':password', $this->getPassword());
         $stmt->bindValue(':modified_at', $this->getModifiedAt());
         if ($stmt->execute()) {
+            SessionFlash::set(true, 'Votre compte a bien etais edite');
             return $id;
         } else {
-            SessionFlash::set(true, 'Votre compte a bien etais edite');
             return false;
         }
+    }
+
+    public static function editPassword(int $id, string $password)
+    {
+        $pdo =  Database::getInstance();
+        $sql = "UPDATE `clients` SET `password` = :password WHERE `id` = :id;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':password', $password);
+        if($stmt->execute()){
+            SessionFlash::set(true, 'Votre password a bien etais edite');
+            return true;
+        };
+        SessionFlash::set(false, 'Votre password n\'as pas etais edite, essaie une autre fois.');
+        return false;
     }
 
     public static function delete(int $id): bool
@@ -191,9 +207,14 @@ class User
         $now = $now->date;
         
         $pdo = Database::getInstance();
-        $sql = "UPDATE `users` SET `deleted_at` = $now WHERE `id` = $id;";
+        $sql = "UPDATE `users` SET `deleted_at` = $now WHERE `id` = :id;";
         $stmt = $pdo->prepare($sql);
-        return $stmt->execute();
+        $stmt->bindValue(':id', $id);
+        if($stmt->execute()){
+            SessionFlash::set(true, 'Votre profil de utilizateur a bien etais suprime');
+            return true;
+        };
+        return false;
     }
 
     public static function emailExist(string $email): bool
