@@ -41,6 +41,11 @@ h1,h2,h3,h4,h5,.btn,.tab{
 nav ul {
   overflow: hidden !important;
 }
+blockquote{
+  margin: 3rem;
+  border-left-color:  #01579b !important;
+  font-style: italic;
+}
 form{
   padding-top: 5rem;
   padding-bottom: 5rem;
