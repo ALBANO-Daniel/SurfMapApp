@@ -8,8 +8,7 @@ $cssFile[] = 'userPage.css';
 $scriptFile[] = 'userPage.js';
 
 
-$user = $_SESSION['user'];
-
+$user = $_SESSION['user']; 
 // handle test to see if image is present in the folder for this USER 
 $userImage = $user->id_users;
 
@@ -131,7 +130,7 @@ try {
 }
 
 //get fresh user info
-$patientDisplay = User::get($userId);
+$userDisplay = User::get($userId);
 
 
 

@@ -23,11 +23,15 @@
     <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
     <!-- Base CSS -->
     <link rel="stylesheet" href="/public/assets/css/index.css">
-    <link rel="stylesheet" href="/public/assets/css/navBar.css">
     <!-- Singles CSS -->
-    <?php foreach ($cssFile as $key => $value) { ?>
-        <link type="text/css" rel="stylesheet" href="/public/assets/css/<?= $value ?>" />
-    <?php } ?>
+    <link rel="stylesheet" href="/public/assets/css/navBar.css">
+    <link rel="stylesheet" href="/public/assets/css/contactUs.css">
+    <link rel="stylesheet" href="/public/assets/css/home.css">
+    <link rel="stylesheet" href="/public/assets/css/mapMain.css">
+    <link rel="stylesheet" href="/public/assets/css/newsMain.css">
+    <link rel="stylesheet" href="/public/assets/css/pageNotFound.css">
+    <link rel="stylesheet" href="/public/assets/css/userMain.css">
+
     <!-- TITTLE -->
     <title><?= $pageTitle ?? 'SurfSpot' ?></title>
 </head>

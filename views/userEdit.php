@@ -7,7 +7,6 @@
             <h2 class="center">PROFIL UTILIZATEUR</h2>
         </nav>
         <br>
-
         <!-- error/sucess output  -->
         <?php
         if (SessionFlash::exist()) {

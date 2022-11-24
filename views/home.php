@@ -1,5 +1,5 @@
 <header>
-    <h1 class="display-none">SURF SPOTS PREVISIONS AND SURF NEWS</h1>
+    <h1 class="display-none">SURF SPOTS( Beachs )PREVISIONS AND SURF NEWS</h1>
     <!-- parallax -->
     <div class="row s12">
         <div class="parallax-container valign-wrapper hide-on-large-only">
