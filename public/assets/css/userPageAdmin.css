@@ -1,0 +1,17 @@
+#mainAdmin {
+  padding-left: 300px !important;
+}
+
+@media only screen and (max-width: 992px) {
+    #mainAdmin {
+    padding-left: 0 !important;
+  }
+}
+
+#searchForm{
+    padding: 0;
+}
+
+.collapsible-header{
+  font-family: "Sigmar One", cursive !important;
+}

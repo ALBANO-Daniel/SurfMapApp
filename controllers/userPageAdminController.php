@@ -1,18 +1,31 @@
 <?php
 
 $pageTitle = 'dashboard';
-$cssFile[] = 'userPageAdmin.css';
-$scriptFile[] = 'userPageAdmin.js';
+
+
+
+// logic
+
+
+
+
+
+$document = $_GET["p"] ?? null;
 
 // call head html
 include(__DIR__.'/../views/templates/htmlStart.php');
 
 //structure
-    include(__DIR__.'/../views/templates/navBar.php');
+    // include(__DIR__.'/../views/templates/navBar.php');
     
-    include(__DIR__.'/../views/userPageAdmin.php');
     
-    include(__DIR__.'/../views/templates/footer.php');
+    // HANDLER DOCUMENTS SECTION by GET
+    switch($document){
+        case null: include(__DIR__.'/../views/userPageAdmin.php'); break;
+        case 'guide': include(__DIR__.'/../views/adminGuide.php'); break;
+        case 'userGuide': include(__DIR__.'/../views/adminGuide.php'); break;
+    }
+
 
 
 // call end html
