@@ -12,6 +12,17 @@
     padding: 0;
 }
 
+#newsList{
+  padding-top: 100px;
+}
+
 .collapsible-header{
   font-family: "Sigmar One", cursive !important;
+}
+
+.collapsible-body ul{
+  display: flex;
+  flex-direction: column;
+  overflow:visible;
+  height: max-content;
 }
