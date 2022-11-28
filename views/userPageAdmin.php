@@ -22,7 +22,7 @@
                 <a href="#email"><span class="white-text email">Admin Dashboard</span></a>
             </div>
         </li>
-
+        <!-- // SEARCH HOLE DBase  -->
         <li>
             <form id="searchForm">
                 <div class="input-field">
@@ -48,7 +48,7 @@
                 <ul class="collapsible-body">
                     <ul class="tabs">
                         <li class="tab"><a href="#newsComments"><i class="material-icons">message</i>News Comments</a></li>
-                        <li class="tab"><a href="#mapComments"><i class="material-icons">insert_comment</i>Map Comments</a></li>
+                        <li class="tab"><a href="#mapComments"><i class="material-icons">message</i>Map Comments</a></li>
                         <li class="tab"><a href="#users"><i class="material-icons">people</i>Users</a></li>
                     </ul>
                 </ul>
@@ -63,6 +63,14 @@
         <li><a class="waves-effect" href="?p=guide">Admin Guide</a></li>
         <li><a class="waves-effect" href="?p=userguide">New user Guide</a></li>
         <li><a class="waves-effect" href="?p=terms">user terms</a></li>
+        
+        <li class="navFooter grey darken-1">
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2023 Tupan Network
+                </div>
+            </div>
+        </li>
     </ul>
 
     <!-- NEWS NAV SECTION  -->
@@ -144,7 +152,7 @@
                 <div id="newsList" class="container center">
                     <ul class="row collapsible">
                         <li>
-                            <div class="collapsible-header">Shark's bite for love <span class="grey-text">-20 dec 2020</span></div>
+                            <div class="collapsible-header">Shark's bites for love<span class="grey-text smaller">(20 dec 2020)</span></div>
                             <div class="collapsible-body">
                                 <div>image thumb</div>
                                 <div>headlines</div>
@@ -158,7 +166,7 @@
                         </li>
 
                         <li>
-                            <div class="collapsible-header">Mondial surf hawaii <span class="grey-text">-20 dec 2020</span></div>
+                            <div class="collapsible-header">Mondial surf hawaii<span class="grey-text smaller">(20 dec 2020)</span></div>
                             <div class="collapsible-body">
                                 <div>image thumb</div>
                                 <div>headlines</div>
@@ -171,7 +179,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header">Learn well by eating well <span class="grey-text"> le 20 dec 2020</span></div>
+                            <div class="collapsible-header">surf better by eating better<span class="grey-text smaller">(05 aout 1990)</span></div>
                             <div class="collapsible-body">
                                 <div>image thumb</div>
                                 <div>headlines</div>

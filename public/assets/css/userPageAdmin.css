@@ -31,3 +31,16 @@
 .tabs .indicator{
   height: 0;
 }
+.smaller{
+  font-size: smaller;
+}
+
+/* slide-out and slide-out li --- to stick mini footer on bottom  */
+#slide-out {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+#slide-out li {
+  flex: 1 0 auto;
+}

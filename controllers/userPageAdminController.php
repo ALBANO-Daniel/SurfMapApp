@@ -14,7 +14,6 @@ $pageTitle = 'dashboard';
 
 
 
-
 $document = $_GET["p"] ?? null;
 
 // call head html
@@ -29,6 +28,7 @@ include(__DIR__.'/../views/templates/htmlStart.php');
         case null: include(__DIR__.'/../views/userPageAdmin.php'); break;
         case 'guide': include(__DIR__.'/../views/adminGuide.php'); break;
         case 'userGuide': include(__DIR__.'/../views/adminGuide.php'); break;
+        // ... 
     }
 
 
