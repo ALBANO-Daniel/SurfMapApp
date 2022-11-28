@@ -26,3 +26,8 @@
   overflow:visible;
   height: max-content;
 }
+
+/* removes little blue bar inside the end of <ul class="tabs"> */
+.tabs .indicator{
+  height: 0;
+}

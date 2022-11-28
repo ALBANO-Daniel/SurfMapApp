@@ -38,18 +38,18 @@
                 <ul class="collapsible-body">
                     <ul class="tabs">
                         <li class="tab"><a href="#home"><i class="material-icons">home</i>Accueil</a></li>
-                        <li class="tab"><a href="#news"><i class="material-icons">assignment_late</i>News</a></li>
+                        <li class="tab"><a href="#news"><i class="material-icons">event_note</i>News</a></li>
                         <li class="tab"><a href="#map"><i class="material-icons">map</i>Map</a></li>
                     </ul>
                 </ul>
             </li>
             <li>
-                <div class="collapsible-header"><i class="material-icons">place</i>Moderation</div>
+                <div class="collapsible-header"><i class="material-icons">vpn_key</i>Moderation</div>
                 <ul class="collapsible-body">
                     <ul class="tabs">
-                        <li class="tab"><a href="#newsComments"><i class="material-icons">assignment_late</i>News Comments</a></li>
-                        <li class="tab"><a href="#mapComments"><i class="material-icons">assignment_late</i>Map Comments</a></li>
-                        <li class="tab"><a href="#users"><i class="material-icons">assignment_late</i>Users</a></li>
+                        <li class="tab"><a href="#newsComments"><i class="material-icons">message</i>News Comments</a></li>
+                        <li class="tab"><a href="#mapComments"><i class="material-icons">insert_comment</i>Map Comments</a></li>
+                        <li class="tab"><a href="#users"><i class="material-icons">people</i>Users</a></li>
                     </ul>
                 </ul>
             </li>
@@ -194,7 +194,7 @@
     <section id="map" class="center">
         <div class="row">
 
-            <nav class="col s12 grey darken-1">
+            <nav class="col s12 light-blue darken-1">
                 <h5 class="center">MAP</h5>
             </nav>
             <!-- error/sucess output  -->
