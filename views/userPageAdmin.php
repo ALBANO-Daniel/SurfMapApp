@@ -63,7 +63,7 @@
         <li><a class="waves-effect" href="?p=guide">Admin Guide</a></li>
         <li><a class="waves-effect" href="?p=userguide">New user Guide</a></li>
         <li><a class="waves-effect" href="?p=terms">user terms</a></li>
-        
+
         <li class="navFooter grey darken-1">
             <div class="footer-copyright">
                 <div class="container">
@@ -73,29 +73,55 @@
         </li>
     </ul>
 
-    <!-- NEWS NAV SECTION  -->
-    <section id="news" class="center">
-        <div class="row">
-
-            <nav class="col s12 light-blue darken-2">
-                <h5 class="center">NEWS</h5>
-            </nav>
-            <!-- error/sucess output  -->
+    <!-- error/sucess output  -->
+    <?php
+    if (SessionFlash::exist()) {
+        $msg = SessionFlash::get();
+        if ($msg[0] == true) { ?>
+            <p class='green center white-text'>
             <?php
-            if (SessionFlash::exist()) {
-                $msg = SessionFlash::get();
-                if ($msg[0] == true) { ?>
-                    <p class='green center white-text'>
-                    <?php
-                } else { ?>
-                    <p class='red center white-text'>
-                    <?php
-                }
-                print_r($msg[1]) ?>
-                    </p>
-                <?php
-            } ?>
+        } else { ?>
+            <p class='red center white-text'>
+            <?php
+        }
+        print_r($msg[1]) ?>
+            </p>
+        <?php
+    } ?>
 
+
+        <!-- NAV>>PAGES>>ACCUEIL  SECTION  -->
+        <section id="home" class="center">
+            <div class="row">
+
+                <nav class="col s12 light-blue darken-2 headermargin">
+                    <h5 class="center">Page d'Accueil </h5>
+                </nav>
+
+                <!-- v 2.0 -->
+                <div class="editNavbar">Edite barre de navegation</div>
+                <div class="video">Choisir Video d'accueil</div>
+                <div class="firstSection">Editer Premiere section</div>
+                <div class="firstBackgroundImage">Editer image apres premiere section</div>
+                <div class="secondSection">Editer deuxieme section</div>
+                <div class="secondBackgroundImage">Editer image apers deuxieme section</div>
+                <div class="thirdSection">Editer troisieme section</div>
+                <div class="thirdBackgroundImage">editer image apres troisieme section</div>
+                <div class="fourthSection">editer quatrieme section</div>
+                <div class="fourthBackgroundImage">editer image apres quatrieme section</div>
+                <button>adicione nouvelle section / suprimer section</button>
+                <button>adicione nouvelle image / suprimer image</button>
+                <div class="editFooter">editer 'footer'</div>
+
+        </section>
+
+        <!-- NAV>>PAGES>>NEWS  SECTION  -->
+        <section id="news" class="center">
+            <div class="row">
+
+                <nav class="col s12 light-blue darken-2">
+                    <h5 class="center">NEWS</h5>
+                </nav>
 
                 <div class="row">
                     <ul class="tabs">
@@ -106,18 +132,19 @@
 
                 <!-- NEWS FORM  -->
                 <form id="newsForm" class="container" action="" method="post" enctype="multipart/form-data">
+                    <h5>creation de nouvelle Actualite</h5>
                     <!-- header  -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="input_text" type="text" data-length="30">
-                            <label for="input_text">Main title</label>
+                            <input name="newstitle" id="newstitle" type="text" data-length="50">
+                            <label for="newstitle">Titre</label>
                         </div>
                     </div>
                     <!-- headlines / sub-title -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="input_text" type="text" data-length="100">
-                            <label for="input_text">headline - blockquote</label>
+                            <input name="newsheadlines" id="newsheadlines" type="text" data-length="255">
+                            <label for="newsheadlines">headlines</label>
                         </div>
                     </div>
                     <!-- main image  -->
@@ -135,11 +162,11 @@
                             <input name="articleimage" type="file" accept="image/png, image/jpeg" id="uploadedArticleImg" placeholder="choose article image">
                         </div>
                     </div>
-                    <!-- text  -->
+                    <!-- News body text  -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">ecrire article:</label>
+                            <textarea name="newsbody" id="newsbody" class="materialize-textarea"></textarea>
+                            <label for="newsbody">ecrire article:</label>
                         </div>
                     </div>
                     <!-- submit -->
@@ -150,6 +177,7 @@
 
                 <!-- NEWS LIST  -->
                 <div id="newsList" class="container center">
+                    <h5>liste de tous les actualitees</h5>
                     <ul class="row collapsible">
                         <li>
                             <div class="collapsible-header">Shark's bites for love<span class="grey-text smaller">(20 dec 2020)</span></div>
@@ -194,31 +222,133 @@
 
                     </ul>
                 </div>
-        </div>
+            </div>
 
-    </section>
+        </section>
 
-    <!-- MAP NAV SECTION   -->
-    <section id="map" class="center">
-        <div class="row">
+        <!-- NAV>>PAGES>>MAP  SECTION   -->
+        <section id="map" class="center">
+            <div class="row">
 
-            <nav class="col s12 light-blue darken-1">
-                <h5 class="center">MAP</h5>
-            </nav>
-            <!-- error/sucess output  -->
-            <?php
-            if (SessionFlash::exist()) {
-                $msg = SessionFlash::get();
-                if ($msg[0] == true) { ?>
-                    <p class='green center white-text'>
-                    <?php
-                } else { ?>
-                    <p class='red center white-text'>
-                    <?php
-                }
-                print_r($msg[1]) ?>
-                    </p>
-                <?php
-            } ?>
-    </section>
+                <nav class="col s12 light-blue darken-2">
+                    <h5 class="center">SPOTS</h5>
+                </nav>
+
+                <div class="row">
+                    <ul class="tabs">
+                        <li class="tab col s6"><a href="#spotForm">Nouvelle</a></li>
+                        <li class="tab col s6"><a href="#spotsList">Liste</a></li>
+                    </ul>
+                </div>
+
+                <!-- SPOT FORM  -->
+                <form id="spotForm" class="container" action="" method="post" enctype="multipart/form-data">
+                    <h5>creation de nouvelle plage</h5>
+                    <!-- header  -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="spotname" id="spotname" type="text" data-length="30">
+                            <label for="spotname">Spot Name</label>
+                        </div>
+                    </div>
+                    <!-- description resumed  with/or  real name of beach or city -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="spotresume" id="spotresume" type="text" data-length="100">
+                            <label for="spotresume">spot resume</label>
+                        </div>
+                    </div>
+                    <!-- main image  -->
+                    <div class="row">
+                        <!-- image placeholder -->
+                        <div class="col s12">
+                            <!-- look for CSS  -->
+                            <img id="showSpotImg" class="responsive-img" src="/public/assets/img/default-image.jpg" alt="spot image" />
+                        </div>
+                    </div>
+                    <!--  image input  -->
+                    <div class="row">
+                        <div class="file-field input-field col s12">
+                            <span>choisir image du spot</span>
+                            <input name="spotimage" type="file" accept="image/png, image/jpeg" id="uploadedSpotImg" placeholder="choose spot image">
+                        </div>
+                    </div>
+                    <!-- GPS LATITUDE and LONGITUDE -->
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input name="latitude" id="latitude" type="text" data-length="100">
+                            <label for="latitude">latitude</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input name="longitude" id="longitude" type="text" data-length="100">
+                            <label for="longitude">longitude</label>
+                        </div>
+                    </div>
+                    <!-- description  -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea name="spotdescription" id="spotdescription" class="materialize-textarea"></textarea>
+                            <label for="spotdescription">Description:</label>
+                        </div>
+                    </div>
+                    <!-- submit -->
+                    <div class="row center-align">
+                        <button class="unset"><a class="waves-effect waves-light btn">create</a></button>
+                    </div>
+                </form>
+
+                <!-- SPOTS LIST  -->
+                <div id="spotsList" class="container center">
+                    <h5>liste de toute les plages</h5>
+                    <ul class="row collapsible">
+                        <li>
+                            <div class="collapsible-header">Secret 1<span class="grey-text smaller">(20 dec 2020)</span></div>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="col s12 m6">images thumbnails </div>
+                                    <div class="col s12 m6">mini map pin thumbnail? vs real map API </div>
+                                </div>
+                                
+                                <div>resume</div>
+                                <div>lat / long OR map</div>
+                                <div>description</div>
+                                <div class="btns row">
+                                    <span class="btn col s4">comments</span>
+                                    <span class="btn col s4">edit</span>
+                                    <span class="btn col s4">delete</span>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header">Buraco do macaco<span class="grey-text smaller">(20 dec 2020)</span></div>
+                            <div class="collapsible-body">
+                                <div>...</div>
+                                <div>headlines</div>
+                                <div>content</div>
+                                <div class="btns row">
+                                    <span class="btn col s4">comments</span>
+                                    <span class="btn col s4">edit</span>
+                                    <span class="btn col s4">delete</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header">quebradeira do jose<span class="grey-text smaller">(05 aout 1990)</span></div>
+                            <div class="collapsible-body">
+                                <div>image thumb</div>
+                                <div>headlines</div>
+                                <div>content</div>
+                                <div class="btns row">
+                                    <span class="btn col s4">comments</span>
+                                    <span class="btn col s4">edit</span>
+                                    <span class="btn col s4">delete</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+        </section>
+
 </main>

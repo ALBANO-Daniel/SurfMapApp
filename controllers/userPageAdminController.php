@@ -8,10 +8,7 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 $pageTitle = 'dashboard';
 
 
-
 // logic
-
-
 
 
 $document = $_GET["p"] ?? null;
@@ -20,7 +17,6 @@ $document = $_GET["p"] ?? null;
 include(__DIR__.'/../views/templates/htmlStart.php');
 
 //structure
-    // include(__DIR__.'/../views/templates/navBar.php');
     
     
     // HANDLER DOCUMENTS SECTION by GET
@@ -30,7 +26,6 @@ include(__DIR__.'/../views/templates/htmlStart.php');
         case 'userGuide': include(__DIR__.'/../views/adminGuide.php'); break;
         // ... 
     }
-
 
 
 // call end html

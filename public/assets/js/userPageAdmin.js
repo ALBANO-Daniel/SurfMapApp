@@ -6,14 +6,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   
-// js for the preview image upload 
+// ARTICLE IMAGE PREVIEW 
 uploadedArticleImg.onchange = () => {
   const [file] = uploadedArticleImg.files
   if (file) {
     showArticleImg.src = URL.createObjectURL(file);
   }
 }
-
+// SPOT IMAGE PREVIEW
+uploadedSpotImg.onchange = () => {
+  const [file] = uploadedSpotImg.files
+  if (file) {
+    showSpotImg.src = URL.createObjectURL(file);
+  }
+}
 
 // TABS INIT 
 document.addEventListener('DOMContentLoaded', function() {
