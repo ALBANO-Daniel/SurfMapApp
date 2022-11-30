@@ -73,7 +73,6 @@ class Comment
         $this->_id_spots = $id;
     }
     // END -- GETTER/SETTER
-    
 
     // set
     public function setNewsComment():int

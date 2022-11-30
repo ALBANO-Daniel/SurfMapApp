@@ -1,5 +1,21 @@
 <!-- header outside, or inside main -->
 <!-- article can have another main?  -->
+<?php
+
+
+$newsId = 'previous page';
+$news = News::get($newsId);
+$newsthumbnail = "/images/../$newsId'thumbnail.jpg";
+$newsImage = "images/../$newsId.jpg";
+
+// comments 
+$idUser = 'current session';
+$newsComments = Comment::getAllFromNews($newsId);
+$userImage = "/images/../$userId.jpg";
+
+
+
+?>
 <main>
     <section class="theNews">
 
@@ -48,6 +64,7 @@
             <br>
         </div>
     </section>
+
     <section class="container">
         <div class="row moreNews">
             <img class="col s6 m3"  height="50px" src="/public/assets/img/wave/3-thumbnail.jpg" alt="profile">
