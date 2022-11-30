@@ -98,20 +98,39 @@
                     <h5 class="center">Page d'Accueil </h5>
                 </nav>
 
-                <!-- v 2.0 -->
-                <div class="editNavbar">Edite barre de navegation</div>
-                <div class="video">Choisir Video d'accueil</div>
-                <div class="firstSection">Editer Premiere section</div>
-                <div class="firstBackgroundImage">Editer image apres premiere section</div>
-                <div class="secondSection">Editer deuxieme section</div>
-                <div class="secondBackgroundImage">Editer image apers deuxieme section</div>
-                <div class="thirdSection">Editer troisieme section</div>
-                <div class="thirdBackgroundImage">editer image apres troisieme section</div>
-                <div class="fourthSection">editer quatrieme section</div>
-                <div class="fourthBackgroundImage">editer image apres quatrieme section</div>
-                <button>adicione nouvelle section / suprimer section</button>
-                <button>adicione nouvelle image / suprimer image</button>
-                <div class="editFooter">editer 'footer'</div>
+                <div class="container center">
+                    <h5>editer les sessions de la page d'accueil: </h5>
+                    <ul class="collapsible">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Edite barre de navegation</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">place</i>Choisir Video d'accueil</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer Premiere section</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer deuxieme section</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer troisieme section</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer quatrieme section</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer 'footer'</div>
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                    </ul>
+                </div>
 
         </section>
 
@@ -251,13 +270,6 @@
                             <label for="spotname">Spot Name</label>
                         </div>
                     </div>
-                    <!-- description resumed  with/or  real name of beach or city -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="spotresume" id="spotresume" type="text" data-length="100">
-                            <label for="spotresume">spot resume</label>
-                        </div>
-                    </div>
                     <!-- main image  -->
                     <div class="row">
                         <!-- image placeholder -->
@@ -308,7 +320,7 @@
                                     <div class="col s12 m6">images thumbnails </div>
                                     <div class="col s12 m6">mini map pin thumbnail? vs real map API </div>
                                 </div>
-                                
+
                                 <div>resume</div>
                                 <div>lat / long OR map</div>
                                 <div>description</div>
