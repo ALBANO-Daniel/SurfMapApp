@@ -20,6 +20,10 @@ nav.headermargin{
     margin-bottom: 100px;  
 }
 
+.no-margin-top{
+  margin-top: 0;
+}
+
 .collapsible-header{
   font-family: "Sigmar One", cursive !important;
 }

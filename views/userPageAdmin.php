@@ -99,7 +99,7 @@
                 </nav>
 
                 <div class="container center">
-                    <h5>editer les sessions de la page d'accueil: </h5>
+                    <h5 class="no-margin-top">editer les sessions de la page d'accueil: </h5>
                     <ul class="collapsible">
                         <li>
                             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Edite barre de navegation</div>

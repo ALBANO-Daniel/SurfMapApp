@@ -1,5 +1,6 @@
 <?php
 // DEFAULT TIME ZONE == UTC 
+// require_once(__DIR__ . '/../helpers/nowTime.php');
 
 session_start();
 require_once(__DIR__ . '/../helpers/SessionFlash.php');
