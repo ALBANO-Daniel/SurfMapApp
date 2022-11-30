@@ -1,4 +1,8 @@
 <?php
+// CATEGORY{ 1: 'news', 2: 'spots'}
+// user setAdmin() { 1: admin   default(null) : user }
+
+
 // DEFAULT TIME ZONE == UTC 
 // require_once(__DIR__ . '/../helpers/nowTime.php');
 

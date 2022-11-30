@@ -1,14 +1,14 @@
 <?php
 
-require_once(__DIR__ . '/../models/News.php');
+require_once(__DIR__ . '/../models/Spots.php');
 require_once(__DIR__ . '/../models/Comment.php');
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
+// SPOT NAME
+$spotName = 'Secret Point';
+$pageTitle = $spotName;
 
-$newsTitle = 'Example Today';
-$pageTitle = $newsTitle;
-
-$cssFile[] = 'newsMain.css';
+$cssFile[] = 'mapMain.css';
 $cssFile[] = 'newsSingle.css';
 
 $scriptFile[] = 'newsMain.js';
@@ -28,9 +28,9 @@ try {
             $newComment = new Comment();
             $newComment->setComment($comment);
             $newComment->setCategory($category);
-            $newComment->setIdNews($idNews);
+            $newComment->setIdNews($idSpots);
             $newComment->setIdUsers($idUsers);
-            $newCommentId = $comment->setNewsComment();
+            $newCommentId = $comment->setSpotsComment();
         }
     }
 } catch (\Throwable $th) {
@@ -39,15 +39,15 @@ try {
 
 
 // call head html
-include(__DIR__ . '/../views/templates/htmlStart.php');
+include(__DIR__.'/../views/templates/htmlStart.php');
 
 //structure
-include(__DIR__ . '/../views/templates/navBar.php');
-
-include(__DIR__ . '/../views/newsSingle.php');
-
-include(__DIR__ . '/../views/templates/footer.php');
+    include(__DIR__.'/../views/templates/navBar.php');
+    
+    include(__DIR__.'/../views/newsSingle.php');
+    
+    include(__DIR__.'/../views/templates/footer.php');
 
 
 // call end html
-include(__DIR__ . '/../views/templates/htmlEnd.php');
+include(__DIR__.'/../views/templates/htmlEnd.php');

@@ -8,6 +8,8 @@ class News
     private string $_blockquote;
     private string $_body;
 
+    // created_at etc.... auto generation OR inserted direct var->SQL->table
+
     public function __construct()
     {
         // created at ?
@@ -88,7 +90,7 @@ class News
     }
     // END -- GETTER/SETTER
 
-    // set ONE
+    // set
     public function set():int
     {
         $pdo = Database::getInstance();
@@ -104,7 +106,7 @@ class News
             return false;
         }
     }
-    // get ONE
+    // get
     public static function get(int $id):object
     {
         $pdo = Database::getInstance();
@@ -114,7 +116,6 @@ class News
         $stmt->execute();
         return $stmt->fetch();
     }
-    // get total number of 
     public static function getTotalNumberOf($search = '')
     {
         $pdo = Database::getInstance();
@@ -131,7 +132,6 @@ class News
         $obj = $stmt->fetch();
         return intval($obj->count);
     }
-    // getAll
     public static function getAll(int $currentPage = 1, int $newsPerPage = 0, $search = ''): array
     {
         $pdo = Database::getInstance();

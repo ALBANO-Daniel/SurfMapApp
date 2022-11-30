@@ -110,23 +110,23 @@
                             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer Premiere section</div>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Premiere section</div>
                             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer deuxieme section</div>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i> deuxieme section</div>
                             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer troisieme section</div>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i> troisieme section</div>
                             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer quatrieme section</div>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i> quatrieme section</div>
                             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">whatshot</i>Editer 'footer'</div>
+                            <div class="collapsible-header"><i class="material-icons">whatshot</i>modifiee 'footer'</div>
                             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
                     </ul>
