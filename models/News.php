@@ -23,6 +23,7 @@ class News
     {
         $this->_id_news = $id;
     }
+
     public function getHeader():string
     {
         return $this->_header;
@@ -31,6 +32,7 @@ class News
     {
         $this->_header = $header;
     }
+
     public function getBlockquote():string
     {
         return $this->_blockquote;
@@ -39,6 +41,7 @@ class News
     {
         $this->_blockquote = $blockquote;
     }
+
     public function getBody():string
     {
         return $this->_body;
@@ -46,6 +49,42 @@ class News
     public function setBody(string $body):void
     {
         $this->_body = $body;
+    }
+
+    public function setCreatedAt(string $created_at): void
+    {
+        $this->_created_at = $created_at;
+    }
+    public function getCreatedAt(): string
+    {
+        return $this->_created_at;
+    }
+
+    public function setValidatedAt(string $validated_at): void
+    {
+        $this->_validated_at = $validated_at;
+    }
+    public function getValidatedAt(): string
+    {
+        return $this->_validated_at;
+    }
+
+    public function setModifiedAt(string $modified_at): void
+    {
+        $this->_modified_at = $modified_at;
+    }
+    public function getModifiedAt(): string
+    {
+        return $this->_modified_at;
+    }
+
+    public function setDeletedAt(string $deleted_at): void
+    {
+        $this->_deleted_at = $deleted_at;
+    }
+    public function getDeletedAt(): string
+    {
+        return $this->_deleted_at;
     }
     // END -- GETTER/SETTER
 
@@ -102,13 +141,17 @@ class News
         if ($search != '') {
             $sql .= ' WHERE `header` LIKE :search OR `blockquote` LIKE :search OR `body` LIKE :search';
         }
+        if ($newsPerPage != 0) {
         $sql .= ' LIMIT :newsPerPage OFFSET :offset;';
+        } else { $sql .= ';';}
         $stmt = $pdo->prepare($sql);
         if ($search != '') {
             $stmt->bindValue(':search', '%' . $search . '%');
         }
+        if ($newsPerPage != 0) {
         $stmt->bindValue(':newsPerPage', $newsPerPage, PDO::PARAM_INT);
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        }
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -158,5 +201,4 @@ class News
         SessionFlash::set(false, 'L\'actualite n\'a pas etais suprime');
         return false;
     }
-
 }

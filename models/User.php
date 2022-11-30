@@ -6,13 +6,16 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 
 class User
 {
-    private int $_id;
-    private string $_firstname;
-    private string $_lastname;
+    private int $_id_users;
     private string $_email;
-    private string $_city;
+    private string $_lastname;
+    private string $_firstname;
     private string $_country;
+    private string $_city;
     private string $_password;
+
+    // private int $_admin;  --- 1 vs null    (not bool on DB but TINY INT )  1:admin 2:moderator
+    // private int $_avatar;  ---- from a numbered list of default avatars profile images
 
     private string $_created_at;
     private string $_validated_at;
@@ -21,18 +24,18 @@ class User
 
     public function __construct()
     {
-        // created at 
-        // databse connection 
+        // created at ??
+        // databse connection ??
     }
     // START -- GETTER/SETTER
 
     public function setId(int $id): void
     {
-        $this->_id = $id;
+        $this->_id_users = $id;
     }
     public function getId(): int
     {
-        return $this->_id;
+        return $this->_id_users;
     }
 
     public function setCreatedAt(string $created_at): void
@@ -133,21 +136,13 @@ class User
         $pdo = Database::getInstance();
         $sql = "INSERT INTO `users`(`firstname`,`lastname`,`country`,`city`,`email`,`password`) 
                 VALUES (:firstname,:lastname,:country,:city,:email,:password);";
-        // nominativ marker ( : )   'var' sql, interact with prepare method of pdo, and protect malware SQL injections 
-        // interrogativ marker ( ? )
-        //statement e.g. communications with database
-        // stmt || sth
         $stmt = $pdo->prepare($sql);
-        // bindParam - rare  - as  if was 'var' so it can change later.
-        // bindValue - affect definitvly, accept a 3rd parameter...
-        // ...3rd param. to be precised if var type != string ( more used: PDO::PARAM_INT and PARAM_STR)
         $stmt->bindValue(':firstname', $this->getFirstname());
         $stmt->bindValue(':lastname', $this->getLastname());
         $stmt->bindValue(':country', $this->getCountry());
         $stmt->bindValue(':city', $this->getCity());
         $stmt->bindValue(':email', $this->getEmail());
         $stmt->bindValue(':password', $this->getPassword());
-        // the method runs and also get its result its returned, boolean, used to test sucess/fail
         if ($stmt->execute()) {
             return intval($pdo->lastInsertId());
         } else {
@@ -155,8 +150,12 @@ class User
         }
     }
     
-    public function edit(int $id)
+    public function edit(int $id):int
     {
+        $timezone = new DateTimeZone('UTC');
+        $now = new DateTime('now', $timezone);
+        $now = $now->date;
+
         $pdo =  Database::getInstance();
         $sql = "UPDATE `users` SET 
                 `firstname` = :firstname,
@@ -165,30 +164,36 @@ class User
                 `city` = :city,
                 `email` = :email,
                 `password` = :password,
-                `modified_at` = :modified_at
-                WHERE `id` = :id;
+                `modified_at` = $now
+                WHERE `id_users` = :id;
                 ";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id,PDO::PARAM_INT);
         $stmt->bindValue(':firstname', $this->getFirstname());
         $stmt->bindValue(':lastname', $this->getLastname());
         $stmt->bindValue(':country', $this->getcountry());
         $stmt->bindValue(':city', $this->getcity());
         $stmt->bindValue(':email', $this->getEmail());
         $stmt->bindValue(':password', $this->getPassword());
-        $stmt->bindValue(':modified_at', $this->getModifiedAt());
         if ($stmt->execute()) {
             SessionFlash::set(true, 'Votre compte a bien etais edite');
-            return $id;
+            return intval($pdo->lastInsertId());
         } else {
+            SessionFlash::set(false, 'Votre compte n\'a bien etais edite');
             return false;
         }
     }
 
     public static function editPassword(int $id, string $password)
     {
+        $timezone = new DateTimeZone('UTC');
+        $now = new DateTime('now', $timezone);
+        $now = $now->date;
+
         $pdo =  Database::getInstance();
-        $sql = "UPDATE `users` SET `password` = :password WHERE `id` = :id;";
+        $sql = "UPDATE `users`
+                SET `password` = :password, `modified_at` = $now
+                WHERE `id_users` = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->bindValue(':password', $password);
@@ -207,13 +212,14 @@ class User
         $now = $now->date;
         
         $pdo = Database::getInstance();
-        $sql = "UPDATE `users` SET `deleted_at` = $now WHERE `id` = :id;";
+        $sql = "UPDATE `users` SET `deleted_at` = $now WHERE `id_users` = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         if($stmt->execute()){
             SessionFlash::set(true, 'Votre profil de utilizateur a bien etais suprime');
             return true;
         };
+        SessionFlash::set(false, 'Votre profil de utilizateur n\'a pas etais suprime');
         return false;
     }
 
@@ -221,7 +227,7 @@ class User
     {
         try {
             $pdo = Database::getInstance();
-            $sql = 'SELECT `users`.`id` FROM `users` WHERE `email` = :email';
+            $sql = 'SELECT `users`.`id_users` FROM `users` WHERE `email` = :email';
             $stmt = $pdo->prepare($sql);  // return a object of the class PDOStatement..   statment handle
             $stmt->bindValue(':email', $email);
             $isTrueStmt = $stmt->execute();
@@ -236,32 +242,29 @@ class User
                 SessionFlash::set(false, 'Impossible des faire Connexion a la base de Donnes, try again or call support.');
                 return true;
             }
-            //$pdo = new PDO(DNS,login,pass);
-            //$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            SessionFlash::set(false, $e->getMessage());
         }
     }
 
-    public static function get(int $id)
+    public static function get(int $id):object
     {
         $pdo = Database::getInstance();
-        $sql = "SELECT * FROM `users` WHERE `id_users` = $id ;";
-        $stmt = $pdo->query($sql);
+        $sql = "SELECT * FROM `users` WHERE `id_users` = :id ;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
         return $stmt->fetch();
     }
 
-
-    public static function getByEmail(string $email)
-    { // obj(User) - bool
+    public static function getByEmail(string $email):object
+    {
         $pdo = Database::getInstance();
         $sql = 'SELECT * FROM `users` WHERE `email` = :email;';
-        $sth = $pdo->prepare($sql);
-        $sth->bindValue(':email', $email);
-        if ($sth->execute()) {
-            //$sth->setFetchMode(PDO::FETCH_CLASS, 'User');
-            $result = $sth->fetch();
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        if ($stmt->execute()) {
+            $result = $stmt->fetch();
             if ($result) {
                 return $result;
             }
@@ -269,12 +272,12 @@ class User
         return false;
     }
 
-    public static function getTotalNumberOf($search = '')
+    public static function getTotalNumberOf($search = ''):int
     {
         $pdo = Database::getInstance();
-        $sql = 'SELECT COUNT(`id`) AS count FROM `patients`';
+        $sql = 'SELECT COUNT(`id_users`) AS count FROM `users`';
         if ($search != '') {
-            $sql .= ' WHERE `lastname` LIKE :search OR `email` LIKE :search ';
+            $sql .= ' WHERE `lastname` LIKE :search OR `firstname` LIKE :search OR `email` LIKE :search';
         }
         $sql .= ';';
         $stmt = $pdo->prepare($sql);
@@ -286,18 +289,18 @@ class User
         return intval($obj->count);
     }
 
-    public static function getAll(int $currentPage = 1, int $usersPerPage = 0, $search = ''): array
+    public static function getAll(int $currentPage = 1, int $usersPerPage = 0, $search = ''):array
     {
         $pdo = Database::getInstance();
-        $offset = ($currentPage - 1) * $usersPerPage; // offset can be set out of method 
-        $sql = "SELECT `id`, `firstname`, `lastname`, `country`, `city`, `email` 
-        FROM `patients`";
+        $offset = ($currentPage - 1) * $usersPerPage;
+        $sql = "SELECT `id_users`, `firstname`, `lastname`, `country`, `city`, `email` 
+                FROM `users`";
         if ($search != '') {
             $sql .= ' WHERE `lastname` LIKE :search OR `email` LIKE :search ';
         }
         if ($usersPerPage != 0) {
             $sql .= ' LIMIT :usersPerPage OFFSET :offset;';
-        }
+        } else { $sql .= ';';}
         $stmt = $pdo->prepare($sql);
         if ($search != '') {
             $stmt->bindValue(':search', '%' . $search . '%');

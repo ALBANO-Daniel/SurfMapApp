@@ -24,6 +24,7 @@ class Spot
     {
         $this->_id = $id;
     }
+
     public function getName():string
     {
         return $this->_name;
@@ -32,6 +33,7 @@ class Spot
     {
         $this->_name = $name;
     }
+
     public function getLatitude():string
     {
         return $this->_latitude;
@@ -40,6 +42,7 @@ class Spot
     {
         $this->_latitude = $latitude;
     }
+
     public function getLongitude():string
     {
         return $this->_longitude;
@@ -48,6 +51,7 @@ class Spot
     {
         $this->_longitude = $longitude;
     }
+
     public function getDescription():string
     {
         return $this->_description;
@@ -55,6 +59,43 @@ class Spot
     public function setDescription(string $description):void
     {
         $this->_description = $description;
+    }
+
+    public function setCreatedAt(string $created_at): void
+    {
+        $this->_created_at = $created_at;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->_created_at;
+    }
+
+    public function setValidatedAt(string $validated_at): void
+    {
+        $this->_validated_at = $validated_at;
+    }
+    public function getValidatedAt(): string
+    {
+        return $this->_validated_at;
+    }
+
+    public function setModifiedAt(string $modified_at): void
+    {
+        $this->_modified_at = $modified_at;
+    }
+    public function getModifiedAt(): string
+    {
+        return $this->_modified_at;
+    }
+
+    public function setDeletedAt(string $deleted_at): void
+    {
+        $this->_deleted_at = $deleted_at;
+    }
+    public function getDeletedAt(): string
+    {
+        return $this->_deleted_at;
     }
 
     // END -- GETTER/SETTER
@@ -113,13 +154,17 @@ class Spot
         if ($search != '') {
             $sql .= ' WHERE `name` LIKE :search';
         }
+        if ($spotsPerPage != 0) {
         $sql .= ' LIMIT :spotsPerPage OFFSET :offset;';
+        } else { $sql .= ';';}
         $stmt = $pdo->prepare($sql);
         if ($search != '') {
             $stmt->bindValue(':search', '%' . $search . '%');
         }
+        if ($spotsPerPage != 0) {
         $stmt->bindValue(':spotsPerPage', $spotsPerPage, PDO::PARAM_INT);
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        }
         $stmt->execute();
         return $stmt->fetchAll();
     }
