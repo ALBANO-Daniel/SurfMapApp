@@ -158,7 +158,7 @@ class User
     public function edit(int $id)
     {
         $pdo =  Database::getInstance();
-        $sql = "UPDATE `clients` SET 
+        $sql = "UPDATE `users` SET 
                 `firstname` = :firstname,
                 `lastname` = :lastname,
                 `country` = :country,
@@ -188,7 +188,7 @@ class User
     public static function editPassword(int $id, string $password)
     {
         $pdo =  Database::getInstance();
-        $sql = "UPDATE `clients` SET `password` = :password WHERE `id` = :id;";
+        $sql = "UPDATE `users` SET `password` = :password WHERE `id` = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->bindValue(':password', $password);
