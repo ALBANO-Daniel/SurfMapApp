@@ -4,7 +4,7 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 require_once(__DIR__ . '/../helpers/adminRequiredBundle.php');
 
 var_dump($_POST);
-var_dump('file : ');
+var_dump('--------');
 var_dump($_FILES);
 
 
@@ -25,14 +25,14 @@ $pageTitle = 'dashboard';
 try {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // HANDLE NEWS FORM
-        if (!empty($_POST['newstitle'])) {
-            //===================== newsTitle : Nettoyage et validation =======================
-            $newsTitle = trim(filter_input(INPUT_POST, 'newstitle', FILTER_SANITIZE_SPECIAL_CHARS));
-            if (empty($newsTitle)) {
-                $error['newsTitle'] = "Vous devez entrer le titre de l'actualite !!";
+        if (!empty($_POST['newsheader'])) {
+            //===================== newsHeader : Nettoyage et validation =======================
+            $newsHeader = trim(filter_input(INPUT_POST, 'newsheader', FILTER_SANITIZE_SPECIAL_CHARS));
+            if (empty($newsHeader)) {
+                $error['newsHeader'] = "Vous devez entrer le titre de l'actualite !!";
             } else {
-                if (strlen($newsTitle) <= 1 || strlen($newsTitle) >= 50) {
-                    $error['newsTitle'] = "La longueur du titre n'est pas bonne";
+                if (strlen($newsHeader) <= 1 || strlen($newsHeader) >= 50) {
+                    $error['newsHeader'] = "La longueur du titre n'est pas bonne";
                 }
             }
 
@@ -69,7 +69,7 @@ try {
 
             if (empty($error)) {
                 $news = new News();
-                $news->setHeader($newsTitle);
+                $news->setHeader($newsHeader);
                 $news->setSubHeader($newsSubHeader);
                 $news->setBody($newsBody);
                 $newsId = $news->set();
@@ -169,15 +169,13 @@ try {
                 }
             }
         }
-        
     }
+
 } catch (\Throwable $th) {
     SessionFlash::set(false, $th->getMessage());
     header('location: /error500');
     exit;
 }
-
-
 
 
 $document = $_GET["p"] ?? null;
@@ -194,12 +192,15 @@ switch ($document) {
         include(__DIR__ . '/../views/userPageAdmin.php');
         break;
     case 'guide':
-        include(__DIR__ . '/../views/adminGuide.php');
+        include(__DIR__ . '/../views/components/adminGuide.php');
         break;
     case 'userGuide':
-        include(__DIR__ . '/../views/adminGuide.php');
+        include(__DIR__ . '/../views/components/userGuide.php');
         break;
-        // ... 
+        case 'protection':
+            include(__DIR__ . '/../views/components/protectionDonneesPersonnelles.php');
+            break;
+    // ... 
 }
 
 

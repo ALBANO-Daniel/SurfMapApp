@@ -63,6 +63,7 @@
         <li><a class="waves-effect" href="?p=guide">Admin Guide</a></li>
         <li><a class="waves-effect" href="?p=userguide">New user Guide</a></li>
         <li><a class="waves-effect" href="?p=terms">user terms</a></li>
+        <li><a class="waves-effect" href="?p=protection">user protection</a></li>
 
         <li class="navFooter grey darken-1">
             <div class="footer-copyright">
@@ -134,7 +135,7 @@
 
 
         </section>
-        
+
         <!-- NAV>>PAGES>>NEWS  SECTION  -->
         <section id="news" class="center">
             <div class="row">
@@ -156,8 +157,8 @@
                     <!-- header  -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input name="newstitle" id="newstitle" value="<?= $newsTitle ?? '' ?>" type="text" data-length="50" required>
-                            <label for="newstitle">Titre</label>
+                            <input name="newsheader" id="newsheader" value="<?= $newsHeader ?? '' ?>" type="text" data-length="50" required>
+                            <label for="newsheader">Titre</label>
                         </div>
                     </div>
                     <!-- headlines / sub-title -->
@@ -264,7 +265,7 @@
 
                 <!-- SPOT FORM  -->
                 <form id="spotForm" class="container" action="" method="post" enctype="multipart/form-data">
-                    <h5>creation de nouvelle plage</h5>
+                    <h5>creation de nouvelle 'Spot'</h5>
                     <!-- header  -->
                     <div class="row">
                         <div class="input-field col s12">

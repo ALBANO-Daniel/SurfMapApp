@@ -1,3 +1,8 @@
+<?php
+$urlstring = basename($_SERVER['HTTP_REFERER']);
+?>
+    <a href="/<?= $urlstring ?>"><< BACK</a>
+
 <main>
     <section>
         <h1>
