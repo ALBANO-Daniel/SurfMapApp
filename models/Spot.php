@@ -149,7 +149,7 @@ class Spot
     {
         $pdo = Database::getInstance();
         $offset = ($currentPage - 1) * $spotsPerPage; // offset can be set out of method 
-        $sql = "SELECT `id_spots`, `name`, `latitude`, `longitude`, `description` 
+        $sql = "SELECT `id_spots`, `name`, `latitude`, `longitude`, `description`, `created_at`,`modified_at`
                 FROM `spots`";
         if ($search != '') {
             $sql .= ' WHERE `name` LIKE :search';

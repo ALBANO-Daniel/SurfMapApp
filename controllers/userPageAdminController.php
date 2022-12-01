@@ -172,6 +172,9 @@ try {
     }
     //HANDLE NEWS LIST
     $newsList = News::getAll();
+    //HANDLE SPOTS LIST
+    $spotsList = Spot::getAll();
+    var_dump($spotsList);
 } catch (\Throwable $th) {
     SessionFlash::set(false, $th->getMessage());
     header('location: /error500');

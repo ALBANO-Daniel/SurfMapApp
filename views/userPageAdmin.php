@@ -294,51 +294,29 @@
                 <div id="spotsList" class="container center">
                     <h5>liste de toute les plages</h5>
                     <ul class="row collapsible">
+                        <?php
+                        foreach ($spotsList as $index => $spot) { 
+                            $date = $spot->modified_at == null ? $spot->created_at : $spot->modified_at;
+                            // format $date with function  ?>
                         <li>
-                            <div class="collapsible-header">Secret 1<span class="grey-text smaller">(20 dec 2020)</span></div>
+                            <div class="collapsible-header"><?=$spot->name?><span class="grey-text smaller">(<?= $date ?>)</span></div>
                             <div class="collapsible-body">
                                 <div class="row">
-                                    <div class="col s12 m6">images thumbnails </div>
-                                    <div class="col s12 m6">mini map pin thumbnail? vs real map API </div>
+                                    <div class="col s12 m6">
+                                        <img width="100px" height="100px" src="/public/assets/img/spots-images/<?=$spot->id_spots?>.jpg" alt="spot image, the beach waves">
+                                    </div>
+                                    <div class="col s12 m6">mini map with pin...</div>
                                 </div>
-
-                                <div>resume</div>
-                                <div>lat / long OR map</div>
-                                <div>description</div>
+                                <div>lat: <?= $spot->latitude ?> || log: <?=$spot->longitude ?></div>
+                                <div><?= $spot->description ?></div>
                                 <div class="btns row">
-                                    <span class="btn col s4">comments</span>
-                                    <span class="btn col s4">edit</span>
-                                    <span class="btn col s4">delete</span>
+                                    <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
+                                    <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
+                                    <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
                                 </div>
                             </div>
                         </li>
-
-                        <li>
-                            <div class="collapsible-header">Buraco do macaco<span class="grey-text smaller">(20 dec 2020)</span></div>
-                            <div class="collapsible-body">
-                                <div>...</div>
-                                <div>headlines</div>
-                                <div>content</div>
-                                <div class="btns row">
-                                    <span class="btn col s4">comments</span>
-                                    <span class="btn col s4">edit</span>
-                                    <span class="btn col s4">delete</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header">quebradeira do jose<span class="grey-text smaller">(05 aout 1990)</span></div>
-                            <div class="collapsible-body">
-                                <div>image thumb</div>
-                                <div>headlines</div>
-                                <div>content</div>
-                                <div class="btns row">
-                                    <span class="btn col s4">comments</span>
-                                    <span class="btn col s4">edit</span>
-                                    <span class="btn col s4">delete</span>
-                                </div>
-                            </div>
-                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
 
