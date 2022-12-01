@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   
-// ARTICLE IMAGE PREVIEW 
-uploadedArticleImg.onchange = () => {
-  const [file] = uploadedArticleImg.files
+// NEWS IMAGE PREVIEW 
+uploadedNewsImg.onchange = () => {
+  const [file] = uploadedNewsImg.files
   if (file) {
-    showArticleImg.src = URL.createObjectURL(file);
+    showNewsImg.src = URL.createObjectURL(file);
   }
 }
 // SPOT IMAGE PREVIEW

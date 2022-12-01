@@ -132,8 +132,9 @@
                     </ul>
                 </div>
 
-        </section>
 
+        </section>
+        
         <!-- NAV>>PAGES>>NEWS  SECTION  -->
         <section id="news" class="center">
             <div class="row">
@@ -150,41 +151,42 @@
                 </div>
 
                 <!-- NEWS FORM  -->
-                <form id="newsForm" class="container" action="" method="post" enctype="multipart/form-data">
+                <form novalidate id="newsForm" class="container" action="" method="post" enctype="multipart/form-data">
                     <h5>creation de nouvelle Actualite</h5>
                     <!-- header  -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input name="newstitle" id="newstitle" type="text" data-length="50">
+                            <input name="newstitle" id="newstitle" value="<?= $newsTitle ?? '' ?>" type="text" data-length="50" required>
                             <label for="newstitle">Titre</label>
                         </div>
                     </div>
                     <!-- headlines / sub-title -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input name="newsheadlines" id="newsheadlines" type="text" data-length="255">
-                            <label for="newsheadlines">headlines</label>
+                            <input name="newssubheader" id="newssubheader" value="<?= $newsSubHeader ?? '' ?>" type="text" data-length="255" required>
+                            <label for="newssubheader">Surtitre</label>
                         </div>
                     </div>
                     <!-- main image  -->
+                    <!-- $error['newsimage'] -->
                     <div class="row">
                         <!-- image placeholder -->
                         <div class="col s12">
                             <!-- look for CSS  -->
-                            <img id="showArticleImg" class="responsive-img" src="/public/assets/img/default-image.jpg" alt="article image" />
+                            <img id="showNewsImg" class="responsive-img" src="/public/assets/img/default-image.jpg" alt="article image" />
                         </div>
                     </div>
                     <!--  image input  -->
                     <div class="row">
                         <div class="file-field input-field col s12">
                             <span>choisir article image</span>
-                            <input name="articleimage" type="file" accept="image/png, image/jpeg" id="uploadedArticleImg" placeholder="choose article image">
+                            <input name="newsimage" type="file" accept="image/png, image/jpeg" id="uploadedNewsImg" placeholder="choose article image" required>
                         </div>
                     </div>
                     <!-- News body text  -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="newsbody" id="newsbody" class="materialize-textarea"></textarea>
+                            <textarea name="newsbody" id="newsbody" value="<?= $newsBody ?? '' ?>" class="materialize-textarea" required></textarea>
                             <label for="newsbody">ecrire article:</label>
                         </div>
                     </div>
@@ -271,6 +273,7 @@
                         </div>
                     </div>
                     <!-- main image  -->
+                    <!-- $error['spotimage']  -->
                     <div class="row">
                         <!-- image placeholder -->
                         <div class="col s12">

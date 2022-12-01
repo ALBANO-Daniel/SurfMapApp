@@ -77,12 +77,12 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
-                        <input name="firstname" id="firstName" type="text" class="validate">
+                        <input name="firstname" id="firstName" value="<?= $firstname ?? '' ?>" type="text" class="validate">
                         <label for="firstname">Prenom</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
-                        <input name="lastname" id="lastname" type="text" class="validate">
+                        <input name="lastname" id="lastname" value="<?= $lastname ?? '' ?>" type="text" class="validate">
                         <label for="lastname">Nom</label>
                     </div>
                 </div>
@@ -338,7 +338,7 @@
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">location_on</i>
-                        <input name="city" id="city" type="text" class="validate">
+                        <input name="city" id="city" type="text" value="<?= $city ?? '' ?>" class="validate">
                         <label for="city">Ville</label>
                     </div>
                 </div>
@@ -346,7 +346,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
-                        <input name="email" class="validate" type="email" id="email">
+                        <input name="email" class="validate" value="<?= $email ?? '' ?>" type="email" id="email">
                         <label for="email">Email</label>
                         <span class="helper-text" data-error="format incorrect" data-sucess=""></span>
                     </div>

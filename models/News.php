@@ -5,7 +5,7 @@ class News
 {
     private int $_id_news;
     private string $_header;
-    private string $_blockquote;
+    private string $_subHeader;
     private string $_body;
 
     // created_at etc.... auto generation OR inserted direct var->SQL->table
@@ -35,13 +35,13 @@ class News
         $this->_header = $header;
     }
 
-    public function getBlockquote():string
+    public function getSubHeader():string
     {
-        return $this->_blockquote;
+        return $this->_subHeader;
     }
-    public function setBlockquote(string $blockquote):void
+    public function setSubHeader(string $subHeader):void
     {
-        $this->_blockquote = $blockquote;
+        $this->_subHeader = $subHeader;
     }
 
     public function getBody():string
@@ -94,11 +94,11 @@ class News
     public function set():int
     {
         $pdo = Database::getInstance();
-        $sql = "INSERT INTO `news`(`header`,`blockquote`,`body`) 
-                VALUES (:header,:blockquote,:body);";
+        $sql = "INSERT INTO `news`(`header`,`subheader`,`body`) 
+                VALUES (:header,:subheader,:body);";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':header', $this->getHeader());
-        $stmt->bindValue(':blockquote', $this->getBlockquote());
+        $stmt->bindValue(':subheader', $this->getSubHeader());
         $stmt->bindValue(':body', $this->getBody());
         if ($stmt->execute()) {
             return intval($pdo->lastInsertId());
@@ -121,7 +121,7 @@ class News
         $pdo = Database::getInstance();
         $sql = 'SELECT COUNT(`id_news`) AS count FROM `news`';
         if ($search != '') {
-            $sql .= ' WHERE `header` LIKE :search OR `blockquote` LIKE :search OR `body` LIKE :search';
+            $sql .= ' WHERE `header` LIKE :search OR `subheader` LIKE :search OR `body` LIKE :search';
         }
         $sql .= ';';
         $stmt = $pdo->prepare($sql);
@@ -136,10 +136,10 @@ class News
     {
         $pdo = Database::getInstance();
         $offset = ($currentPage - 1) * $newsPerPage; // offset can be set out of method 
-        $sql = "SELECT `id_news`, `header`, `blockquote`, `body` 
+        $sql = "SELECT `id_news`, `header`, `subheader`, `body` 
                 FROM `news`";
         if ($search != '') {
-            $sql .= ' WHERE `header` LIKE :search OR `blockquote` LIKE :search OR `body` LIKE :search';
+            $sql .= ' WHERE `header` LIKE :search OR `subheader` LIKE :search OR `body` LIKE :search';
         }
         if ($newsPerPage != 0) {
         $sql .= ' LIMIT :newsPerPage OFFSET :offset;';
@@ -165,7 +165,7 @@ class News
         $pdo =  Database::getInstance();
         $sql = "UPDATE `news` SET 
                 `header` = :header,
-                `blockquote` = :blockquote,
+                `subheader` = :subheader,
                 `body` = :body,
                 `modified_at` = $now,
                 WHERE `id_news` = :id;
@@ -173,7 +173,7 @@ class News
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':header', $this->getHeader());
-        $stmt->bindValue(':blockquote', $this->getBlockquote());
+        $stmt->bindValue(':subheader', $this->getSubHeader());
         $stmt->bindValue(':body', $this->getBody());
         if ($stmt->execute()) {
             SessionFlash::set(true, 'L\'Actualite a bien etais edite');
