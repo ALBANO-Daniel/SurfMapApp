@@ -136,7 +136,7 @@ class News
     {
         $pdo = Database::getInstance();
         $offset = ($currentPage - 1) * $newsPerPage; // offset can be set out of method 
-        $sql = "SELECT `id_news`, `header`, `subheader`, `body` 
+        $sql = "SELECT `id_news`, `header`, `subheader`, `body`, `created_at`, `modified_at`
                 FROM `news`";
         if ($search != '') {
             $sql .= ' WHERE `header` LIKE :search OR `subheader` LIKE :search OR `body` LIKE :search';

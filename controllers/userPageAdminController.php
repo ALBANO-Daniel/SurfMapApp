@@ -161,7 +161,7 @@ try {
                     $tempAdress = $_FILES["spotimage"]["tmp_name"];
                     $newAdress = (__DIR__ . "/../public/assets/img/spots-images/$spotId.jpg");
                     move_uploaded_file($tempAdress, $newAdress);
-                    // WIP WIP WIP HANDLE THUMBNAIL 
+                    // WIP WIP WIP HANDLE THUMBNAIL
                     // $newAdress = (__DIR__ . "/../public/assets/img/news-images/$newsId-thumbnail.jpg");
                     SessionFlash::set(true, 'Le spot a bien etais cree.');
                 } else {
@@ -170,7 +170,8 @@ try {
             }
         }
     }
-
+    //HANDLE NEWS LIST
+    $newsList = News::getAll();
 } catch (\Throwable $th) {
     SessionFlash::set(false, $th->getMessage());
     header('location: /error500');
@@ -184,8 +185,6 @@ $document = $_GET["p"] ?? null;
 include(__DIR__ . '/../views/templates/htmlStart.php');
 
 //structure
-
-
 // HANDLER DOCUMENTS SECTION by GET
 switch ($document) {
     case null:
@@ -197,10 +196,10 @@ switch ($document) {
     case 'userGuide':
         include(__DIR__ . '/../views/components/userGuide.php');
         break;
-        case 'protection':
-            include(__DIR__ . '/../views/components/protectionDonneesPersonnelles.php');
-            break;
-    // ... 
+    case 'protection':
+        include(__DIR__ . '/../views/components/protectionDonneesPersonnelles.php');
+        break;
+        // ... 
 }
 
 

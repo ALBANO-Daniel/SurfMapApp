@@ -84,6 +84,7 @@ class Comment
         $stmt->bindValue(':header', $this->getComment());
         $stmt->bindValue(':category', $this->getCategory());
         $stmt->bindValue(':idnews', $this->getIdNews());
+        // $stmt->bindValue(':idnews', $this->getIdSpots());    WIP WIP WIP
         $stmt->bindValue(':idusers', $this->getIdUsers());
         if ($stmt->execute()) {
             SessionFlash::set(true, 'commentaire envoie');
@@ -142,7 +143,7 @@ class Comment
     public static function getAllFromNews(int $id):array
     {
         $pdo = Database::getInstance();
-        $sql = 'SELECT * FROM `comments` WHERE `id_news = :id';
+        $sql = 'SELECT * FROM `comments` WHERE `id_news` = :id';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->execute();
@@ -151,7 +152,7 @@ class Comment
     public static function getAllFromSpots(int $id):array
     {
         $pdo = Database::getInstance();
-        $sql = 'SELECT * FROM `comments` WHERE `id_spots = :id';
+        $sql = 'SELECT * FROM `comments` WHERE `id_spots` = :id';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->execute();
@@ -174,10 +175,10 @@ class Comment
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':comment', $comment);
         if ($stmt->execute()) {
-            SessionFlash::set(true, 'Le commentaire a bien etais edite');
+            SessionFlash::set(true, 'Le commentaire a bien été edité');
             return true;
         } else {
-            SessionFlash::set(false, 'Le commentaire n\'a pas etais edite');
+            SessionFlash::set(false, 'Le commentaire n\'a pas été edité');
             return false;
         }
     }

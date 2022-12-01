@@ -201,47 +201,24 @@
                 <div id="newsList" class="container center">
                     <h5>liste de tous les actualitees</h5>
                     <ul class="row collapsible">
-                        <li>
-                            <div class="collapsible-header">Shark's bites for love<span class="grey-text smaller">(20 dec 2020)</span></div>
-                            <div class="collapsible-body">
-                                <div>image thumb</div>
-                                <div>headlines</div>
-                                <div>content</div>
-                                <div class="btns row">
-                                    <span class="btn col s4">comments</span>
-                                    <span class="btn col s4">edit</span>
-                                    <span class="btn col s4">delete</span>
+                        <?php
+                        foreach ($newsList as $index => $news) {
+                            $date = $news->modified_at == null ? $news->created_at : $news->modified_at;
+                            // $date = format_date($date); ?>
+                            <li>
+                                <div class="collapsible-header"><?= $news->header ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
+                                <div class="collapsible-body">
+                                    <div><img width="100px" height="100px" src="/public/assets/img/news-images/<?= $news->id_news ?>.jpg" alt="thumbnail news image"></div>
+                                    <div><?= $news->subheader ?></div>
+                                    <div><?= $news->body ?></div>
+                                    <div class="btns row">
+                                        <a class="btn col s4" href="/commentslist?newsid=<?= $news->id_news ?>">comments</a>
+                                        <a class="btn col s4" href="/newsedit?id=<?= $news->id_news ?>">edit</a>
+                                        <a class="btn col s4" href="/newsdelete?id=<?= $news->id_news ?>">delete</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="collapsible-header">Mondial surf hawaii<span class="grey-text smaller">(20 dec 2020)</span></div>
-                            <div class="collapsible-body">
-                                <div>image thumb</div>
-                                <div>headlines</div>
-                                <div>content</div>
-                                <div class="btns row">
-                                    <span class="btn col s4">comments</span>
-                                    <span class="btn col s4">edit</span>
-                                    <span class="btn col s4">delete</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header">surf better by eating better<span class="grey-text smaller">(05 aout 1990)</span></div>
-                            <div class="collapsible-body">
-                                <div>image thumb</div>
-                                <div>headlines</div>
-                                <div>content</div>
-                                <div class="btns row">
-                                    <span class="btn col s4">comments</span>
-                                    <span class="btn col s4">edit</span>
-                                    <span class="btn col s4">delete</span>
-                                </div>
-                            </div>
-                        </li>
-
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

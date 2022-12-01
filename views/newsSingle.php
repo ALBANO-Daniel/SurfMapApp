@@ -45,7 +45,10 @@ $userImage = "/images/../$userId.jpg";
             <div class="row ifMoreImgs">
                 <img class="left col s12 m6"  height="50%" src="/public/assets/img/wave/3-thumbnail.jpg" alt="generic article img">
                 <p class="right col s12 m6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nisi perspiciatis nostrum dolor tempore numquam sint aliquid adipisci. A soluta ratione labore voluptatibus exercitationem, saepe excepturi in eos ipsam veniam.</p>
-            </div>
+            </div>\
+            <textarea name="" id="" cols="30" rows="10">ahsdfiahsdufiahsdui</textarea>
+            <!-- if($id com)  -->
+
         </article>
         <!-- on bigger then tablet make comments left and moreNews on right -->
         <div class="container coments">
