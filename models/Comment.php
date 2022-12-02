@@ -75,20 +75,19 @@ class Comment
     // END -- GETTER/SETTER
 
     // set
-    public function setNewsComment():int
+    public function setNewsComment():bool
     {
         $pdo = Database::getInstance();
         $sql = "INSERT INTO `comments`(`comment`,`category`,`id_news`,`id_users`)
                 VALUES (:comment,:category,:idnews,:idusers);";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':header', $this->getComment());
-        $stmt->bindValue(':category', $this->getCategory());
-        $stmt->bindValue(':idnews', $this->getIdNews());
-        // $stmt->bindValue(':idnews', $this->getIdSpots());    WIP WIP WIP
-        $stmt->bindValue(':idusers', $this->getIdUsers());
+        $stmt->bindValue(':comment', $this->getComment());
+        $stmt->bindValue(':category', $this->getCategory(), PDO::PARAM_INT);
+        $stmt->bindValue(':idnews', $this->getIdNews(), PDO::PARAM_INT);
+        $stmt->bindValue(':idusers', $this->getIdUsers(), PDO::PARAM_INT);
         if ($stmt->execute()) {
             SessionFlash::set(true, 'commentaire envoie');
-            return intval($pdo->lastInsertId());
+            return true;
         } else {
             SessionFlash::set(true, 'impossible de ecrire le commentaire');
             return false;

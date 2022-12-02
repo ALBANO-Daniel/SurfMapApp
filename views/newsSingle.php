@@ -1,79 +1,87 @@
-<!-- header outside, or inside main -->
-<!-- article can have another main?  -->
-<?php
-
-
-$newsId = 'previous page';
-$news = News::get($newsId);
-$newsthumbnail = "/images/../$newsId'thumbnail.jpg";
-$newsImage = "images/../$newsId.jpg";
-
-// comments 
-$idUser = 'current session';
-$newsComments = Comment::getAllFromNews($newsId);
-$userImage = "/images/../$userId.jpg";
-
-
-
-?>
 <main>
     <section class="theNews">
-
+        <!-- THE SINGLE NEWS -->
         <article class="container">
             <div class="row">
-                <h1>news name</h1>
-                <h5>Meta date,autor,etc</h5>
+                <h1><?= $news->header ?></h1>
+                <!-- CHECK IF TERNAIRE ECHO WORKS  -->
+                <!-- <h5><//?= $news->created_at == null ? $news->modified_at : $news->created_at ?></h5> -->
+                <h5><?php
+                    $newsTime = $news->created_at == null ? $news->modified_at : $news->created_at;
+                    echo $newsTime;
+                    ?>
+                </h5>
                 <br>
-                <img class="center-align" width="80%" height="35%" src="/public/assets/img/wave/1-landscape.jpg" alt="main image of news">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt odit sint placeat animi iusto pariatur, asperiores porro sunt ipsa magni officiis perspiciatis voluptatem, rem rerum error, aut enim fugiat molestiae! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro repudiandae blanditiis cum nobis sapiente eaque eveniet fuga omnis vitae dolorum impedit perferendis commodi saepe iste sunt id, dolores magni ea? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate cumque tempora quibusdam eius? Itaque iure sapiente nihil nostrum, deserunt officia sint quisquam voluptates delectus amet alias impedit veniam nisi non.</p>
-                <div class="divider"></div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus corporis temporibus dolorum iste ut? Laudantium, veniam voluptatum iusto excepturi quisquam recusandae commodi eum, beatae voluptas, similique omnis nihil quae maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa est, rerum assumenda doloremque voluptatem voluptate perferendis cupiditate. Enim, porro mollitia. Excepturi repellat deleniti, quibusdam culpa veniam voluptate consequatur minima voluptatibus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum assumenda ullam id vero error itaque quis mollitia dicta numquam harum, quae consequuntur ea architecto nam quos nesciunt ab corporis autem!</p>
+                <blockquote><?= $news->subheader ?></blockquote>
             </div>
-            <div class="row ifMoreImgs">
-                <img class="right col s12 m6"  height="50%" src="/public/assets/img/wave/3-thumbnail.jpg" alt="generic article img">
-                <p class="left col s12 m6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore porro repudiandae veniam laboriosam nisi eligendi delectus aliquam reprehenderit voluptatem earum temporibus esse corrupti iusto, sint quo tenetur. Dolor, doloribus hic!</p>
+            <div class="row">
+                <img class="center-align" width="80%" height="35%" src="/public/assets/img/news-images/<?= $news->id_news ?>.jpg" alt="main image of news">
             </div>
-            <div class="divider"></div>
-            <div class="row ifMoreImgs">
-                <img class="left col s12 m6"  height="50%" src="/public/assets/img/wave/3-thumbnail.jpg" alt="generic article img">
-                <p class="right col s12 m6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nesciunt maiores culpa perspiciatis ut, atque officiis, doloremque ad harum adipisci perferendis voluptatem voluptatibus, nulla accusantium. Dolore ab dolores aperiam id.</p>
+            <div class="row">
+                <?= $news->body ?>
             </div>
-            <div class="row ifMoreImgs">
-                <img class="right col s12 m6"  height="50%" src="/public/assets/img/wave/3-thumbnail.jpg" alt="generic article img">
-                <p class="left col s12 m6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore error aspernatur magnam delectus eum, non cumque fuga quam inventore, doloremque harum ex, vitae illo totam beatae eaque quidem nisi nemo?</p>
-            </div>
-            <div class="row ifMoreImgs">
-                <img class="left col s12 m6"  height="50%" src="/public/assets/img/wave/3-thumbnail.jpg" alt="generic article img">
-                <p class="right col s12 m6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nisi perspiciatis nostrum dolor tempore numquam sint aliquid adipisci. A soluta ratione labore voluptatibus exercitationem, saepe excepturi in eos ipsam veniam.</p>
-            </div>\
-            <textarea name="" id="" cols="30" rows="10">ahsdfiahsdufiahsdui</textarea>
-            <!-- if($id com)  -->
-
         </article>
-        <!-- on bigger then tablet make comments left and moreNews on right -->
-        <div class="container coments">
+
+        <!-- COMMENTS SECTION  -->
+        <div class="container comments">
             <h3 class="row center">comments:</h3>
-            <div class="row comment">
-                <img class="col s3 m1"  height="50px" src="/public/assets/img/wave/3-thumbnail.jpg" alt="profile">
-                <p class="col s9 m11"> i loved this post , really inspiring!</p>
-            </div>
+            <?php
+            foreach ($commentsList as $index => $comment) { ?>
+                <div class="row comment">
+                    <img class="left circle" height="100px" width="100px" src="/public/assets/img/profile-images/<?= $comment->id_users ?>.jpg" alt="profile image of comment">
+                    <span><?= $comment->comment ?></span>
+                    <?php
+                    if ($userId == $comment->id_users) { ?>
+                        <span><a href="/commentdelete?id<?= $comment->id_comments ?>" class="btn"><i class="material-icons">delete</i></a></span>
+                        <span><a href="/commentedit?id<?= $comment->id_comments ?>" class="btn"><i class="material-icons">create</i></a></span>
+                    <?php } ?>
+                </div>
+            <?php } ?>
             <div class="divider"></div>
-            <br>
-            <div class="row comment">
-                <img class="col s3 m1"  height="50px" src="/public/assets/img/wave/3-thumbnail.jpg" alt="profile">
-                <p class="col s9 m11"> i loved this post , really inspiring!</p>
-            </div>
-            <div class="divider"></div>
-            <br>
+            <?php
+            if (isset($_SESSION['user'])) {
+            ?>
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">create</i>
+                            <input name="new_comment" id="new_comment" type="text" class="validate">
+                            <label for="new_comment">nouvelle commentaire</label>
+                            <button>envoyer</button>
+                        </div>
+                    </div>
+                <?php } ?>
+                </form>
         </div>
     </section>
-
+    <!-- MORE NEWS SECTION  -->
     <section class="container">
         <div class="row moreNews">
-            <img class="col s6 m3"  height="50px" src="/public/assets/img/wave/3-thumbnail.jpg" alt="profile">
-            <img class="col s6 m3"  height="50px" src="/public/assets/img/wave/3-thumbnail.jpg" alt="profile">
-            <img class="col s6 m3"  height="50px" src="/public/assets/img/wave/3-thumbnail.jpg" alt="profile">
-            <img class="col s6 m3"  height="50px" src="/public/assets/img/wave/3-thumbnail.jpg" alt="profile">
+            <div class="row">
+                <h2 class="center">featured</h2>
+                <?php
+                foreach ($newsFeaturedList as $index => $news) {
+                    // check to avoid showing the same news as current
+                    if ($news->id_news != $newsId) {?>
+                        <div class="col s12 m6 l4">
+                            <div class="card card-panel hoverable">
+                                <div class="card-image">
+                                    <img src="/public/assets/img/news-images/<?= $news->id_news ?>.jpg">
+                                    <!-- <span class="card-title grey-text text-darken-4"><//?= $news->header ?></span> -->
+                                </div>
+                                <div class="card-content">
+                                    <p class="truncate"><?= $news->header ?></p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="/newssingle?id=<?= $news->id_news ?>">see more</a>
+                                </div>
+                            </div>
+                        </div>
+                <?php
+                    }
+                } ?>
+            </div>
+
             <p class="row">
                 little followUp navigation suggestion, news or map or features etc....<br> maybe some caroussel with the related news, more news, or other cathegories...
             </p>

@@ -116,7 +116,16 @@ class News
         $stmt->execute();
         return $stmt->fetch();
     }
-    public static function getTotalNumberOf($search = '')
+    public static function getFeatured(int $limit):array
+    {
+        $pdo = Database::getInstance();
+        $sql = "SELECT * FROM `news` ORDER BY `created_at` DESC LIMIT :limit;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    public static function getTotalNumberOf($search = ''):int
     {
         $pdo = Database::getInstance();
         $sql = 'SELECT COUNT(`id_news`) AS count FROM `news`';

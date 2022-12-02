@@ -9,7 +9,7 @@ RewriteRule ^error500$ controllers/internalServerErrorController.php
 RewriteRule ^$ controllers/homeController.php
 
 RewriteRule ^news$ controllers/newsMainController.php
-RewriteRule ^newsSingle$ controllers/newsSingleController.php
+RewriteRule ^newssingle$ controllers/newsSingleController.php
 
 RewriteRule ^map$ controllers/mapMainController.php
 
