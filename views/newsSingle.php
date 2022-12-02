@@ -1,4 +1,7 @@
 <main>
+    <section>
+        <!-- navigation path component ....  -->
+    </section>
     <section class="theNews">
         <!-- THE SINGLE NEWS -->
         <article class="container">
