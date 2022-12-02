@@ -182,6 +182,27 @@ class Comment
             return false;
         }
     }
+    public static function validate(int $id):bool
+    {
+        $timezone = new DateTimeZone('UTC');
+        $now = new DateTime('now', $timezone);
+        $now = $now->date;
+
+        $pdo =  Database::getInstance();
+        $sql = "UPDATE `comments` SET 
+                `validated_at` = $now,
+                WHERE `id_comments` = :id;
+                ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            SessionFlash::set(true, 'Le commentaire a bien été validé');
+            return true;
+        } else {
+            SessionFlash::set(false, 'Le commentaire n\'a pas été validé');
+            return false;
+        }
+    }
     // delete
     public static function delete(int $id): bool
     {

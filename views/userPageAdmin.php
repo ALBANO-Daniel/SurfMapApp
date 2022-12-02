@@ -341,63 +341,72 @@
 
                 <!-- VALIDER(comments) LIST  -->
                 <div id="toValidNewsComments" class="container center">
-                    <h5>liste de toute les plages</h5>
+                    <h5>liste des commentaires a valider</h5>
                     <ul class="row collapsible">
                         <?php
-                        foreach ($spotsList as $index => $spot) {
-                            $date = $spot->modified_at == null ? $spot->created_at : $spot->modified_at;
-                            // format $date with function  
+                        foreach ($newsCommentsList as $index => $comment) {
+                            // category 1 == news (config.php)
+                            if ($comment->deleted_at == null && $comment->validated_at == null && $comment->category == 1) {
+                                // format $date with function
+                                $date = $comment->modified_at == null ? $comment->created_at : $comment->modified_at;
+                                $user = User::get($comment->id_users);
                         ?>
-                            <li>
-                                <div class="collapsible-header"><?= $spot->name ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
-                                <div class="collapsible-body">
-                                    <div class="row">
-                                        <div class="col s12 m6">
-                                            <img width="100px" height="100px" src="/public/assets/img/spots-images/<?= $spot->id_spots ?>.jpg" alt="spot image, the beach waves">
+                                <li>
+                                    <div class="collapsible-header">posted by: <?= strtoupper($user->lastname) ?>,<?= $user->firstname ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
+                                    <div class="collapsible-body">
+                                        <div class="row">
+                                            <div class="col s2">
+                                                <a href="/commentvalidate?id=<?= $comment->id_comments ?>" class="btn row">
+                                                    <i class="material-icons">check_box</i>
+                                                </a>
+                                                <a href="/commentdelete?id=<?= $comment->id_comments  ?>" class="btn row">
+                                                    <i id="deleteBtn" class="material-icons">delete</i>
+                                                </a>
+                                            </div>
+                                            <div class="col s8">
+                                                <div class="row">
+                                                    <?= $comment->comment ?>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col s12 m6">mini map with pin...</div>
                                     </div>
-                                    <div>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></div>
-                                    <div><?= $spot->description ?></div>
-                                    <div class="btns row">
-                                        <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
-                                        <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
-                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
+                                </li>
+                        <?php
+                            }
+                        } ?>
                     </ul>
                 </div>
 
                 <!-- ALL/ OLD/ HISTORIC(comments) LIST  -->
                 <div id="validNewsComments" class="container center">
-                    <h5>liste de toute les plages</h5>
+                    <h5>comments historie</h5>
                     <ul class="row collapsible">
                         <?php
-                        foreach ($spotsList as $index => $spot) {
-                            $date = $spot->modified_at == null ? $spot->created_at : $spot->modified_at;
-                            // format $date with function  
+                        foreach ($newsCommentsList as $index => $comment) {
+                            // category 1 == news (config.php)
+                            if ($comment->deleted_at == null && $comment->validated_at != null && $comment->category == 1) {
+                                $date = $comment->modified_at == null ? $comment->created_at : $comment->modified_at;
+                                // need format $date with function
+                                $user = User::get($comment->id_users);
                         ?>
-                            <li>
-                                <div class="collapsible-header"><?= $spot->name ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
-                                <div class="collapsible-body">
-                                    <div class="row">
-                                        <div class="col s12 m6">
-                                            <img width="100px" height="100px" src="/public/assets/img/spots-images/<?= $spot->id_spots ?>.jpg" alt="spot image, the beach waves">
+                                <li>
+                                    <div class="collapsible-header">posted by: <?= strtoupper($user->lastname) ?>,<?= $user->firstname ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
+                                    <div class="collapsible-body">
+                                        <div class="row">
+                                            <div class="col s2">
+                                                <a href="/commentdelete?id=<?= $comment->id_comments ?>" class="btn row">
+                                                    <i id="deleteBtn" class="material-icons">delete</i>
+                                                </a>
+                                            </div>
+                                            <div class="col s8">
+                                                <?= $comment->comment ?>
+                                            </div>
                                         </div>
-                                        <div class="col s12 m6">mini map with pin...</div>
                                     </div>
-                                    <div>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></div>
-                                    <div><?= $spot->description ?></div>
-                                    <div class="btns row">
-                                        <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
-                                        <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
-                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
+                                </li>
+                        <?php
+                            }
+                        } ?>
                     </ul>
                 </div>
             </div>
@@ -413,70 +422,79 @@
 
                 <div class="row">
                     <ul class="tabs">
-                        <li class="tab col s6"><a href="#toValidSpotComments">VALIDER</a></li>
-                        <li class="tab col s6"><a href="#validSpotComments">HISTORIQUE</a></li>
+                        <li class="tab col s6"><a href="#toValidMapComments">VALIDER</a></li>
+                        <li class="tab col s6"><a href="#validMapComments">HISTORIQUE</a></li>
                     </ul>
                 </div>
 
                 <!-- VALIDER(comments) LIST  -->
-                <div id="toValidSpotComments" class="container center">
-                    <h5>liste de commentaire pour validation</h5>
+                <div id="toValidMapComments" class="container center">
+                    <h5>liste des commentaires a valider</h5>
                     <ul class="row collapsible">
                         <?php
-                        foreach ($spotsList as $index => $spot) {
-                            $date = $spot->modified_at == null ? $spot->created_at : $spot->modified_at;
-                            // format $date with function  
+                        foreach ($mapCommentsList as $index => $comment) {
+                            // category 2 == map (config.php)
+                            if ($comment->deleted_at == null && $comment->validated_at == null && $comment->category == 2) {
+                                $user = User::get($comment->id_users);
+                                // format $date with function
+                                $date = $comment->modified_at == null ? $comment->created_at : $comment->modified_at;
                         ?>
-                            <li>
-                                <div class="collapsible-header"><?= $spot->name ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
-                                <div class="collapsible-body">
-                                    <div class="row">
-                                        <div class="col s12 m6">
-                                            <img width="100px" height="100px" src="/public/assets/img/spots-images/<?= $spot->id_spots ?>.jpg" alt="spot image, the beach waves">
+                                <li>
+                                    <div class="collapsible-header">posted by: <?= strtoupper($user->lastname) ?>,<?= $user->firstname ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
+                                    <div class="collapsible-body">
+                                        <div class="row">
+                                            <div class="col s2">
+                                                <a href="/commentvalidate?id=<?= $comment->id_comments ?>" class="btn row">
+                                                    <i class="material-icons">check_box</i>
+                                                </a>
+                                                <a href="/commentdelete?id=<?= $comment->id_comments ?>" class="btn row">
+                                                    <i id="deleteBtn" class="material-icons">delete</i>
+                                                </a>
+                                            </div>
+                                            <div class="col s8">
+                                                <div class="row">
+                                                    <?= $comment->comment ?>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col s12 m6">mini map with pin...</div>
                                     </div>
-                                    <div>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></div>
-                                    <div><?= $spot->description ?></div>
-                                    <div class="btns row">
-                                        <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
-                                        <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
-                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
+                                </li>
+                        <?php
+                            }
+                        } ?>
                     </ul>
                 </div>
 
                 <!-- ALL/ OLD/ HISTORIC(comments) LIST  -->
-                <div id="validSpotComments" class="container center">
-                    <h5>liste des commentaires deja valide</h5>
+                <div id="validMapComments" class="container center">
+                    <h5>comments historie</h5>
                     <ul class="row collapsible">
                         <?php
-                        foreach ($spotsList as $index => $spot) {
-                            $date = $spot->modified_at == null ? $spot->created_at : $spot->modified_at;
-                            // format $date with function  
+                        foreach ($commentsList as $index => $comment) {
+                            // format $date with function
+                            // category 2 == map (config.php)
+                            if ($comment->deleted_at == null && $comment->validated_at != null && $comment->category == 2) {
+                                $date = $comment->modified_at == null ? $comment->created_at : $comment->modified_at;
+                                $user = User::get($comment->id_users);
                         ?>
-                            <li>
-                                <div class="collapsible-header"><?= $spot->name ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
-                                <div class="collapsible-body">
-                                    <div class="row">
-                                        <div class="col s12 m6">
-                                            <img width="100px" height="100px" src="/public/assets/img/spots-images/<?= $spot->id_spots ?>.jpg" alt="spot image, the beach waves">
+                                <li>
+                                    <div class="collapsible-header">posted by: <?= strtoupper($user->lastname) ?>,<?= $user->firstname ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
+                                    <div class="collapsible-body">
+                                        <div class="row">
+                                            <div class="col s2">
+                                                <a href="/commentdelete?id=<?= $comment->id_comments ?>" class="btn row">
+                                                    <i id="deleteBtn" class="material-icons">delete</i>
+                                                </a>
+                                            </div>
+                                            <div class="col s8">
+                                                <?= $comment->comment ?>
+                                            </div>
                                         </div>
-                                        <div class="col s12 m6">mini map with pin...</div>
                                     </div>
-                                    <div>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></div>
-                                    <div><?= $spot->description ?></div>
-                                    <div class="btns row">
-                                        <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
-                                        <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
-                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
+                                </li>
+                        <?php
+                            }
+                        } ?>
                     </ul>
                 </div>
             </div>
@@ -497,67 +515,87 @@
                     </ul>
                 </div>
 
-                <!-- VALIDER(users) LIST  -->
+                <!-- toVALID(users) LIST  -->
                 <div id="toValidUsers" class="container center">
-                    <h5>liste de utilizateurs a valider</h5>
+                    <h5>liste des utilizateurs a valider</h5>
                     <ul class="row collapsible">
                         <?php
-                        foreach ($spotsList as $index => $spot) {
-                            $date = $spot->modified_at == null ? $spot->created_at : $spot->modified_at;
-                            // format $date with function  
-                        ?>
-                            <li>
-                                <div class="collapsible-header"><?= $spot->name ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
-                                <div class="collapsible-body">
-                                    <div class="row">
-                                        <div class="col s12 m6">
-                                            <img width="100px" height="100px" src="/public/assets/img/spots-images/<?= $spot->id_spots ?>.jpg" alt="spot image, the beach waves">
+                        foreach ($usersList as $index => $user) {
+                            $date = $user->modified_at == null ? $user->created_at : $user->modified_at;
+                            // format $date with function
+                            // category 1 == news (config.php)
+                            if ($user->deleted_at == null && $user->validated_at == null) { ?>
+                                <li>
+                                    <div class="collapsible-header"><?= strtoupper($user->lastname) ?>,<?= $user->firstname ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
+                                    <div class="collapsible-body">
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <a href="/uservalidate?id=<?= $user->id_users ?>" class="btn row">
+                                                    <i class="material-icons">check_box</i>
+                                                </a>
+                                            </div>
+                                            <div class="col s6">
+                                                <a href="/userdelete?id=<?= $user->id_users ?>" class="btn row">
+                                                    <i id="deleteBtn" class="material-icons">delete</i>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="col s12 m6">mini map with pin...</div>
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <img src="/public/assets/img/profile-images/<?= $user->id_users ?>.jpg" alt="profile image">
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="row">
+                                                    <span>Email: <?= $user->email ?></span>
+                                                    <span>Ville: <?= $user->ville ?></span>
+                                                    <span>Pays: <?= $user->country ?></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></div>
-                                    <div><?= $spot->description ?></div>
-                                    <div class="btns row">
-                                        <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
-                                        <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
-                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
+                                </li>
+                        <?php
+                            }
+                        } ?>
                     </ul>
                 </div>
 
-                <!-- ALL VALID USERS LIST  -->
+                <!-- VALID(users) LIST  -->
                 <div id="validUsers" class="container center">
-                    <h5>liste des utilizateurs valider</h5>
+                    <h5>comments historie</h5>
                     <ul class="row collapsible">
                         <?php
-                        foreach ($spotsList as $index => $spot) {
-                            $date = $spot->modified_at == null ? $spot->created_at : $spot->modified_at;
-                            // format $date with function  
-                        ?>
-                            <li>
-                                <div class="collapsible-header"><?= $spot->name ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
-                                <div class="collapsible-body">
-                                    <div class="row">
-                                        <div class="col s12 m6">
-                                            <img width="100px" height="100px" src="/public/assets/img/spots-images/<?= $spot->id_spots ?>.jpg" alt="spot image, the beach waves">
+                        foreach ($usersList as $index => $user) {
+                            $date = $user->modified_at == null ? $user->created_at : $user->modified_at;
+                            // format $date with function
+                            // category 1 == news (config.php)
+                            if ($user->deleted_at == null && $user->validated_at != null) { ?>
+                                <li>
+                                    <div class="collapsible-header">posted by: <?= strtoupper($user->lastname) ?>,<?= $user->firstname ?><span class="grey-text smaller">(<?= $date ?>)</span></div>
+                                    <div class="collapsible-body">
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <img src="/public/assets/img/profile-images/<?= $user->id_users ?>.jpg" alt="profile image">
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="row">
+                                                    <span>Email: <?= $user->email ?></span>
+                                                    <span>Ville: <?= $user->ville ?></span>
+                                                    <span>Pays: <?= $user->country ?></span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col s12 m6">mini map with pin...</div>
+                                        <div class="row">
+                                            <a href="/deleteuser?id=<?=$user->id_users?>">delete this user</a>
+                                        </div>
                                     </div>
-                                    <div>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></div>
-                                    <div><?= $spot->description ?></div>
-                                    <div class="btns row">
-                                        <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
-                                        <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
-                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
+                                </li>
+                        <?php
+                            }
+                        } ?>
                     </ul>
                 </div>
+
             </div>
         </section>
 
