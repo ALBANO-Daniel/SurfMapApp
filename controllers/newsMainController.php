@@ -1,8 +1,24 @@
 <?php
 
-$pageTitle = 'News Page';
-$cssFile[] = 'newsMain.css';
-$scriptFile[] = 'newsMain.js';
+require_once(__DIR__ . '/../models/News.php');
+require_once(__DIR__ . '/../helpers/functions/Database.php');
+
+
+$pageTitle = 'News';
+
+try {
+    $newsFeaturedList = News::getFeatured(21);
+
+
+
+
+} catch (\Throwable $th) {
+    SessionFlash::set(false, $th->getMessage());
+    header("Location: /error404");
+    exit;
+}
+
+
 
 // call head html
 include(__DIR__.'/../views/templates/htmlStart.php');

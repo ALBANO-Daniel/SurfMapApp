@@ -1,0 +1,55 @@
+/* .carousel-item.active{ */
+/* height: 1000px !important; */
+/* } */
+.carousel-item h2 {
+  padding: 0 2%;
+  margin: 0;
+}
+/* START CAROUSEL HEIGHT  */
+/* //mobile */
+@media (width <= 576px) {
+    .carousel.carousel-slider {
+        height: 50vh !important;
+      }
+}
+
+/* //tablet */
+@media (577px <= width <= 768px) {
+    .carousel.carousel-slider {
+        height: 60vh !important;
+      }
+}
+
+/* //desk */
+@media (769px <= width <= 992px) {
+  .carousel.carousel-slider {
+    height: 80vh !important;
+  }
+}
+
+/* //big desk */
+@media (width > 992px) {
+    .carousel.carousel-slider {
+        height: 80vh !important;
+      }
+}
+/* END CARROUSEL HEIGHT */
+
+.newsCarousel {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.imageCarousel {
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.headerCarousel {
+  position: relative;
+  top: 0;
+}

@@ -1,4 +1,4 @@
-<main>
+<main id="userMain">
 
     <section class="container center">
         <div class="container card">

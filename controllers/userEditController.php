@@ -118,7 +118,7 @@ try {
         }
     }
 } catch (\Throwable $th) {
-    SessionFlash::set(false, $th);
+    SessionFlash::set(false, $th->getMessage());
     header("Location: /error404");
     exit;
 }

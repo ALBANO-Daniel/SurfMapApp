@@ -13,7 +13,7 @@ RewriteRule ^newssingle$ controllers/newsSingleController.php
 
 RewriteRule ^map$ controllers/mapMainController.php
 
-RewriteRule ^user$ controllers/userMainController.php
+RewriteRule ^user$ controllers/userMainController.phpa
 RewriteRule ^userpage$ controllers/userPageController.php
 RewriteRule ^admin$ controllers/userPageAdminController.php
 RewriteRule ^useredit$ controllers/userEditController.php
