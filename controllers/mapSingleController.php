@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/../models/Spots.php');
+require_once(__DIR__ . '/../models/Spot.php');
 require_once(__DIR__ . '/../models/Comment.php');
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
@@ -8,13 +8,15 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 $spotName = 'Secret Point';
 $pageTitle = $spotName;
 
-$cssFile[] = 'mapMain.css';
-$cssFile[] = 'newsSingle.css';
 
-$scriptFile[] = 'newsMain.js';
-$scriptFile[] = 'newsSingle.js';
 
 try {
+    
+    var_dump('post : ');
+    var_dump($_POST);
+    var_dump("get : ");
+    var_dump($_GET);
+    // die;
     
     //get the news from database by the id from previous link
 
@@ -44,7 +46,7 @@ include(__DIR__.'/../views/templates/htmlStart.php');
 //structure
     include(__DIR__.'/../views/templates/navBar.php');
     
-    include(__DIR__.'/../views/newsSingle.php');
+    include(__DIR__.'/../views/mapSingle.php');
     
     include(__DIR__.'/../views/templates/footer.php');
 

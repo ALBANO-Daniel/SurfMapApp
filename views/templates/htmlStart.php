@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/public/assets/css/contactUs.css">
     <link rel="stylesheet" href="/public/assets/css/home.css">
     <link rel="stylesheet" href="/public/assets/css/mapMain.css">
+    <link rel="stylesheet" href="/public/assets/css/mapSingle.css">
     <link rel="stylesheet" href="/public/assets/css/newsMain.css">
     <link rel="stylesheet" href="/public/assets/css/pageNotFound.css">
     <link rel="stylesheet" href="/public/assets/css/userMain.css">
