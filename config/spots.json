@@ -1,0 +1,38 @@
+[
+    {
+        "id_spots":"1",
+        "name":"bretignole sur mer",
+        "latitude":"46.613533524493164",
+        "longitude": "-1.8614124152482938",
+        "description": "family, good waves, hardly storm, hardly dangereous.",
+        "created_at": "",
+        "validated_at": "",
+        "modified_at": "null",
+        "deleted_at": "null",
+        "id_users": "null"
+    },
+    {
+        "id_spots":"2",
+        "name":"roche longue",
+        "latitude":"43.493835108466754",
+        "longitude": "-1.5554160063572378",
+        "description": "old spot, legendary on winter, be careful. on summer is easy little waves, begginers caution.",
+        "created_at": "",
+        "validated_at": "",
+        "modified_at": "null",
+        "deleted_at": "null",
+        "id_users": "null"
+    },
+    {
+        "id_spots":"3",
+        "name":"Pointe du Raz",
+        "latitude":"48.03933357473801",
+        "longitude": "-4.740638759276391",
+        "description": " hard wave, reef floor, pro's only",
+        "created_at": "",
+        "validated_at": "",
+        "modified_at": "null",
+        "deleted_at": "null",
+        "id_users": "null"
+    }
+]

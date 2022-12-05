@@ -7,7 +7,7 @@
 <script type="text/javascript" src="/public/assets/js/home.js"></script>
 
 <!-- <script type="text/javascript" src="/public/assets/js/mapMain.js"></script> -->
-<script type="text/javascript" src="/public/assets/js/mapSingle.js"></script>
+<!-- <script type="text/javascript" src="/public/assets/js/mapSingle.js"></script> -->
 
 <script type="text/javascript" src="/public/assets/js/newsMain.js"></script>
 <!-- <script type="text/javascript" src="/public/assets/js/newsSingle.js"></script> -->

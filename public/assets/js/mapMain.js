@@ -20,59 +20,40 @@ var markerOptions = {
     // draggable: true,
     icon: customIcon
  }
-// SPOTS LIST -------------------------------------------
 
-// bretignole sur mer 
-L.marker([46.613533524493164, -1.8614124152482938], markerOptions).addTo(map)
-    .bindPopup('Bretignole sur Mer <br> <a href="/mapsingle?id=1&la=46.613533524493164&lo=-1.8614124152482938">spot view</a>')
-    .openPopup();
+ /// WIP WIP WIP
 
-// roche longue 
-L.marker([43.493835108466754, -1.5554160063572378], markerOptions).addTo(map)
-    .bindPopup('Roche longue <br> <a href="/mapsingle?id=2&la=46.613533524493164&lo=-1.8614124152482938">spot view</a>')
-    .openPopup();
+// var popup = L.popup();
 
-// Pointe du Raz 
-L.marker([48.03933357473801, -4.740638759276391], markerOptions).addTo(map)
-    .bindPopup('Roche longue <br> <a href="/mapsingle?id=2&la=46.613533524493164&lo=-1.8614124152482938">spot view</a>')
-    .openPopup();
+// var pins = [];
 
-// ----------------------------------------------------
+// function modalInputText(e) {
+//     console.log(e.latlng);
+// }
 
 
-
-
-var popup = L.popup();
-
-var pins = [];
-
-function modalInputText(e) {
-    console.log(e.latlng);
-}
-
-
-function onMapClick(e) {
-    // pins += L.marker([e.latlng]).addTo(map);
-    popup
-        .setLatLng(e.latlng)
-        .setContent("<button id=\"spotAdd\">add new spot here</button>")
-        .openOn(map);
+// function onMapClick(e) {
+//     // pins += L.marker([e.latlng]).addTo(map);
+//     popup
+//         .setLatLng(e.latlng)
+//         .setContent("<button id=\"spotAdd\">add new spot here</button>")
+//         .openOn(map);
     
-    spotAdd = document.getElementById("spotAdd");
-    spotAdd.onclick = () => {
-        pins = new L.marker(e.latlng).addTo(map).bindPopup('SUrfSpot');
-        modalInputText(e);
-        popup.close();
-    }
-}
+//     spotAdd = document.getElementById("spotAdd");
+//     spotAdd.onclick = () => {
+//         pins = new L.marker(e.latlng).addTo(map).bindPopup('SUrfSpot');
+//         modalInputText(e);
+//         popup.close();
+//     }
+// }
 
 
-map.on('click', onMapClick);
+// map.on('click', onMapClick);
 
 
 
-function makeMap(latitude, longitude) {
-    L.marker([latitude, longitude]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    .openPopup();
-}
+// function makeMap(latitude, longitude) {
+//     L.marker([latitude, longitude]).addTo(map)
+//     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+//     .openPopup();
+// }

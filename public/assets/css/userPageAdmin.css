@@ -7,6 +7,9 @@
     padding-left: 0 !important;
   }
 }
+#map{
+  height: 400px;
+}
 
 #searchForm{
     padding: 0;

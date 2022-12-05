@@ -12,10 +12,10 @@ $pageTitle = $spotName;
 
 try {
     
-    var_dump('post : ');
-    var_dump($_POST);
-    var_dump("get : ");
-    var_dump($_GET);
+    // var_dump('post : ');
+    // var_dump($_POST);
+    // var_dump("get : ");
+    // var_dump($_GET);
     // die;
     
     //get the news from database by the id from previous link

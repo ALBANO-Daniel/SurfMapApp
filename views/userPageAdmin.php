@@ -39,7 +39,7 @@
                     <ul class="tabs">
                         <li class="tab"><a href="#home"><i class="material-icons">home</i>Accueil</a></li>
                         <li class="tab"><a href="#news"><i class="material-icons">event_note</i>News</a></li>
-                        <li class="tab"><a href="#map"><i class="material-icons">map</i>Map</a></li>
+                        <li class="tab"><a href="#mapsection"><i class="material-icons">map</i>Map</a></li>
                     </ul>
                 </ul>
             </li>
@@ -227,7 +227,7 @@
         </section>
 
         <!-- NAV >> PAGES >> MAP  SECTION   -->
-        <section id="map" class="center">
+        <section id="mapsection" class="center">
             <div class="row">
 
                 <nav class="col s12 light-blue darken-2">
@@ -244,38 +244,29 @@
                 <!-- SPOT FORM  -->
                 <form id="spotForm" class="container" action="" method="post" enctype="multipart/form-data">
                     <h5>creation de nouvelle 'Spot'</h5>
-                    <!-- header  -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="spotname" id="spotname" type="text" data-length="30">
-                            <label for="spotname">Spot Name</label>
-                        </div>
-                    </div>
-                    <!-- main image  -->
-                    <!-- $error['spotimage']  -->
-                    <div class="row">
-                        <!-- image placeholder -->
-                        <div class="col s12">
-                            <!-- look for CSS  -->
-                            <img id="showSpotImg" class="responsive-img" src="/public/assets/img/default-image.jpg" alt="spot image" />
-                        </div>
-                    </div>
-                    <!--  image input  -->
-                    <div class="row">
-                        <div class="file-field input-field col s12">
-                            <span>choisir image du spot</span>
-                            <input name="spotimage" type="file" accept="image/png, image/jpeg" id="uploadedSpotImg" placeholder="choose spot image">
-                        </div>
-                    </div>
+                    <br>
                     <!-- GPS LATITUDE and LONGITUDE -->
+                    <div class="container">
+                        <div class="row">
+                            <span>clique sur le map pour choisir la latitude et longitude : </span>
+                            <div id="map" class="map map-home leaflet-container leaflet-touch"></div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input name="latitude" id="latitude" type="text" data-length="100">
+                            <input disabled name="latitude" id="latitude" type="text" data-length="100" value="123">
                             <label for="latitude">latitude</label>
                         </div>
                         <div class="input-field col s12 m6">
-                            <input name="longitude" id="longitude" type="text" data-length="100">
+                            <input disabled name="longitude" id="longitude" type="text" data-length="100" value="564">
                             <label for="longitude">longitude</label>
+                        </div>
+                    </div>
+                     <!-- spot name  -->
+                     <div class="row">
+                        <div class="input-field col s12">
+                            <input name="spotname" id="spotname" type="text" data-length="30">
+                            <label for="spotname">Spot Name</label>
                         </div>
                     </div>
                     <!-- description  -->
@@ -285,8 +276,25 @@
                             <label for="spotdescription">Description:</label>
                         </div>
                     </div>
+                    <!-- main image  -->
+                    <!-- $error['spotimage']  -->
+                    <div class="row">
+                        <!--  image input  -->
+                        <div class="row">
+                            <div class="file-field input-field col s12">
+                                <span>choisir image du spot</span>
+                                <input name="spotimage" type="file" accept="image/png, image/jpeg" id="uploadedSpotImg" placeholder="choose spot image">
+                            </div>
+                        </div>
+                        <!-- image placeholder -->
+                        <div class="col s12">
+                            <!-- look for CSS  -->
+                            <img id="showSpotImg" class="responsive-img" src="/public/assets/img/default-image.jpg" alt="spot image" />
+                        </div>
+                    </div>
                     <!-- submit -->
                     <div class="row center-align">
+                        <br>
                         <button class="unset"><a class="waves-effect waves-light btn">create</a></button>
                     </div>
                 </form>
@@ -586,7 +594,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <a href="/deleteuser?id=<?=$user->id_users?>">delete this user</a>
+                                            <a href="/deleteuser?id=<?= $user->id_users ?>">delete this user</a>
                                         </div>
                                     </div>
                                 </li>
