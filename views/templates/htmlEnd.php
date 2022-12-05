@@ -1,3 +1,5 @@
+<!-- LEAFLET  -->
+<script src="/node_modules/leaflet/dist/leaflet.js"></script>
 <!-- JS -->
 <script type="text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
 <script type="text/javascript" src="/public/assets/js/navBar.js"></script>
