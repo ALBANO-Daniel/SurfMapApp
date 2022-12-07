@@ -293,7 +293,7 @@ class User
     {
         $pdo = Database::getInstance();
         $offset = ($currentPage - 1) * $usersPerPage;
-        $sql = "SELECT `id_users`, `firstname`, `lastname`, `country`, `city`, `email` 
+        $sql = "SELECT `id_users`, `firstname`, `lastname`, `country`, `city`, `email`, `created_at`, `validated_at`, `modified_at`, `deleted_at`
                 FROM `users`";
         if ($search != '') {
             $sql .= ' WHERE `lastname` LIKE :search OR `email` LIKE :search ';

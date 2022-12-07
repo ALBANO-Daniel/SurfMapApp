@@ -3,7 +3,17 @@
 <!-- JS -->
 <script type="text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
 <script type="text/javascript" src="/public/assets/js/navBar.js"></script>
-<!-- single scripts -->
+
+<!-- MAP SCRIPTS -->
+<?php 
+if(isset($mapScript)){
+    foreach ($mapScript as $key => $value) {
+        ?> <script type="text/javascript" src="/public/assets/js/<?=$value?>"></script>
+<?php } 
+}?>
+
+
+<!-- SINGLE SCRIPTS -->
 <script type="text/javascript" src="/public/assets/js/home.js"></script>
 
 <!-- <script type="text/javascript" src="/public/assets/js/mapMain.js"></script> -->

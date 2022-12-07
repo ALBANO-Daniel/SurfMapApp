@@ -11,6 +11,9 @@
   height: 400px;
 }
 
+#logo{
+  margin-right: 10px;
+}
 #searchForm{
     padding: 0;
 }

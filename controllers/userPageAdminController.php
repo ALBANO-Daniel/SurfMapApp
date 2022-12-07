@@ -3,9 +3,8 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 //all models
 require_once(__DIR__ . '/../helpers/adminRequiredBundle.php');
 
-var_dump($_POST);
-var_dump('--------');
-var_dump($_FILES);
+$pageTitle = 'dashboard';
+$mapScript [] = 'userPageAdmin.js';
 
 
 // HANDLER NOT LOGGED IN
@@ -20,7 +19,7 @@ var_dump($_FILES);
 // exit;
 // }
 
-$pageTitle = 'dashboard';
+
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -170,10 +169,16 @@ try {
             }
         }
     }
+    //HANDLE USER LIST
+    $usersList = User::getAll();
     //HANDLE NEWS LIST
     $newsList = News::getAll();
     //HANDLE SPOTS LIST
     $spotsList = Spot::getAll();
+    //HANDLE NEWS COMMENT LIST
+    $newsCommentsList = Comment::getAllFromCategory(1);
+    //HANDLE MAP COMMENT LIST
+    $mapCommentsList = Comment::getAllFromCategory(2);
 } catch (\Throwable $th) {
     SessionFlash::set(false, $th->getMessage());
     header('location: /error500');

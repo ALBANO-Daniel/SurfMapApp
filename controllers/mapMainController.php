@@ -1,8 +1,7 @@
 <?php
 
-$pageTitle = 'Map';
-$cssFile[] = 'mapMain.css';
-$scriptFile[] = 'mapMain.js';
+$pageTitle = 'sSPOTLIGHT';
+$mapScript[] += 'mapMain.js';
 
 // call head html
 include(__DIR__.'/../views/templates/htmlStart.php');

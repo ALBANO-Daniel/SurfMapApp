@@ -4,9 +4,9 @@ require_once(__DIR__ . '/../models/Spot.php');
 require_once(__DIR__ . '/../models/Comment.php');
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
-// SPOT NAME
-$spotName = 'Secret Point';
-$pageTitle = $spotName;
+
+$pageTitle = 'sSPOTLIGHT';
+$mapScript[] += 'mapMain.js';
 
 
 

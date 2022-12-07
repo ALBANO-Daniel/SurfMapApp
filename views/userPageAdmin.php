@@ -3,7 +3,7 @@
     <nav class=" light-blue darken-4 hide-on-large-only">
         <div class="container nav-wrapper">
             <div class="logoDiv">
-                <img class="left" height="100%" src="/public/assets/img/logos/logo.png" alt="logo site">
+                <img id="logo" class="left" height="100%" src="/public/assets/img/logos/logowhite1.png" alt="logo site">
                 <h1 class="navBarLogoText">ADMIN DASHBOARD</h1>
             </div>
             <a href="#" data-target="slide-out" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -34,19 +34,13 @@
         <!-- main dashboard functionalities  -->
         <ul class="collapsible">
             <li>
-                <div class="collapsible-header"><i class="material-icons">pageview</i>PAGES</div>
+            <div class="collapsible-header text-grey"><i class="material-icons">vpn_key</i>Moderation</div>
                 <ul class="collapsible-body">
                     <ul class="tabs">
                         <li class="tab"><a href="#home"><i class="material-icons">home</i>Accueil</a></li>
                         <li class="tab"><a href="#news"><i class="material-icons">event_note</i>News</a></li>
                         <li class="tab"><a href="#mapsection"><i class="material-icons">map</i>Map</a></li>
-                    </ul>
-                </ul>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">vpn_key</i>Moderation</div>
-                <ul class="collapsible-body">
-                    <ul class="tabs">
+                    <div class="divider"></div>
                         <li class="tab"><a href="#newsComments"><i class="material-icons">message</i>News Comments</a></li>
                         <li class="tab"><a href="#mapComments"><i class="material-icons">message</i>Map Comments</a></li>
                         <li class="tab"><a href="#users"><i class="material-icons">people</i>Users</a></li>
@@ -231,7 +225,7 @@
             <div class="row">
 
                 <nav class="col s12 light-blue darken-2">
-                    <h5 class="center">SPOTS</h5>
+                    <h5 class="center">MAP</h5>
                 </nav>
 
                 <div class="row">
@@ -282,7 +276,7 @@
                         <!--  image input  -->
                         <div class="row">
                             <div class="file-field input-field col s12">
-                                <span>choisir image du spot</span>
+                                <span>clique pour choisir image du spot</span>
                                 <input name="spotimage" type="file" accept="image/png, image/jpeg" id="uploadedSpotImg" placeholder="choose spot image">
                             </div>
                         </div>
@@ -301,7 +295,7 @@
 
                 <!-- SPOTS LIST  -->
                 <div id="spotsList" class="container center">
-                    <h5>liste de toute les plages</h5>
+                    <h5>liste de toute les 'spots'</h5>
                     <ul class="row collapsible">
                         <?php
                         foreach ($spotsList as $index => $spot) {
@@ -555,7 +549,7 @@
                                             <div class="col s6">
                                                 <div class="row">
                                                     <span>Email: <?= $user->email ?></span>
-                                                    <span>Ville: <?= $user->ville ?></span>
+                                                    <span>Ville: <?= $user->city ?></span>
                                                     <span>Pays: <?= $user->country ?></span>
                                                 </div>
                                             </div>
@@ -588,7 +582,7 @@
                                             <div class="col s6">
                                                 <div class="row">
                                                     <span>Email: <?= $user->email ?></span>
-                                                    <span>Ville: <?= $user->ville ?></span>
+                                                    <span>Ville: <?= $user->city ?></span>
                                                     <span>Pays: <?= $user->country ?></span>
                                                 </div>
                                             </div>

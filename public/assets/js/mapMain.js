@@ -57,3 +57,28 @@ var markerOptions = {
 //     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
 //     .openPopup();
 // }
+
+
+
+
+// function GetFromUrl(param) {
+// 	var vars = {};
+// 	window.location.href.replace( location.hash, '' ).replace( 
+// 		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+// 		function( m, key, value ) { // callback
+// 			vars[key] = value !== undefined ? value : '';
+// 		}
+// 	);
+
+// 	if ( param ) {
+// 		return vars[param] ? vars[param] : null;	
+// 	}
+// 	return vars;
+// }
+
+
+// // RECOVER $_GET FROM URL TO {OBJECT} 
+// var spot = GetFromUrl(),
+//     id = spot['id'],
+//     lo = spot['lo'],
+//     la = spot['la'];
