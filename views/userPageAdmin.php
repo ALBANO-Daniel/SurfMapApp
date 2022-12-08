@@ -256,8 +256,8 @@
                             <label for="longitude">longitude</label>
                         </div>
                     </div>
-                     <!-- spot name  -->
-                     <div class="row">
+                    <!-- spot name  -->
+                    <div class="row">
                         <div class="input-field col s12">
                             <input name="spotname" id="spotname" type="text" data-length="30">
                             <label for="spotname">Spot Name</label>

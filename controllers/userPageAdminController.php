@@ -8,16 +8,16 @@ $mapScript [] = 'userPageAdmin.js';
 
 
 // HANDLER NOT LOGGED IN
-// if (empty($_SESSION['user'])) {
-// header('location: /user');
-// exit;
-// }
-// $user = $_SESSION['user'];
+if (empty($_SESSION['user'])) {
+header('location: /user');
+exit;
+}
+$user = $_SESSION['user'];
 // HANDLER NOT ADMIN
-// if ($user->admin == null) {
-// header('location: /user');
-// exit;
-// }
+if ($user->admin != 1) {
+header('location: /user');
+ exit;
+}
 
 
 

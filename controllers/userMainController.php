@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 //0-1 HANDLER ALREADY LOGGED IN / ADMIN
 if (!empty($_SESSION['user'])) {
     $user = $_SESSION['user'];
-    if ($user->admin != null) {
+    if ($user->admin == 1) {
         header('location: /admin');
         exit;
     }

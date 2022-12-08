@@ -12,7 +12,7 @@ if (empty($_SESSION['user'])) {
 $user = $_SESSION['user'];
 
 //0-1 HANDLER ADMIN
-if ($user->admin != null) {
+if ($user->admin == 1) {
     header('location: /admin');
     exit;
 }
