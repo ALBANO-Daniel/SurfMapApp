@@ -1,7 +1,10 @@
 <?php
+require_once(__DIR__ . '/../models/Spot.php');
+require_once(__DIR__ . '/../helpers/functions/Database.php');
 
 $pageTitle = 'sSPOTLIGHT';
-$mapScript[] += 'mapMain.js';
+$mapScript[] = 'mapMain.js';
+
 
 // call head html
 include(__DIR__.'/../views/templates/htmlStart.php');

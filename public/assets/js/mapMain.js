@@ -8,7 +8,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Icon options
 var iconOptions = {
     iconUrl: '/public/assets/img/icons/wave1.png',
-    iconSize: [25, 25]
+    iconSize: [30, 30]
  }
  
  // Creating a custom icon
@@ -20,6 +20,19 @@ var markerOptions = {
     // draggable: true,
     icon: customIcon
  }
+
+ fetch('/config/spots.json')
+ .then((response) => response.json())
+ .then((data) => {
+    data.forEach(spot => {
+        L.marker([spot.latitude, spot.longitude],markerOptions).addTo(map)
+        .bindPopup(`${spot.name}<br> <a href="/mapsingle?id=${spot.id_spots}">regarder</a>`)
+        .openPopup();
+    });
+  });
+
+
+// spots = JSON.parse(url("/config/spots.json"));
 
  /// WIP WIP WIP
 
@@ -33,7 +46,7 @@ var markerOptions = {
 
 
 // function onMapClick(e) {
-//     // pins += L.marker([e.latlng]).addTo(map);
+//    L.marker([e.latlng]).addTo(map);
 //     popup
 //         .setLatLng(e.latlng)
 //         .setContent("<button id=\"spotAdd\">add new spot here</button>")

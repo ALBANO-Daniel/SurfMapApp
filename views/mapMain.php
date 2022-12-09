@@ -1,5 +1,10 @@
 <main class="container">
-    <h1>map main! </h1>
-    <div id="map" class="map map-home leaflet-container leaflet-touch"></div>
+    <section class="container center">
+        <h1 class="center">Surf SpotLight</h1>
+        <div id="map" class="map map-home leaflet-container leaflet-touch"></div>
+    </section>
+    <section class="container center">
+        <!-- WIP WIP WIP  -->
+    </section>
+
 </main>
-<button id="returnToHomeButton">Home Page</button>

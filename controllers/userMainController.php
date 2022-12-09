@@ -2,22 +2,22 @@
 require_once(__DIR__ . '/../models/User.php');
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
+try {
 
-//0-1 HANDLER ALREADY LOGGED IN / ADMIN
-if (!empty($_SESSION['user'])) {
-    $user = $_SESSION['user'];
-    if ($user->admin == 1) {
-        header('location: /admin');
+    //0-1 HANDLER ALREADY LOGGED IN / ADMIN
+    if (!empty($_SESSION['user'])) {
+        $user = $_SESSION['user'];
+        if ($user->admin == 1) {
+            header('location: /admin');
+            exit;
+        }
+        header('location: /userpage');
         exit;
     }
-    header('location: /userpage');
-    exit;
-}
 
-$pageTitle = 'enter';
-$error = [];
+    $pageTitle = 'enter';
+    $error = [];
 
-try {
     //1-1 HANDLE INSCRIPTION
     if ($_SERVER['REQUEST_METHOD'] == 'POST' & isset($_POST['lastname'])) {
 
@@ -100,7 +100,7 @@ try {
         }
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        if(empty($_FILES)){
+        if (empty($_FILES)) {
             $error['image'] = 'vous devez choisir une image de profil';
         }
 
@@ -142,7 +142,6 @@ try {
         }
 
         //===================== password : Nettoyage et validation =======================
-        // $password =  $_POST['password'];
 
         $password = filter_input(INPUT_POST, 'password');
 
@@ -158,12 +157,11 @@ try {
         }
 
         if (empty($errors)) {
-            //$user->setPassword(null);
             $user->password = null;
             $user->email = null;
             $_SESSION['user'] = $user;
             header('Location: /userpage');
-            // exit;
+            exit;
         }
     }
 } catch (\Throwable $th) {
