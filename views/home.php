@@ -26,7 +26,6 @@
                     <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
                     <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
                     <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
-                    <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
                 </div>
             </div>
         </div>
@@ -45,12 +44,15 @@
                 <div class="col s12">
                     <h3 class="center">News</h3>
                     <blockquote>
-                        "surf the surfing news."   Mao-Tse Tong
+                        "surf the surfing news." Mao-Tse Tong
                     </blockquote>
                     <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
                     <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
                     <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
-                    <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
+                    <br>
+                    <a class="btn waves-effect" href="/news">see news</a>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
@@ -72,8 +74,16 @@
                         This is an example quotation that uses the blockquote tag.
                     </blockquote>
                     <p class="flow-text">this is a paragraph inside section,<br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis distinctio amet veniam odit consequuntur, repudiandae reiciendis est minima et quam optio esse maiores corrupti rerum voluptates culpa eaque similique alias.</p>
+                    <div class="center">
+                        <img class="center-align" width="70%" height="50%" src="/public/assets/img/map-example.jpg" alt="example map">
+                    </div>
                     <p class="flow-text">this is a paragraph inside section,<br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis distinctio amet veniam odit consequuntur, repudiandae reiciendis est minima et quam optio esse maiores corrupti rerum voluptates culpa eaque similique alias.</p>
-                    <p class="flow-text">this is a paragraph inside section,<br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis distinctio amet veniam odit consequuntur, repudiandae reiciendis est minima et quam optio esse maiores corrupti rerum voluptates culpa eaque similique alias.</p>
+                    <div class="col s12">
+                    <br>
+                    <a class="btn waves-effect" href="/map">see map</a>
+                    <br>
+                    <br>
+                </div>
                 </div>
             </section>
         </div>
@@ -87,14 +97,21 @@
     </div>
     <!-- parallax END -->
     <section class="gray lighten-5">
-        <div class="container">
-            <section class="row">
+        <div class="container center">
+            <section class="row center">
                 <div class="col s12">
-                    <h3 class="center-align ">Join Us</h3>
-                    <blockquote>
+                    <h3 class="center-align">Join Us</h3>
+                    <blockquote class="left-align">
                         stop beeing a haole, and make a new Surf account...
                     </blockquote>
-                    <a class="btn waves-effect" href="/user"></a>
+                </div>
+                <div class="col s12">
+                    <br>
+                    <p>creating a account with Us only take 1 minute!</p>
+                    <br>
+                    <a class="btn waves-effect" href="/user">join us</a>
+                    <br>
+                    <br>
                 </div>
             </section>
         </div>

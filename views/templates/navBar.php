@@ -29,4 +29,4 @@
     <li><a href="/contactus"><i class="material-icons">contact_phone</i>Contact us</a></li>
 </ul>
 
-<a id="fixedMenuBtn" href="#" data-target="mobile-demo" class="right sidenav-trigger"><i class="material-icons grey-text text-darken-4">menu</i></a>
+<!-- <a id="fixedMenuBtn" href="#" data-target="mobile-demo" class="right sidenav-trigger"><i class="material-icons grey-text text-darken-4">menu</i></a> -->
