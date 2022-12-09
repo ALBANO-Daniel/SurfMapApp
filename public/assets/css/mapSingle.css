@@ -2,3 +2,6 @@
     border-radius: 9%;
     border: 0.3rem #01579B solid;
 }
+#mapSingleMain #map{
+    height: 100px;
+}

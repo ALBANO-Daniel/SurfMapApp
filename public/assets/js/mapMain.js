@@ -26,7 +26,7 @@ var markerOptions = {
  .then((data) => {
     data.forEach(spot => {
         L.marker([spot.latitude, spot.longitude],markerOptions).addTo(map)
-        .bindPopup(`${spot.name}<br> <a href="/mapsingle?id=${spot.id_spots}">regarder</a>`)
+        .bindPopup(`${spot.name}<br> <a href="/mapsingle?id=${spot.id_spots}&la=${spot.latitude}&lo=${spot.longitude}&name=${spot.name}">regarder</a>`)
         .openPopup();
     });
   });

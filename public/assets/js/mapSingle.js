@@ -19,6 +19,7 @@ function GetFromUrl(param) {
 var spot = GetFromUrl(),
     id = spot['id'],
     lo = spot['lo'],
+    name = spot['name'],
     la = spot['la'];
 
 
@@ -49,6 +50,8 @@ var markerOptions = {
 
 // CREATE SPOT PIN 
 L.marker([spot.la , spot.lo], markerOptions).addTo(map)
-    .bindPopup('Bretignole sur Mer')
+    .bindPopup(spot.name.replaceAll('%20', ' '))
     .openPopup();
 
+// WIP WIP WIP 
+// CHANGE THE GET URL to just ID, and fetch json with id

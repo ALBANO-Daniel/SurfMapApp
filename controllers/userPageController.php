@@ -3,6 +3,10 @@
 require_once(__DIR__ . '/../models/User.php');
 require_once(__DIR__ . '/../helpers/functions/Database.php');
 
+
+$logout = intval(filter_input(INPUT_GET, 'logout'));
+if($logout == 1){ $_SESSION['user'] = null;};
+
 // 0-0 HANDLER NOT LOGGED IN
 if (empty($_SESSION['user'])) {
     header('location: /user');

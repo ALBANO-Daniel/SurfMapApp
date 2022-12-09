@@ -6,11 +6,15 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 
 
 $pageTitle = 'sSPOTLIGHT';
-$mapScript[] += 'mapMain.js';
+$mapScript[] = 'mapSingle.js';
 
 
 
 try {
+
+    $spotId = intval(filter_input(INPUT_GET, 'id'));
+    $spot = Spot::get($spotId);
+
     
     // var_dump('post : ');
     // var_dump($_POST);
