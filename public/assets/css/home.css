@@ -4,7 +4,7 @@ header h2{
     left: 20px;
 }
 header .parallax-container {
-    height: 80vh;
+    height: calc(100vh - 64px);
 }
 header .parallax-container img{
     width: 100vh !important;

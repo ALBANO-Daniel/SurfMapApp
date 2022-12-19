@@ -1,4 +1,4 @@
-<main>
+<main id="newsMain">
     <section id="newsSlider" class="container">
         <h1 class="center">NEWS</h1>
         <div id="newsSliderCarousel" class="carousel carousel-slider center">

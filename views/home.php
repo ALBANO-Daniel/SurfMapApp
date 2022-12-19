@@ -1,5 +1,5 @@
 <header>
-    <h1 class="display-none">SURF SPOTS( Beachs )PREVISIONS AND SURF NEWS</h1>
+    <h1 class="display-none">SURF APP , FIND SPOTS "Beachs", PREVISIONS AND SURF NEWS</h1>
     <!-- parallax -->
     <div class="row s12">
         <div class="parallax-container valign-wrapper hide-on-large-only">
@@ -40,10 +40,10 @@
     <!-- parallax END -->
     <section class="gray lighten-5">
         <div class="container">
-            <div class="row">
+            <div class="row center">
                 <div class="col s12">
                     <h3 class="center">News</h3>
-                    <blockquote>
+                    <blockquote class="left-align">
                         "surf the surfing news." Mao-Tse Tong
                     </blockquote>
                     <p class="flow-text">We made this app to make you the respectfull and informed surfer our ocean needs... <br> no more getting hurt by unespected rocks, no more flat oceans, no more feeling alone.. <br> we are a community to share good moments and help each other to get the waves we need. </p>
@@ -67,9 +67,9 @@
     <!-- parallax END -->
     <section class="gray lighten-5">
         <div class="container">
-            <section class="row">
+            <section class="row center">
                 <div class="col s12">
-                    <h3 class="center-align ">Map</h3>
+                    <h3 class="center-align">Map</h3>
                     <blockquote>
                         This is an example quotation that uses the blockquote tag.
                     </blockquote>
@@ -77,10 +77,7 @@
                     <div class="center">
                         <img class="center-align" width="70%" height="50%" src="/public/assets/img/map-example.jpg" alt="example map">
                     </div>
-                    <p class="flow-text">this is a paragraph inside section,<br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis distinctio amet veniam odit consequuntur, repudiandae reiciendis est minima et quam optio esse maiores corrupti rerum voluptates culpa eaque similique alias.</p>
-                    <div class="col s12">
-                    <br>
-                    <a class="btn waves-effect" href="/map">see map</a>
+                    <a class="btn waves-effect" href="/map">check it out!</a>
                     <br>
                     <br>
                 </div>
@@ -88,6 +85,7 @@
             </section>
         </div>
     </section>
+    <div class="divider"></div>
     <!-- parallax -->
     <div class="parallax-container hide-on-large-only">
         <div class="parallax"><img src="/public/assets/img/wave/4-landscape.jpg"></div>
@@ -107,7 +105,7 @@
                 </div>
                 <div class="col s12">
                     <br>
-                    <p>creating a account with Us only take 1 minute!</p>
+                    <p>creating an account only take 1 minute! you don't need to share any sensible personal information, and you get to be part of our community and will enjoy the benefits of beeing a member!</p>
                     <br>
                     <a class="btn waves-effect" href="/user">join us</a>
                     <br>

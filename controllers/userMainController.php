@@ -158,7 +158,6 @@ try {
 
         if (empty($errors)) {
             $user->password = null;
-            $user->email = null;
             $_SESSION['user'] = $user;
             header('Location: /userpage');
             exit;

@@ -53,6 +53,10 @@ form{
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
+#newsMain .card img{
+  object-fit: cover !important;
+  height: 300px !important;
+}
 .sidenav a{
   font-family: "Sigmar One", cursive !important;
 }
@@ -70,10 +74,12 @@ form i{
   overflow: hidden;
 }
 .btn {
-  width: 75% !important;
+  /* width: 75% !important; */
+  width: 50% !important;
   font-size: 1rem;
   color: white !important;
   background-color: #01579b !important;
+  margin-bottom: 2rem;
 }
 .error-text {
   color: red;

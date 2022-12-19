@@ -11,8 +11,8 @@ session_start();
 require_once(__DIR__ . '/../helpers/SessionFlash.php');
 
 define('DSN', 'mysql:host=localhost;dbname=tnw69_surfapp;charset=utf8');
-define('LOGIN', 'zzz');
-define('PASSWORD', 'zzz');
+define('LOGIN', 'root');
+define('PASSWORD', '');
 
 define('REGEX_NO_NUMBER',"^[A-Za-z-éèêëàâäôöûüç' ]+$");
 define('REGEX_ONLY_NUMBER','^[0-9]*$');

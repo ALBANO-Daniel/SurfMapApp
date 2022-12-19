@@ -152,10 +152,6 @@ class User
     
     public function edit(int $id):int
     {
-        $timezone = new DateTimeZone('UTC');
-        $now = new DateTime('now', $timezone);
-        $now = $now->date;
-
         $pdo =  Database::getInstance();
         $sql = "UPDATE `users` SET 
                 `firstname` = :firstname,
@@ -164,7 +160,6 @@ class User
                 `city` = :city,
                 `email` = :email,
                 `password` = :password,
-                `modified_at` = $now
                 WHERE `id_users` = :id;
                 ";
         $stmt = $pdo->prepare($sql);
@@ -192,7 +187,7 @@ class User
 
         $pdo =  Database::getInstance();
         $sql = "UPDATE `users`
-                SET `password` = :password, `modified_at` = $now
+                SET `password` = :password, `modified_password_at` = $now
                 WHERE `id_users` = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
@@ -250,7 +245,19 @@ class User
     public static function get(int $id):object
     {
         $pdo = Database::getInstance();
-        $sql = "SELECT * FROM `users` WHERE `id_users` = :id ;";
+        $sql = "SELECT
+                    `id_users`, 
+                    `firstname`, 
+                    `lastname`, 
+                    `country`, 
+                    `city`, 
+                    `email`, 
+                    `created_at`,
+                    `validated_at`,
+                    `modified_at`,
+                    `modfied_password_at`,
+                    `deleted_at`
+                FROM `users` WHERE `id_users` = :id ;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->execute();
@@ -293,7 +300,17 @@ class User
     {
         $pdo = Database::getInstance();
         $offset = ($currentPage - 1) * $usersPerPage;
-        $sql = "SELECT `id_users`, `firstname`, `lastname`, `country`, `city`, `email`, `created_at`, `validated_at`, `modified_at`, `deleted_at`
+        $sql = "SELECT `id_users`, 
+                        `firstname`, 
+                        `lastname`, 
+                        `country`, 
+                        `city`, 
+                        `email`, 
+                        `created_at`,
+                        `validated_at`,
+                        `modified_at`,
+                        `modfied_password_at,
+                        `deleted_at`
                 FROM `users`";
         if ($search != '') {
             $sql .= ' WHERE `lastname` LIKE :search OR `email` LIKE :search ';
