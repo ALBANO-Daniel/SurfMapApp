@@ -8,6 +8,9 @@
   height: 100%;
   margin-right: 10px;
 }
+#mobileLogo{
+  margin: 100px auto !important;
+}
 /* .logoDiv{ */
   /* width: 100%; */
 /* } */

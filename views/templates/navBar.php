@@ -20,7 +20,7 @@
 
 <ul class="sidenav blue lighten-5" id="mobile-demo">
     <li class="center-align">
-        <img class="" width="80%" src="/public/assets/img/logos/logo1.png" alt="logo site">
+        <img id="mobileLogo" class="responsive-image" width="30%" height="100px" src="/public/assets/img/logos/logo1.png" alt="logo site">
     </li>
     <li><a href="/"><i class="material-icons">home</i>Home</a></li>
     <li><a href="/news"><i class="material-icons">assignment_late</i>News</a></li>
