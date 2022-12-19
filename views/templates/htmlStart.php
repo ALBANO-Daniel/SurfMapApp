@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/public/assets/css/newsMain.css">
     <link rel="stylesheet" href="/public/assets/css/pageNotFound.css">
     <link rel="stylesheet" href="/public/assets/css/userMain.css">
+    <link rel="stylesheet" href="/public/assets/css/userPage.css">
 
     <link rel="stylesheet" href="/public/assets/css/userPageAdmin.css">
     <!-- $cssFile[] -->

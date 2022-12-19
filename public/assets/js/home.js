@@ -14,3 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // fullWidth: true
     });
   });
+
+  toaster = document.getElementById('toaster');
+  setTimeout(function(){
+    toaster.innerHTML = '';
+  },2000);

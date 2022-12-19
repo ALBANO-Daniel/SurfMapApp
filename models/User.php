@@ -242,7 +242,7 @@ class User
         }
     }
 
-    public static function get(int $id):object
+    public static function get(int $id):mixed
     {
         $pdo = Database::getInstance();
         $sql = "SELECT
@@ -255,16 +255,19 @@ class User
                     `created_at`,
                     `validated_at`,
                     `modified_at`,
-                    `modfied_password_at`,
+                    `modified_password_at`,
                     `deleted_at`
                 FROM `users` WHERE `id_users` = :id ;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch();
+        if($stmt->execute()){
+            return $stmt->fetch();
+        } else {
+            return false;
+        }
     }
 
-    public static function getByEmail(string $email):object
+    public static function getByEmail(string $email):mixed
     {
         $pdo = Database::getInstance();
         $sql = 'SELECT * FROM `users` WHERE `email` = :email;';

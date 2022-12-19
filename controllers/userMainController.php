@@ -140,6 +140,11 @@ try {
                 $error["email"] = "Le email n'est pas au bon format!!";
             }
         }
+        if(User::getByEmail($email) == false){
+            SessionFlash::set(false, "Cet email n'es pas enregistree");
+            header("Location: /user");
+            exit;
+        }
 
         //===================== password : Nettoyage et validation =======================
 

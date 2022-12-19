@@ -9,10 +9,10 @@
             if (SessionFlash::exist()) {
                 $msg = SessionFlash::get();
                 if ($msg[0] == true) { ?>
-                    <p class='green center white-text'>
+                    <p id='toaster' class='green center white-text'>
                     <?php
                 } else { ?>
-                    <p class='red center white-text'>
+                    <p id='toaster' class='red center white-text'>
                     <?php
                 }
                 print_r($msg[1]) ?>
