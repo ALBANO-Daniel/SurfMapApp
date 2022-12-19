@@ -36,7 +36,6 @@
                     <?php
                     if ($userId == $comment->id_users) { ?>
                         <span><a href="/commentdelete?id<?= $comment->id_comments ?>" class="btn"><i class="material-icons">delete</i></a></span>
-                        <span><a href="/commentedit?id<?= $comment->id_comments ?>" class="btn"><i class="material-icons">create</i></a></span>
                     <?php } ?>
                 </div>
             <?php } ?>
