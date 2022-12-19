@@ -74,12 +74,14 @@ form i{
   overflow: hidden;
 }
 .btn {
-  /* width: 75% !important; */
-  width: 50% !important;
+  width: 75% !important;
   font-size: 1rem;
   color: white !important;
   background-color: #01579b !important;
   margin-bottom: 2rem;
+}
+#homeMain .btn{
+  width: 50% !important;
 }
 .error-text {
   color: red;
@@ -133,4 +135,10 @@ button:focus {
 }
 .tabs .indicator{
   background-color: #01579b;
+}
+/* CARDS OF HOME PAGE  */
+.text-card{
+  border-radius: 5%;
+  padding: 25px;
+  margin: 50px auto;
 }

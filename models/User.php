@@ -149,8 +149,8 @@ class User
             return false;
         }
     }
-    
-    public function edit(int $id):int
+
+    public function edit(int $id): int
     {
         $pdo =  Database::getInstance();
         $sql = "UPDATE `users` SET 
@@ -163,7 +163,7 @@ class User
                 WHERE `id_users` = :id;
                 ";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id,PDO::PARAM_INT);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':firstname', $this->getFirstname());
         $stmt->bindValue(':lastname', $this->getLastname());
         $stmt->bindValue(':country', $this->getcountry());
@@ -192,7 +192,7 @@ class User
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
         $stmt->bindValue(':password', $password);
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             SessionFlash::set(true, 'Votre password a bien etais edite');
             return true;
         };
@@ -205,12 +205,12 @@ class User
         $timezone = new DateTimeZone('UTC');
         $now = new DateTime('now', $timezone);
         $now = $now->date;
-        
+
         $pdo = Database::getInstance();
         $sql = "UPDATE `users` SET `deleted_at` = $now WHERE `id_users` = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             SessionFlash::set(true, 'Votre profil de utilizateur a bien etais suprime');
             return true;
         };
@@ -242,7 +242,7 @@ class User
         }
     }
 
-    public static function get(int $id):mixed
+    public static function get(int $id): mixed
     {
         $pdo = Database::getInstance();
         $sql = "SELECT
@@ -260,14 +260,14 @@ class User
                 FROM `users` WHERE `id_users` = :id ;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id);
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             return $stmt->fetch();
         } else {
             return false;
         }
     }
 
-    public static function getByEmail(string $email):mixed
+    public static function getByEmail(string $email): mixed
     {
         $pdo = Database::getInstance();
         $sql = 'SELECT * FROM `users` WHERE `email` = :email;';
@@ -282,7 +282,7 @@ class User
         return false;
     }
 
-    public static function getTotalNumberOf($search = ''):int
+    public static function getTotalNumberOf($search = ''): int
     {
         $pdo = Database::getInstance();
         $sql = 'SELECT COUNT(`id_users`) AS count FROM `users`';
@@ -299,7 +299,7 @@ class User
         return intval($obj->count);
     }
 
-    public static function getAll(int $currentPage = 1, int $usersPerPage = 0, $search = ''):array
+    public static function getAll(int $currentPage = 1, int $usersPerPage = 0, $search = ''): array
     {
         $pdo = Database::getInstance();
         $offset = ($currentPage - 1) * $usersPerPage;
@@ -312,15 +312,17 @@ class User
                         `created_at`,
                         `validated_at`,
                         `modified_at`,
-                        `modfied_password_at,
+                        `modified_password_at`,
                         `deleted_at`
-                FROM `users`";
+                FROM `users` ";
         if ($search != '') {
             $sql .= ' WHERE `lastname` LIKE :search OR `email` LIKE :search ';
         }
         if ($usersPerPage != 0) {
             $sql .= ' LIMIT :usersPerPage OFFSET :offset;';
-        } else { $sql .= ';';}
+        } else {
+            $sql .= ';';
+        }
         $stmt = $pdo->prepare($sql);
         if ($search != '') {
             $stmt->bindValue(':search', '%' . $search . '%');

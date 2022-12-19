@@ -12,7 +12,9 @@ $mapScript [] = 'userPageAdmin.js';
 // header('location: /user');
 // exit;
 // }
-$user = $_SESSION['user'];
+
+// $user = $_SESSION['user'];
+
 // HANDLER NOT ADMIN
 // if ($user->admin != 1) {
 // header('location: /user');
