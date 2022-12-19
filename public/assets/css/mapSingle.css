@@ -4,4 +4,9 @@
 }
 #mapSingleMain #map{
     height: 100px;
+    margin-bottom: 30px;
+}
+
+#spotCard{
+    margin-top: 130px !important;
 }
