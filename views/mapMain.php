@@ -5,6 +5,13 @@
     </section>
     <section class="container center">
         <!-- WIP WIP WIP  -->
+        <p id="spots" class="display-none">
+            <?php
+                $spots =Spot::getAll();
+                $spots = json_encode($spots);
+                echo $spots;
+            ?>
+        </p>
     </section>
 
 </main>

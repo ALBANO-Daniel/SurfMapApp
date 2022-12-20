@@ -14,19 +14,7 @@ try {
 
     $spotId = intval(filter_input(INPUT_GET, 'id'));
     $spot = Spot::get($spotId);
-
-    
-    // var_dump('post : ');
-    // var_dump($_POST);
-    // var_dump("get : ");
-    // var_dump($_GET);
-    // die;
-    
-    //get the news from database by the id from previous link
-
-    //get respective comments  get comments ( with this $id_news )
-
-    // insert comment :  this $id_news + $id_users -> new CommentNews()  or new Comment() { setIdNews() }
+    // WIP -> comments for Spots
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //NETOYAGE
@@ -34,7 +22,7 @@ try {
             $newComment = new Comment();
             $newComment->setComment($comment);
             $newComment->setCategory($category);
-            $newComment->setIdNews($idSpots);
+            $newComment->setIdSpots($idSpots);
             $newComment->setIdUsers($idUsers);
             $newCommentId = $comment->setSpotsComment();
         }
