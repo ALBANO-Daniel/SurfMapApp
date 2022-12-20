@@ -26,3 +26,5 @@ RewriteRule ^commentdelete$ controllers/commentDeleteController.php
 RewriteRule ^editpassword$ controllers/userEditPasswordController.php
 
 RewriteRule ^contactus$ controllers/contactUsController.php
+
+RewriteRule ^cgu$ controllers/cguController.php

@@ -51,7 +51,7 @@
                         </blockquote>
                         <p class="flow-text">Notre section d'actualités vous aide à suivre tout ce qui se passe dans l'univers du surf, les compétitions, les rassemblements, les fêtes et les nouvelles initiatives pour aider l'environnement des surfeurs, améliorer le sport et tout ce qui est lié à une bonne expérience et culture du surf diffusion. aider tout le monde à se tenir au courant de tout ce qui est nouveau et important sur le surf dans le monde !</p>
                         <br>
-                        <a class="btn waves-effect" href="/news">actualités!</a>
+                        <a class="btn waves-effect flow-text" href="/news">news!</a>
                         <br>
                         <br>
                     </div>
@@ -103,7 +103,7 @@
             <section class="row center">
                 <div class="card text-card">
                  
-                        <h3 class="center-align">Join Us</h3>
+                        <h3 class="center-align">Rejoignez-nous</h3>
                         <blockquote class="left-align">
                             arrête d'être un haole, et crée un nouveau compte...
                         </blockquote>
@@ -111,7 +111,7 @@
                         <br>
                         <p class="flow-text">créer un compte ne prend qu'1 minute ! vous n'avez pas besoin de partager des informations personnelles sensibles, et vous faites partie de notre communauté et profiterez des avantages d'être membre !</p>
                         <br>
-                        <a class="btn waves-effect" href="/user">Rejoignez-nous</a>
+                        <a class="btn waves-effect" href="/user">allez!</a>
                         <br>
                         <br>
                     
