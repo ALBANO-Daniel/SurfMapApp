@@ -19,6 +19,7 @@ RewriteRule ^userpage$ controllers/userPageController.php
 RewriteRule ^admin$ controllers/userPageAdminController.php
 RewriteRule ^useredit$ controllers/userEditController.php
 RewriteRule ^userdelete$ controllers/userDeleteController.php
+RewriteRule ^uservalidate$ controllers/userValidateController.php
 
 RewriteRule ^commentdelete$ controllers/commentDeleteController.php
 

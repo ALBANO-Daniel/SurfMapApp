@@ -200,6 +200,25 @@ class User
         return false;
     }
 
+    public static function validate(int $id):bool
+    {
+        $timezone = new DateTimeZone('UTC');
+        var_dump($timezone);
+        $now = new DateTime('now', $timezone);
+        $now = $now->date;
+
+        $pdo = Database::getInstance();
+        $sql = "UPDATE `users` SET `validated_at` = $now WHERE `id_users` = :id;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        if ($stmt->execute()) {
+            SessionFlash::set(true, 'Le utilizateur a bien etais valide');
+            return true;
+        };
+        SessionFlash::set(false, 'Le utilizateur n\'a pas etais valide');
+        return false;
+    }
+
     public static function delete(int $id): bool
     {
         $timezone = new DateTimeZone('UTC');
@@ -223,7 +242,7 @@ class User
         try {
             $pdo = Database::getInstance();
             $sql = 'SELECT `users`.`id_users` FROM `users` WHERE `email` = :email';
-            $stmt = $pdo->prepare($sql);  // return a object of the class PDOStatement..   statment handle
+            $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':email', $email);
             $isTrueStmt = $stmt->execute();
             if ($isTrueStmt) {

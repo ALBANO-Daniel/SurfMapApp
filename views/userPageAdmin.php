@@ -309,14 +309,13 @@
                                         <div class="col s12 m6">
                                             <img width="100px" height="100px" src="/public/assets/img/spots-images/<?= $spot->id_spots ?>.jpg" alt="spot image, the beach waves">
                                         </div>
-                                        <div class="col s12 m6">mini map with pin...</div>
+                                        <div class="col s12 m6">
+                                            <p>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></p>
+                                            <p><?= $spot->description ?></p>
+                                        </div>
                                     </div>
-                                    <div>lat: <?= $spot->latitude ?> || log: <?= $spot->longitude ?></div>
-                                    <div><?= $spot->description ?></div>
-                                    <div class="btns row">
-                                        <a href="/comments?id=<?= $spot->id_spots ?>" class="btn col s4">comments</a>
-                                        <a href="/spotedit?id=<?= $spot->id_spots ?>" class="btn col s4">edit</a>
-                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn col s4">delete</a>
+                                    <div class="btns row center">
+                                        <a href="/spotdelete?id=<?= $spot->id_spots ?>" class="btn">delete</a>
                                     </div>
                                 </div>
                             </li>
@@ -532,26 +531,29 @@
                                     <div class="collapsible-body">
                                         <div class="row">
                                             <div class="col s6">
-                                                <a href="/uservalidate?id=<?= $user->id_users ?>" class="btn row">
+                                                <img height="100px" class="responsive-image circle" src="/public/assets/img/profile-images/<?= $user->id_users ?>.jpg" alt="profile image">
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="row">
+                                                    <p>Email: <?= $user->email ?></p>
+                                                    <p>Ville: <?= $user->city ?></p>
+                                                    <p>Pays: <?= $user->country ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="divider"></div>
+                                        <div class="divider"></div>
+                                        <div class="row">
+                                            <div class="col s6">
+                                                <a href="/uservalidate?id=<?= $user->id_users ?>" class="btn">
                                                     <i class="material-icons">check_box</i>
                                                 </a>
                                             </div>
                                             <div class="col s6">
-                                                <a href="/userdelete?id=<?= $user->id_users ?>" class="btn row">
+                                                <a href="/userdelete?id=<?= $user->id_users ?>" class="btn">
                                                     <i id="deleteBtn" class="material-icons">delete</i>
                                                 </a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col s6">
-                                                <img src="/public/assets/img/profile-images/<?= $user->id_users ?>.jpg" alt="profile image">
-                                            </div>
-                                            <div class="col s6">
-                                                <div class="row">
-                                                    <span>Email: <?= $user->email ?></span>
-                                                    <span>Ville: <?= $user->city ?></span>
-                                                    <span>Pays: <?= $user->country ?></span>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -564,7 +566,7 @@
 
                 <!-- VALID(users) LIST  -->
                 <div id="validUsers" class="container center">
-                    <h5>comments historie</h5>
+                    <h5> liste des utilizateurs</h5>
                     <ul class="row collapsible">
                         <?php
                         foreach ($usersList as $index => $user) {
