@@ -19,8 +19,6 @@ function GetFromUrl(param) {
 	}
 	return vars;
 }
-
-
 // RECOVER $_GET FROM URL TO {OBJECT} 
 var spot = GetFromUrl(),
     id = spot['id'],
