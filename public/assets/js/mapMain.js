@@ -10,8 +10,7 @@ var iconOptions = {
     iconUrl: '/public/assets/img/icons/wave1.png',
     iconSize: [30, 30]
  }
- 
- // Creating a custom icon
+// Creating a custom icon
  var customIcon = L.icon(iconOptions);
 // Options for the marker
 var markerOptions = {
@@ -26,7 +25,9 @@ var markerOptions = {
  .then((data) => {
     data.forEach(spot => {
         L.marker([spot.latitude, spot.longitude],markerOptions).addTo(map)
-        .bindPopup(`${spot.name}<br> <a href="/mapsingle?id=${spot.id_spots}&la=${spot.latitude}&lo=${spot.longitude}&name=${spot.name}">regarder</a>`)
+        .bindPopup
+            (`${spot.name}<br>
+            <a href="/mapsingle?id=${spot.id_spots}">regarder</a>`)
         .openPopup();
     });
   });

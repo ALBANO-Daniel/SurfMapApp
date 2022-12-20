@@ -54,10 +54,10 @@
         </li>
         <li><a class="subheader">documents</a></li>
         <li><a class="waves-effect" href="?p=support">Contact Support</a></li>
-        <li><a class="waves-effect" href="?p=guide">Admin Guide</a></li>
-        <li><a class="waves-effect" href="?p=userguide">New user Guide</a></li>
-        <li><a class="waves-effect" href="?p=terms">user terms</a></li>
-        <li><a class="waves-effect" href="?p=protection">user protection</a></li>
+        <!-- <li><a class="waves-effect" href="?p=guide">Admin Guide</a></li> -->
+        <!-- <li><a class="waves-effect" href="?p=userguide">New user Guide</a></li> -->
+        <li><a class="waves-effect" href="/cgu">user terms</a></li>
+        <!-- <li><a class="waves-effect" href="?p=protection">user protection</a></li> -->
 
         <li class="navFooter grey darken-1">
             <div class="footer-copyright">

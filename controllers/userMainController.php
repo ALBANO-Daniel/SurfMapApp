@@ -76,12 +76,15 @@ try {
         //===================== email : Nettoyage et validation =======================
         $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
         if (empty($email)) {
-            $error["email"] = "Vous devez remplir le email pour le profil!!";
+            $error["email"] = "Vous devez remplir le email pour la creation du profil!!";
         } else {
             $isOk = filter_var($email, FILTER_VALIDATE_EMAIL);
             if (!$isOk) {
                 $error["email"] = "Le email n'est pas au bon format!!";
             }
+        }
+        if(User::getByEmail($email) != false){
+            $error["email"] = "L' email est déjà utilisé!!";
         }
 
         //===================== password : Nettoyage et validation =======================
