@@ -57,6 +57,11 @@ form{
   object-fit: cover !important;
   height: 300px !important;
 }
+#newsSingle .card img{
+  object-fit: cover !important;
+  height: 300px !important;
+}
+
 .sidenav a{
   font-family: "Sigmar One", cursive !important;
 }
@@ -79,6 +84,9 @@ form i{
   color: white !important;
   background-color: #01579b !important;
   margin-bottom: 2rem;
+}
+.commentBtn{
+  width: 50px !important;
 }
 #homeMain .btn{
   width: 50% !important;

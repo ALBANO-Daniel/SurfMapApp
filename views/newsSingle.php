@@ -1,4 +1,4 @@
-<main>
+<main id="newsSingle">
     <section>
         <!-- navigation path component ....  -->
     </section>
@@ -27,16 +27,22 @@
 
         <!-- COMMENTS SECTION  -->
         <div class="container comments">
-            <h3 class="row center">comments:</h3>
+            <?php 
+        if (isset($_SESSION['user'])) { ?>
+            <h3 class="row center">comments:</h3> <?php
+        }
+        ?>
             <?php
             foreach ($commentsList as $index => $comment) { ?>
                 <div class="row comment">
                     <img class="left circle" height="100px" width="100px" src="/public/assets/img/profile-images/<?= $comment->id_users ?>.jpg" alt="profile image of comment">
-                    <span><?= $comment->comment ?></span>
-                    <?php
+                    <div class="row">
+                        <span class="col s10"><?= $comment->comment ?></span>
+                        <?php
                     if ($userId == $comment->id_users) { ?>
-                        <span><a href="/commentdelete?id<?= $comment->id_comments ?>" class="btn"><i class="material-icons">delete</i></a></span>
-                    <?php } ?>
+                        <a href="/commentdelete?id=<?= $comment->id_comments ?>" class="btn col s2 commentBtn"><i class="material-icons">delete</i></a>
+                        <?php } ?>
+                    </div>
                 </div>
             <?php } ?>
             <div class="divider"></div>
@@ -83,10 +89,6 @@
                     }
                 } ?>
             </div>
-
-            <p class="row">
-                little followUp navigation suggestion, news or map or features etc....<br> maybe some caroussel with the related news, more news, or other cathegories...
-            </p>
         </div>
     </section>
 </main>
