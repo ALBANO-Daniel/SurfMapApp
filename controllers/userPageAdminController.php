@@ -139,7 +139,7 @@ try {
                 }
             }
 
-            //===================== spotimage : Nettoyage et validation =======================
+            //===================== spot image : Nettoyage et validation =======================
             if (empty($_FILES["spotimage"])) {
                 $error['spotimage'] = 'vous devez choisir une image pour l\'spot';
             }
