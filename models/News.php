@@ -5,7 +5,7 @@ class News
 {
     private int $_id_news;
     private string $_header;
-    private string $_subHeader;
+    private string $_subheader;
     private string $_body;
 
     // created_at etc.... auto generation OR inserted direct var->SQL->table
@@ -35,13 +35,13 @@ class News
         $this->_header = $header;
     }
 
-    public function getSubHeader():string
+    public function getSubheader():string
     {
-        return $this->_subHeader;
+        return $this->_subheader;
     }
-    public function setSubHeader(string $subHeader):void
+    public function setSubheader(string $subheader):void
     {
-        $this->_subHeader = $subHeader;
+        $this->_subheader = $subheader;
     }
 
     public function getBody():string
@@ -98,7 +98,7 @@ class News
                 VALUES (:header,:subheader,:body);";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':header', $this->getHeader());
-        $stmt->bindValue(':subheader', $this->getSubHeader());
+        $stmt->bindValue(':subheader', $this->getSubheader());
         $stmt->bindValue(':body', $this->getBody());
         if ($stmt->execute()) {
             return intval($pdo->lastInsertId());
@@ -112,14 +112,14 @@ class News
         $pdo = Database::getInstance();
         $sql = "SELECT * FROM `news` WHERE `id_news` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch();
     }
     public static function getFeatured(int $limit):array
     {
         $pdo = Database::getInstance();
-        $sql = "SELECT * FROM `news` ORDER BY `created_at` DESC LIMIT :limit;";
+        $sql = 'SELECT * FROM `news` ORDER BY `created_at` DESC LIMIT :limit;';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
         $stmt->execute();
@@ -202,7 +202,7 @@ class News
         $pdo = Database::getInstance();
         $sql = "UPDATE `news` SET `deleted_at` = $now WHERE `id_news` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if($stmt->execute()){
             SessionFlash::set(true, 'L\'actualite a bien etais suprime');
             return true;

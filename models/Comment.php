@@ -79,12 +79,12 @@ class Comment
     {
         $pdo = Database::getInstance();
         $sql = "INSERT INTO `comments`(`comment`,`category`,`id_news`,`id_users`)
-                VALUES (:comment,:category,:idnews,:idusers);";
+                VALUES (:comment,:category,:id_news,:id_users);";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':comment', $this->getComment());
         $stmt->bindValue(':category', $this->getCategory(), PDO::PARAM_INT);
-        $stmt->bindValue(':idnews', $this->getIdNews(), PDO::PARAM_INT);
-        $stmt->bindValue(':idusers', $this->getIdUsers(), PDO::PARAM_INT);
+        $stmt->bindValue(':id_news', $this->getIdNews(), PDO::PARAM_INT);
+        $stmt->bindValue(':id_users', $this->getIdUsers(), PDO::PARAM_INT);
         if ($stmt->execute()) {
             SessionFlash::set(true, 'commentaire envoie');
             return true;
@@ -97,12 +97,12 @@ class Comment
     {
         $pdo = Database::getInstance();
         $sql = "INSERT INTO `comments`(`comment`,`category`,`id_spots`,`id_users`)
-                VALUES (:comment,:category,:idspots,:idusers);";
+                VALUES (:comment,:category,:id_spots,:id_users);";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':header', $this->getComment());
-        $stmt->bindValue(':category', $this->getCategory());
-        $stmt->bindValue(':idspots', $this->getIdSpots());
-        $stmt->bindValue(':idusers', $this->getIdUsers());
+        $stmt->bindValue(':comment', $this->getComment());
+        $stmt->bindValue(':category', $this->getCategory(), PDO::PARAM_INT);
+        $stmt->bindValue(':id_spots', $this->getIdSpots(), PDO::PARAM_INT);
+        $stmt->bindValue(':id_users', $this->getIdUsers(), PDO::PARAM_INT);
         if ($stmt->execute()) {
             SessionFlash::set(true, 'commentaire envoie');
             return intval($pdo->lastInsertId());
@@ -117,7 +117,7 @@ class Comment
         $pdo = Database::getInstance();
         $sql = "SELECT * FROM `comments` WHERE `id_comments` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch();
     }
@@ -126,7 +126,7 @@ class Comment
         $pdo = Database::getInstance();
         $sql = "SELECT * FROM `comments` WHERE `category` = :category";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':category', $category);
+        $stmt->bindValue(':category', $category, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -135,7 +135,7 @@ class Comment
         $pdo = Database::getInstance();
         $sql = "SELECT * FROM `comments` WHERE `id_users` = :id";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -144,7 +144,7 @@ class Comment
         $pdo = Database::getInstance();
         $sql = 'SELECT * FROM `comments` WHERE `id_news` = :id';
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -153,7 +153,7 @@ class Comment
         $pdo = Database::getInstance();
         $sql = 'SELECT * FROM `comments` WHERE `id_spots` = :id';
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -212,7 +212,7 @@ class Comment
         $pdo = Database::getInstance();
         $sql = "UPDATE `comments` SET `deleted_at` = $now WHERE `id_comments` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if($stmt->execute()){
             SessionFlash::set(true, 'Le commentaire a bien etais suprime');
             return true;

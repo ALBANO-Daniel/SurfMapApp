@@ -190,7 +190,7 @@ class User
                 SET `password` = :password, `modified_password_at` = $now
                 WHERE `id_users` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':password', $password);
         if ($stmt->execute()) {
             SessionFlash::set(true, 'Votre password a bien etais edite');
@@ -210,7 +210,7 @@ class User
         $pdo = Database::getInstance();
         $sql = "UPDATE `users` SET `validated_at` = $now WHERE `id_users` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if ($stmt->execute()) {
             SessionFlash::set(true, 'Le utilizateur a bien etais valide');
             return true;
@@ -228,7 +228,7 @@ class User
         $pdo = Database::getInstance();
         $sql = "UPDATE `users` SET `deleted_at` = $now WHERE `id_users` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if ($stmt->execute()) {
             SessionFlash::set(true, 'Votre profil de utilizateur a bien etais suprime');
             return true;
@@ -278,7 +278,7 @@ class User
                     `deleted_at`
                 FROM `users` WHERE `id_users` = :id ;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return $stmt->fetch();
         } else {

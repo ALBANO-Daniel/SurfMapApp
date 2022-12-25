@@ -207,7 +207,7 @@ class Spot
         $pdo = Database::getInstance();
         $sql = "UPDATE `spots` SET `deleted_at` = $now WHERE `id_spots` = :id;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if($stmt->execute()){
             SessionFlash::set(true, 'Le Spot a bien etais suprime');
             return true;
