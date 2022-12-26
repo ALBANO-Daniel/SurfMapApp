@@ -14,9 +14,7 @@ class Comment
 
     public function __construct()
     {
-        // created at ?
-        // databse connection ?
-        // now dateTime ?
+        // empty 
     }
 
     // START -- GETTER/SETTER
