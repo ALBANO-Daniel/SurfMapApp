@@ -111,7 +111,7 @@
                         <br>
                         <p class="flow-text">créer un compte ne prend qu'1 minute ! vous n'avez pas besoin de partager des informations personnelles sensibles, et vous faites partie de notre communauté et profiterez des avantages d'être membre !</p>
                         <br>
-                        <a class="btn waves-effect" href="/user">allez!</a>
+                        <a class="btn waves-effect" href="/user#registerForm">allez!</a>
                         <br>
                         <br>
                     

@@ -206,16 +206,16 @@ class Comment
         $timezone = new DateTimeZone('UTC');
         $now = new DateTime('now', $timezone);
         $now = $now->date;
-        
+            
         $pdo = Database::getInstance();
         $sql = "UPDATE `comments` SET `deleted_at` = $now WHERE `id_comments` = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if($stmt->execute()){
-            SessionFlash::set(true, 'Le commentaire a bien etais suprime');
+            SessionFlash::set(true, 'Le commentaire a bien été supprimé');
             return true;
         };
-        SessionFlash::set(false, 'Le commentaire n\'a pas etais suprime');
+        SessionFlash::set(false, 'Le commentaire n\'a pas été supprimé');
         return false;
     }
 }

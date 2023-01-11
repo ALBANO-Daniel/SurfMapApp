@@ -124,7 +124,7 @@ try {
                 $newAdress = (__DIR__ . "/../public/assets/img/profile-images/$id.jpg");
                 move_uploaded_file($tempAdress, $newAdress);
                 SessionFlash::set(true, 'utilisateur créé avec succès!');
-                header('location: /userpage');
+                header('location: /user#loginForm');
                 exit;
             } else {
                 SessionFlash::set(false, 'réessayer, impossible de créer un utilisateur.');
