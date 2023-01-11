@@ -80,7 +80,7 @@
                         <div class="center">
                             <img class="center-align" width="70%" height="50%" src="/public/assets/img/map-example.jpg" alt="example map">
                         </div>
-                        <a class="btn waves-effect" href="/map">trésor!</a>
+                        <a class="btn waves-effect" href="/map">map!</a>
                         <br>
                         <br>
                     </div>

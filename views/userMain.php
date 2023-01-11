@@ -31,14 +31,14 @@
             </div>
 
             <!-- LOGIN FORM  -->
-            <form id="loginForm" class="container" action="" method="post" enctype="multipart/form-data">
+            <form id="loginForm" class="container" action="#loginForm" method="post" enctype="multipart/form-data">
                 <!-- email input  -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
                         <input name="email" class="validate" type="email" id="user">
                         <label for="email">Email</label>
-                        <span class="helper-text" data-error="format incorrect" data-sucess=""></span>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['email'] ?? '' ?></span>
                     </div>
                 </div>
                 <!-- password input  -->
@@ -47,6 +47,7 @@
                         <i class="material-icons prefix">lock</i>
                         <input name="password" id="password" type="password" class="validate">
                         <label for="password">Mot de passe</label>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['password'] ?? '' ?></span>
                     </div>
                 </div>
                 <!-- submit -->
@@ -57,7 +58,7 @@
 
 
             <!-- REGISTER FORM  -->
-            <form id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
+            <form  id="registerForm" action="#registerForm" class="container" method="post" enctype="multipart/form-data">
                 <!-- Image Profile section -->
                 <div class="row">
                     <!-- profile image placeholder -->
@@ -71,6 +72,7 @@
                     <div class="file-field input-field col s12">
                         <span>choisir image profil</span>
                         <input name="profileimage" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg" placeholder="choose profile image">
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['image'] ?? '' ?></span>
                     </div>
                 </div>
                 <!-- Name input  -->
@@ -79,11 +81,13 @@
                         <i class="material-icons prefix">account_circle</i>
                         <input name="firstname" id="firstName" value="<?= $firstname ?? '' ?>" type="text" class="validate">
                         <label for="firstname">Prenom</label>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['firstname'] ?? '' ?></span>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
                         <input name="lastname" id="lastname" value="<?= $lastname ?? '' ?>" type="text" class="validate">
                         <label for="lastname">Nom</label>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['lastname'] ?? '' ?></span>
                     </div>
                 </div>
                 <!-- city country Input  -->
@@ -335,11 +339,13 @@
                             <option><i class="zm flag"></i>Zambia</option>
                             <option><i class="zw flag"></i>Zimbabwe</option>
                         </select>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['country'] ?? '' ?></span>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">location_on</i>
                         <input name="city" id="city" type="text" value="<?= $city ?? '' ?>" class="validate">
                         <label for="city">Ville</label>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['city'] ?? '' ?></span>
                     </div>
                 </div>
                 <!-- email input  -->
@@ -348,7 +354,7 @@
                         <i class="material-icons prefix">email</i>
                         <input name="email" class="validate" value="<?= $email ?? '' ?>" type="email" id="email">
                         <label for="email">Email</label>
-                        <span class="helper-text" data-error="format incorrect" data-sucess=""></span>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['email'] ?? '' ?></span>
                     </div>
                 </div>
                 <!-- password input  -->
@@ -357,12 +363,14 @@
                         <i class="material-icons prefix">lock</i>
                         <input name="password" id="password" type="password" class="validate">
                         <label for="password">Mot de passe</label>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['password'] ?? '' ?></span>
                     </div>
                     <!-- confirm password input  -->
                     <div class="input-field col s12 ">
                         <i class="material-icons prefix">lock</i>
                         <input name="password2" id="password2" type="password" class="validate">
                         <label for="password2">Confirmer</label>
+                        <span class="helper-text" data-error="format incorrect" data-sucess=""><?= $error['password'] ?? '' ?></span>
                     </div>
                 </div>
                 <!-- submit -->

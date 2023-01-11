@@ -4,7 +4,7 @@ require_once(__DIR__ . '/../helpers/functions/Database.php');
 
 try {
 
-    //0-1 HANDLER ALREADY LOGGED IN / ADMIN
+    // HANDLER ALREADY LOGGED IN / ADMIN
     if (!empty($_SESSION['user'])) {
         $user = $_SESSION['user'];
         if ($user->admin == 1) {
@@ -17,6 +17,7 @@ try {
 
     $pageTitle = 'enter';
     $error = [];
+   
 
     //1-1 HANDLE INSCRIPTION
     if ($_SERVER['REQUEST_METHOD'] == 'POST' & isset($_POST['lastname'])) {
@@ -107,6 +108,7 @@ try {
             $error['image'] = 'vous devez choisir une image de profil';
         }
 
+
         if (empty($error)) {
             $user = new User;
             $user->setFirstname($firstname);
@@ -132,7 +134,7 @@ try {
 
     //1-2 HANDLER LOGIN
     if ($_SERVER['REQUEST_METHOD'] == 'POST' & !isset(($_POST['lastname']))) {
-
+        
         //===================== email : Nettoyage et validation =======================
         $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
         if (empty($email)) {
@@ -157,7 +159,6 @@ try {
             $error["password"] = "merci de ecrire le mot de passe!!";
         }
         $user = User::getByEmail($email);
-        //$password_hash = $user->getPassword();
         $password_hash = $user->password;
         $result = password_verify($password, $password_hash);
         if (!$result) {

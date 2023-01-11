@@ -1,9 +1,9 @@
-<main>
-    <section class="container center">
-        <div class="container card">
+<main class="container center">
+    <section id="userEditSection" class="center">
+        <div class="container card center">
 
             <nav class="col s12 light-blue darken-4">
-                <h2 class="center ">utilisateur</h2>
+                <h2 class="center">utilisateur</h2>
             </nav>
             <!-- error/sucess output  -->
             <?php
@@ -23,7 +23,7 @@
 
                 <!-- // example of action prop  "?status=delete&id=2" -->
                 <!-- REGISTER FORM  -->
-                <form id="registerForm" action="" class="container" method="post" enctype="multipart/form-data">
+                <form id="editForm" action="/user" class="container" method="post" enctype="multipart/form-data">
                     <!-- Image Profile section -->
                     <div class="row">
                         <!-- profile image placeholder -->
@@ -334,14 +334,8 @@
                     <!-- WIP WIP WIP  -->
                     <!-- submit button  -->
                     <div class="row white-text">
-                        <div class="col s12 m4">
-                            <a id="editBtn" class="btn waves-effect waves-light light-blue darken-4">
-                                <i class="material-icons right hide-on-small-only">create</i>
-                                Editer
-                            </a>
-                        </div>
-                        <div class="col s12 m4 ">
-                            <button id="saveBtn" class="btn disabled right waves-effect waves-light light-blue darken-4" type="submit">
+                        <div class="col s12 m6">
+                            <button id="saveBtn" class="btn right waves-effect waves-light light-blue darken-4" type="submit">
                                 sauvegarder
                                 <i class="material-icons right hide-on-small-only">send</i>
                             </button>
@@ -349,14 +343,14 @@
                         <div class="clearfix hide-on-med-and-up"><br></div>
 
                         <!-- delete user modal and btn  -->
-                        <div class="col s12 m4">
+                        <div class="col s12 m6">
                             <!-- Modal Trigger -->
-                            <a id="deletePatientBtn" class="btn modal-trigger waves-effect waves-light red darken-4" href="#deleteUserModal">
+                            <a id="deleteUserBtn" class="btn modal-trigger waves-effect waves-light red darken-4" href="#deleteUserModal">
                                 <i class="material-icons right hide-on-small-only">delete_forever</i>
                                 DELETE
                             </a>
                             <!-- Modal Structure -->
-                            <div id="deleteUserModal" class="modal deleteUserModal black-text">
+                            <div id="deleteUserModal" class="modal black-text">
                                 <div class="row modal-content center">
                                     <h4 class="center red-text">DELETE USER</h4>
                                     <p>Are you sure you want to delete this user :</p>
@@ -364,16 +358,16 @@
                                     <p><?= $userDisplay->firstname . ' ' . strtoupper($userDisplay->lastname)  ?></p>
                                 </div>
                                 <div class="modal-footer">
-                                    <a id="deletePatientBtn" class="col s12 m6 btn waves-effect waves-light red darken-4" href="/userdelete?id=<?= $userId ?>">
+                                    <a class="col s12 m6 btn waves-effect waves-light red darken-4" href="/userdelete?id=<?= $userId ?>">
                                         DELETE
                                     </a>
-                                    <a href="#registerForm" class="col s12 m6 modal-close waves-effect waves-green btn">CANCEL</a>
+                                    <a class="col s12 m6 modal-close waves-effect waves-green btn">CANCEL</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-                <br>
+               
         </div>
     </section>
 </main>
